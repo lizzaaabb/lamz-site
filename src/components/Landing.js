@@ -17,7 +17,7 @@ const BRANDS = [
 
 const content = {
   ka: {
-    preTag: 'დიზაინი · მოძრაობა · ხედვა',
+    preTag: 'ვებსაიტები · ბრენდინგი · ზრდა',
     titleLine1: 'საიტის',
     titleLine2: 'დამზადება',
     rule: null,
