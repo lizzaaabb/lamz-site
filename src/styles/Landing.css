@@ -132,13 +132,14 @@
 
 /* Sub */
 .landing-sub {
-  font-family: 'Syne Mono', monospace;
-  font-size: 11px;
+  font-family: 'noto sans' sans-serif;
+  font-size: 1rem;
   letter-spacing: 0.35em;
   color: var(--silver);
   opacity: 0;
   animation: landingUp 0.9s ease 1.2s forwards;
   text-transform: uppercase;
+  font-style: italic;
 }
 
 /* ─────────────────────────────────────────
@@ -499,7 +500,7 @@
   }
 
   .landing-sub {
-    font-size: 9.5px;
+    font-size: 1.1rem;
     letter-spacing: 0.25em;
     text-align: center;
     padding: 0 20px;
@@ -546,7 +547,7 @@
   }
 
   .landing-sub {
-    font-size: 8.5px;
+    font-size: 1rem;
     letter-spacing: 0.2em;
   }
 
