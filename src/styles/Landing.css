@@ -585,3 +585,9 @@
     letter-spacing: 0.2em;
   }
 }
+
+
+.landing-title--en {
+     font-size: clamp(1.5rem, 8vw, 3.8rem); }
+.landing-title--ka { 
+    font-size: clamp(1.8rem, 10vw, 5.5rem); }
