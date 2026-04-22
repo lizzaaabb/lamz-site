@@ -36,6 +36,7 @@
   position: fixed;
   inset: 0;
   display: block;
+  pointer-events: none;
 }
 
 /* ─────────────────────────────────────────
@@ -64,8 +65,9 @@
   align-items: center;
   justify-content: center;
   z-index: 20;
-  pointer-events: none;
+  pointer-events: all;
   gap: 0;
+  margin-top: -50px;
 }
 
 /* Pre-tag */
@@ -163,8 +165,9 @@
   padding: 0 30px;
   height: 48px;
   border-radius: 10px;
-  font-family: 'Syne Mono', monospace;
-  font-size: 10.5px;
+  font-family: 'noto sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   cursor: pointer;
@@ -267,12 +270,14 @@
 .ticker-eyebrow {
   text-align: center;
   font-family: 'Syne', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 2rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(153, 255, 255, 0.9);
   margin-bottom: 20px;
+  display: block;
+  -webkit-text-stroke: 1.1px var(--blue);
+  color: transparent;
+  position: relative;
 }
 
 /* fade edges */
