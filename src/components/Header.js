@@ -2,148 +2,196 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/Header.css'
 
-const geo  = '/geo.png'
-const eng  = '/eng.png'
 const logo = '/logo.png'
 
 const content = {
   ka: {
-    nav: ['მთავარი', 'სერვისები', 'პროექტები'],
-    btn: 'კონტაქტი',
+    left: [
+      { label: 'ჩვენს შესახებ', href: '#about' },
+      { label: 'სერვისები',     href: '#services' },
+    ],
+    right: [
+      { label: 'პროექტები', href: '#projects' },
+      { label: 'კონტაქტი',  href: '#contact' },
+    ],
+    nav: [
+      { label: 'ჩვენს შესახებ', href: '#about',    num: '01' },
+      { label: 'სერვისები',     href: '#services',  num: '02' },
+      { label: 'პროექტები',     href: '#projects',  num: '03' },
+      { label: 'კონტაქტი',      href: '#contact',   num: '04' },
+    ],
   },
   en: {
-    nav: ['Home', 'Services', 'Projects'],
-    btn: 'Contact Us',
+    left: [
+      { label: 'About',    href: '#about' },
+      { label: 'Services', href: '#services' },
+    ],
+    right: [
+      { label: 'Projects', href: '#projects' },
+      { label: 'Contact',  href: '#contact' },
+    ],
+    nav: [
+      { label: 'About',    href: '#about',    num: '01' },
+      { label: 'Services', href: '#services', num: '02' },
+      { label: 'Projects', href: '#projects', num: '03' },
+      { label: 'Contact',  href: '#contact',  num: '04' },
+    ],
   },
 }
 
-function Header({ onLangChange }) {
-  const [activeLang, setActiveLang] = useState('ka')
-  const [scrolled,   setScrolled]   = useState(false)
-  const [activeNav,  setActiveNav]  = useState(0)
+const LangSwitcher = ({ activeLang, switchLang, className = '' }) => (
+  <div className={`lang-switcher ${className}`}>
+    {[['ka', 'KA'], ['en', 'EN']].map(([code, label]) => (
+      <button
+        key={code}
+        className={`lang-btn${activeLang === code ? ' lang-btn--active' : ''}`}
+        onClick={() => switchLang(code)}
+        aria-pressed={activeLang === code}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
+)
+
+function Header({ onLangChange, activeLang: activeLangProp }) {
+  const [activeLang, setActiveLang] = useState(activeLangProp ?? 'ka')
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const t = content[activeLang]
+  const [mounted, setMounted]         = useState(false)
+  const [scrolled, setScrolled]       = useState(false)
+
+  useEffect(() => {
+    if (activeLangProp && activeLangProp !== activeLang) {
+      setActiveLang(activeLangProp)
+    }
+  }, [activeLangProp])
 
   const switchLang = (code) => {
     setActiveLang(code)
     onLangChange?.(code)
   }
 
+  const openSidebar = () => {
+    setSidebarOpen(true)
+    setTimeout(() => setMounted(true), 10)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeSidebar = () => {
+    setMounted(false)
+    setTimeout(() => setSidebarOpen(false), 500)
+    document.body.style.overflow = ''
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      document.body.style.overflow = ''
+    }
   }, [])
 
-  // lock body scroll when sidebar open
-  useEffect(() => {
-    document.body.style.overflow = sidebarOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [sidebarOpen])
+  const t = content[activeLang]
 
   return (
     <>
-      <header className={`header-root${scrolled ? ' header-scrolled' : ''}`}>
-        <span className="header-glow-left" />
-        <span className="header-glow-right" />
-        <span className="header-shimmer" />
+      <div className={`header-container${scrolled ? ' header-scrolled' : ''}`}>
+        <div className="header-glass" />
 
-        {/* logo */}
-        <div className="header-logo">
-          <img src={logo} alt="Apollo Creations" />
-          <span className="header-logo-dot" />
-        </div>
-
-        {/* desktop nav */}
-        <nav className="header-nav">
-          {t.nav.map((item, i) => (
-            
-             <a href="#"
-              key={i}
-              className={`header-nav-link${activeNav === i ? ' header-nav-link--active' : ''}`}
-              onClick={e => { e.preventDefault(); setActiveNav(i) }}
-            >
-              {item}
-              <span className="header-nav-underline" />
+        {/* LEFT — desktop: nav links | mobile: lang switcher */}
+        <div className="first-block">
+          {t.left.map((item, i) => (
+            <a key={i} href={item.href} className="nav-link">
+              <span className="nav-link-text">{item.label}</span>
+              <span className="nav-link-line" />
             </a>
           ))}
-        </nav>
+          {/* shown only on mobile via CSS */}
+          <LangSwitcher
+            activeLang={activeLang}
+            switchLang={switchLang}
+            className="lang-switcher--mobile"
+          />
+        </div>
 
-        {/* right */}
-        <div className="header-right">
-          <div className="header-lang">
-            {[['ka', geo, 'Georgian'], ['en', eng, 'English']].map(([code, src, label]) => (
-              <button
-                key={code}
-                className={`header-lang-btn${activeLang === code ? ' header-lang-btn--active' : ''}`}
-                onClick={() => switchLang(code)}
-                aria-label={label}
-              >
-                <img src={src} alt={label} className="header-lang-flag" />
-                <span className="header-lang-code">{code.toUpperCase()}</span>
-              </button>
-            ))}
-          </div>
+        {/* CENTER — logo */}
+        <div className="second-block">
+          <a href="#home" className="header-logo-link" aria-label="Apollo Creations">
+            <div className="logo-glow-ring" />
+            <img src={logo} alt="Apollo Creations" className="header-logo-img" />
+          </a>
+        </div>
 
-          <span className="header-divider" />
+        {/* RIGHT — desktop: nav links + lang + hamburger | mobile: hamburger only */}
+        <div className="third-block">
+          {t.right.map((item, i) => (
+            <a key={i} href={item.href} className="nav-link">
+              <span className="nav-link-text">{item.label}</span>
+              <span className="nav-link-line" />
+            </a>
+          ))}
 
-          {/* desktop CTA */}
-          <button className="header-cta header-cta--desktop">
-            <span className="header-cta-glow" />
-            <span className="header-cta-text">{t.btn}</span>
-            <svg className="header-cta-arrow" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          {/* shown only on desktop via CSS */}
+          <LangSwitcher
+            activeLang={activeLang}
+            switchLang={switchLang}
+            className="lang-switcher--desktop"
+          />
+
+          <button className="hamburger" onClick={openSidebar} aria-label="Open menu">
+            <span />
+            <span />
+            <span />
           </button>
+        </div>
+      </div>
 
-          {/* hamburger */}
-          <button
-            className={`header-hamburger${sidebarOpen ? ' header-hamburger--open' : ''}`}
-            onClick={() => setSidebarOpen(o => !o)}
-            aria-label="Menu"
+      {sidebarOpen && (
+        <>
+          <div
+            className={`sidebar-backdrop ${mounted ? 'sidebar-backdrop--visible' : ''}`}
+            onClick={closeSidebar}
+            aria-hidden="true"
+          />
+          <aside
+            className={`sidebar-panel ${mounted ? 'sidebar-panel--open' : ''}`}
+            aria-label="Navigation menu"
           >
-            <span /><span /><span />
-          </button>
-        </div>
-      </header>
+            <div className="sidebar-top">
+              <span className="sidebar-tagline">Digital Agency</span>
+              <button className="sidebar-close" onClick={closeSidebar} aria-label="Close menu">
+                <span className="sidebar-close-icon"><span /><span /></span>
+              </button>
+            </div>
 
-      {/* overlay */}
-      <div
-        className={`sidebar-overlay${sidebarOpen ? ' sidebar-overlay--visible' : ''}`}
-        onClick={() => setSidebarOpen(false)}
-      />
+            <div className="sidebar-divider" />
 
-      {/* sidebar */}
-      <aside className={`sidebar${sidebarOpen ? ' sidebar--open' : ''}`}>
-        <div className="sidebar-shimmer" />
+            <nav className="sidebar-nav">
+              {t.nav.map((item, i) => (
+                <a
+                  key={i}
+                  href={item.href}
+                  className="sidebar-link"
+                  style={{ '--i': i }}
+                  onClick={closeSidebar}
+                >
+                  <span className="sidebar-link-num">{item.num}</span>
+                  <span className="sidebar-link-label">{item.label}</span>
+                  <span className="sidebar-link-arrow">→</span>
+                </a>
+              ))}
+            </nav>
 
-        {/* sidebar logo */}
-       
+            <div className="sidebar-bottom">
+              <div className="sidebar-divider" />
+              <p className="sidebar-bottom-text">APOLLO CREATIONS © 2025</p>
+            </div>
 
-        {/* sidebar nav */}
-        <nav className="sidebar-nav">
-          {t.nav.map((item, i) => (
-            
-              <a href="#"
-              key={i}
-              className={`sidebar-nav-link${activeNav === i ? ' sidebar-nav-link--active' : ''}`}
-              onClick={e => { e.preventDefault(); setActiveNav(i); setSidebarOpen(false) }}
-            >
-              <span className="sidebar-nav-index">0{i + 1}</span>
-              {item}
-            </a>
-          ))}
-        </nav>
-
-        {/* sidebar CTA */}
-        <button className="header-cta sidebar-cta">
-          <span className="header-cta-glow" />
-          <span className="header-cta-text">{t.btn}</span>
-          <svg className="header-cta-arrow" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </aside>
+            <div className="sidebar-corner-accent" aria-hidden="true" />
+          </aside>
+        </>
+      )}
     </>
   )
 }

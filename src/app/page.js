@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Header from '../components/Header'
-import Landing from '../components/Landing'
+import Home from '../components/Home'
 
 export default function Page() {
   const [lang, setLang] = useState('ka')
@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
       <Header onLangChange={setLang} />
-      <Landing lang={lang} />
+      <Home lang={lang}/>
     </>
   )
 }
