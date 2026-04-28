@@ -7,6 +7,7 @@
   --light:  #E1EBEE;
   --silver: #BDC3C7;
   --dark:   #202020;
+  --brightpurple: #d166ff;
 }
 
 * {
@@ -15,9 +16,6 @@
   box-sizing: border-box;
 }
 
-/* ─────────────────────────────────────────
-   CONTAINER — relative so page can scroll
-───────────────────────────────────────── */
 .landing-container {
   height: 100vh;
   width: 100%;
@@ -26,14 +24,11 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  position: relative;   /* NOT fixed */
+  position: relative;
   font-family: 'Syne', sans-serif;
   flex-shrink: 0;
 }
 
-/* ─────────────────────────────────────────
-   GIF BACKGROUND — absolute inside container
-───────────────────────────────────────── */
 .landing-gif-bg {
   position: absolute;
   inset: 0;
@@ -45,9 +40,6 @@
   pointer-events: none;
 }
 
-/* ─────────────────────────────────────────
-   CANVAS — absolute inside container
-───────────────────────────────────────── */
 .landing-canvas {
   position: absolute;
   inset: 0;
@@ -56,9 +48,6 @@
   z-index: 1;
 }
 
-/* ─────────────────────────────────────────
-   VIGNETTE — absolute inside container
-───────────────────────────────────────── */
 .landing-vignette {
   position: absolute;
   inset: 0;
@@ -71,9 +60,6 @@
   z-index: 2;
 }
 
-/* ─────────────────────────────────────────
-   HERO UI LAYER — absolute inside container
-───────────────────────────────────────── */
 .landing-ui {
   position: absolute;
   inset: 0;
@@ -84,7 +70,7 @@
   z-index: 20;
   pointer-events: all;
   gap: 0;
-  padding-bottom: 160px; /* make room for ticker */
+  padding-bottom: 160px;
 }
 
 /* Pre-tag */
@@ -156,16 +142,20 @@
   font-family: 'Syne Mono', monospace;
   font-size: 1rem;
   letter-spacing: 0.35em;
-  color: var(--silver);
+  color: var(--light);  /* ← silver-ის მაგივრად */
   opacity: 0;
   animation: landingUp 0.9s ease 1.2s forwards;
   text-transform: uppercase;
   font-style: italic;
 }
 
-/* ─────────────────────────────────────────
-   CTA BUTTONS
-───────────────────────────────────────── */
+/* ── CTA Buttons ── */
+@keyframes aurora-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .landing-cta {
   display: flex;
   align-items: center;
@@ -180,14 +170,14 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 30px;
-  height: 48px;
-  border-radius: 10px;
-  font-family: 'Syne Mono', monospace;
-  font-size: 0.85rem;
-  font-weight: 300;
-  letter-spacing: 0.28em;
+  justify-content: center;
+  padding: 0 34px;
+  height: 52px;
+  border-radius: 1.5rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;
   border: none;
@@ -195,17 +185,15 @@
   overflow: hidden;
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s ease,
-    background 0.35s ease,
-    border-color 0.35s ease,
-    color 0.35s ease;
+    box-shadow 0.35s ease;
+  z-index: 0;
 }
 
 .cta-shimmer {
   position: absolute;
   top: 0;
   left: -80%;
-  width: 50%;
+  width: 45%;
   height: 100%;
   background: linear-gradient(
     90deg,
@@ -214,53 +202,72 @@
     transparent
   );
   transform: skewX(-20deg);
-  transition: left 0s ease;
   pointer-events: none;
+  transition: left 0s;
+  z-index: 1;
 }
-
 .cta-btn:hover .cta-shimmer {
   left: 150%;
   transition: left 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.cta-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  display: inline-block;
-  flex-shrink: 0;
-}
+.cta-dot { display: none; }
 
 .cta-primary {
-  background: rgba(167, 139, 250, 0.12);
-  border: 1px solid rgba(167, 139, 250, 0.45);
-  color: var(--purple);
+  background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed);
+  background-size: 200% 200%;
+  animation: aurora-shift 6s ease infinite;
+  color: #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(192, 132, 252, 0.3),
+    0 4px 20px rgba(168, 85, 247, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.15) inset;
 }
-.cta-primary .cta-dot { background: var(--purple); }
+
 .cta-primary:hover {
-  background: rgba(167, 139, 250, 0.2);
-  border-color: rgba(167, 139, 250, 0.7);
-  color: var(--light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(167, 139, 250, 0.15), 0 0 0 1px rgba(167, 139, 250, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(192, 132, 252, 0.4),
+    0 8px 36px rgba(168, 85, 247, 0.7),
+    0 0 80px rgba(168, 85, 247, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.15) inset;
+}
+
+.cta-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(168, 85, 247, 0.4);
 }
 
 .cta-secondary {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(189, 195, 199, 0.2);
-  color: rgba(189, 195, 199, 0.65);
-}
-.cta-secondary .cta-dot { background: rgba(189, 195, 199, 0.45); }
-.cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(189, 195, 199, 0.42);
-  color: var(--light);
-  transform: translateY(-2px);
+  background: rgba(139, 92, 246, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.601),
+    0 0 0 3px rgba(139, 92, 246, 0.15),
+    0 4px 16px rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* ─────────────────────────────────────────
-   BRAND TICKER — absolute at bottom of container
-───────────────────────────────────────── */
+.cta-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(139, 92, 246, 0.15);
+  color: #f3e8ff;
+  box-shadow:
+    0 0 0 1px rgba(192, 132, 252, 0.7),
+    0 0 0 3px rgba(139, 92, 246, 0.25),
+    0 6px 28px rgba(139, 92, 246, 0.4),
+    0 0 60px rgba(139, 92, 246, 0.15);
+}
+
+.cta-secondary:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.4),
+    0 2px 8px rgba(139, 92, 246, 0.2);
+}
+
+/* ── Ticker ── */
 .ticker-section {
   position: absolute;
   bottom: 0;
@@ -275,13 +282,14 @@
 .ticker-eyebrow {
   text-align: center;
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.6rem);
-  letter-spacing: 0.22em;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: 20px;
   display: block;
-  -webkit-text-stroke: 1.1px var(--purple);
-  color: transparent;
+  font-weight: 700;
+  background-clip: text;
+  color: #fff;
 }
 
 .ticker-outer {
@@ -326,9 +334,7 @@
   100% { transform: translateX(-50%); }
 }
 
-/* ─────────────────────────────────────────
-   BRAND PILL
-───────────────────────────────────────── */
+/* ── Brand Pill ── */
 .brand-pill {
   position: relative;
   display: inline-flex;
@@ -412,7 +418,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(189, 195, 199, 0.65);
+  color: rgba(189, 195, 199, 1);
   position: relative;
   z-index: 2;
   transition: color 0.45s ease, text-shadow 0.45s ease;
@@ -431,7 +437,7 @@
 .brand-pill:hover .pill-top-edge    { opacity: 1; }
 .brand-pill:hover .pill-bottom-edge { opacity: 1; }
 .brand-pill:hover .pill-label {
-  color: rgba(225, 235, 238, 0.95);
+  color: rgba(225, 235, 238, 1);
   text-shadow: 0 0 18px rgba(167, 139, 250, 0.5);
 }
 .brand-pill:hover .pill-shimmer {
@@ -440,26 +446,20 @@
   transition: opacity 0.05s ease, left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ─────────────────────────────────────────
-   KEYFRAMES
-───────────────────────────────────────── */
+/* ── Keyframes ── */
 @keyframes landingUp {
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes ruleGrow {
-  to { width: min(420px, 60vw); opacity: 0.7; }
+  to { width: min(420px, 60vw); opacity: 1; }
 }
 
-/* ─────────────────────────────────────────
-   LANG VARIANTS
-───────────────────────────────────────── */
+/* ── Lang variants ── */
 .landing-title--en { font-size: clamp(1.5rem, 8vw,  3.8rem); }
 .landing-title--ka { font-size: clamp(1.8rem, 10vw, 5.5rem); }
 
-/* ─────────────────────────────────────────
-   RESPONSIVE
-───────────────────────────────────────── */
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .landing-title { font-size: clamp(1.8rem, 8vw, 3.5rem); max-width: 90vw; }
 }
@@ -475,9 +475,7 @@
 }
 
 @media (max-width: 480px) {
-  .landing-container {
-    height: 65svh;
-  }
+  .landing-container { height: 65svh; }
 
   .landing-ui {
     padding-top: 44px;
@@ -487,23 +485,20 @@
   }
 
   .landing-pre-tag {
-    font-size: 9px;
-    letter-spacing: 0.18em;
+    font-size: 10px;
+    letter-spacing: 0.25em;
     text-align: center;
     margin-bottom: 8px;
   }
 
-  .landing-title--ka {
-    font-size: clamp(1.2rem, 8vw, 1.8rem);
-  }
+  .landing-title--ka { font-size: clamp(1.8rem, 11vw, 2.4rem); }
+  .landing-title--en { font-size: clamp(1.5rem, 9vw, 2rem); }
 
-  .landing-rule {
-    margin: 10px 0;
-  }
+  .landing-rule { margin: 10px 0; }
 
   .landing-sub {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
   }
 
   .landing-cta {
@@ -514,16 +509,15 @@
   .cta-btn {
     width: 180px;
     height: 36px;
-    font-size: 0.65rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
     padding: 0 16px;
   }
 
-  .ticker-section {
-    padding-bottom: 10px;
-  }
+  .ticker-section { padding-bottom: 10px; }
 
   .ticker-eyebrow {
-    font-size: 0.75rem;
+    font-size: 1.6rem;
     margin-bottom: 8px;
   }
 
@@ -532,16 +526,10 @@
     padding: 0 12px;
   }
 
-  .pill-label {
-    font-size: 9px;
-  }
+  .pill-label { font-size: 10.5px; }
 
   .ticker-outer::before,
-  .ticker-outer::after {
-    width: 30px;
-  }
-
-
+  .ticker-outer::after { width: 30px; }
 }
 
 @media (max-width: 360px) {
@@ -558,37 +546,4 @@
   background: linear-gradient(to bottom, transparent, #111111);
   pointer-events: none;
   z-index: 19;
-}
-
-@media (max-width: 480px) {
-  .landing-title--ka {
-    font-size: clamp(1.8rem, 11vw, 2.4rem);
-  }
-
-  .landing-title--en {
-    font-size: clamp(1.5rem, 9vw, 2rem);
-  }
-
-  .landing-pre-tag {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-  }
-
-  .landing-sub {
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-  }
-
-  .ticker-eyebrow {
-    font-size: 1.6rem;
-  }
-
-  .pill-label {
-    font-size: 10.5px;
-  }
-
-  .cta-btn {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-  }
 }

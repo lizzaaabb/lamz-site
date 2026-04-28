@@ -9,7 +9,7 @@ function Home({ lang }) {
     <div className="home-container">
       <div className="home-content">
         <Landing lang={lang} />
-        <Stats />
+        <Stats lang={lang}/>
       </div>
     </div>
   )
