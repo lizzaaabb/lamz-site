@@ -476,12 +476,12 @@
 }
 
 @media (max-width: 480px) {
-  .landing-container { height: 65svh;
+  .landing-container { height: 75svh;
   padding-top: 40px; }
 
   .landing-ui {
     padding-top: 64px;
-    padding-bottom: 80px;
+    padding-bottom: 30px;
     justify-content: center;
     gap: 0;
   }
@@ -516,7 +516,7 @@
     padding: 0 16px;
   }
 
-  .ticker-section { padding-bottom: 10px; }
+  .ticker-section { padding-bottom: 5px; }
 
   .ticker-eyebrow {
     font-size: 1.6rem;
