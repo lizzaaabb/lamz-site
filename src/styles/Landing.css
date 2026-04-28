@@ -476,7 +476,7 @@
 }
 
 @media (max-width: 480px) {
-  .landing-container { height: 75svh;
+  .landing-container { height: 85svh;
   padding-top: 40px; }
 
   .landing-ui {
