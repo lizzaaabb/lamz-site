@@ -510,11 +510,11 @@
   }
 
   .cta-btn {
-    width: 180px;
-    height: 36px;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    padding: 0 16px;
+    width: 220px;
+    height: 40px;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    padding: 20px 20px;
   }
 
   .ticker-section { padding-bottom: 5px; }
@@ -533,6 +533,16 @@
 
   .ticker-outer::before,
   .ticker-outer::after { width: 30px; }
+
+  .word-apollo {
+  display: block;
+  -webkit-text-stroke: 1.5px var(--purple);
+  font-size: 3.5rem;
+
+}
+.word-creations {
+  font-size: 3.5rem;
+}
 }
 
 @media (max-width: 360px) {
