@@ -495,7 +495,7 @@
   }
 
   .landing-title--ka { font-size: clamp(1.8rem, 11vw, 2.4rem); }
-  .landing-title--en { font-size: clamp(1.5rem, 9vw, 2rem); }
+  .landing-title--en { font-size: clamp(1.2rem, 8vw, 1.8rem); }
 
   .landing-rule { margin: 10px 0; }
 
@@ -543,6 +543,7 @@
 .word-creations {
   font-size: 3.5rem;
 }
+ .word-creations--en { font-size: clamp(1.5rem, 9vw, 2rem); }
 }
 
 @media (max-width: 360px) {

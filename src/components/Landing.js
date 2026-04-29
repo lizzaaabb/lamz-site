@@ -72,7 +72,7 @@ function Landing({ lang = 'ka' }) {
         <div className="landing-title-wrap">
           <h1 className={`landing-title landing-title--${lang}`}>
             <span className="word-apollo">{t.titleLine1}</span>
-            <span className="word-creations">{t.titleLine2}</span>
+            <span className={`word-creations word-creations--${lang}`}>{t.titleLine2}</span>
           </h1>
         </div>
         <div className="landing-rule" />
