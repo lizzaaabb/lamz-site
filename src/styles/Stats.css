@@ -73,6 +73,7 @@
 .sv-card {
   position: relative;
   background: #141414;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 28px;
   padding: 36px 28px 36px;
@@ -113,10 +114,12 @@
   position: absolute;
   top: 20px;
   right: 24px;
+  z-index: 0;
   font-family: var(--font-en);
   font-size: 4.5rem;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.04);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(209, 102, 255, 0.35);
   line-height: 1;
   letter-spacing: -0.04em;
   pointer-events: none;
@@ -308,22 +311,39 @@
 }
 
 /* ── RESPONSIVE ── */
+
+/* Tablet — 2x2 grid */
+/* Tablet — same as desktop (3 columns) */
 @media (max-width: 1024px) {
-  .sv-grid--3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+   .sv-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-card {
+    padding: 28px 22px;
   }
 
   .sv-bonus-inner {
+    padding: 24px 22px 28px;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
   }
 
   .sv-bonus-list {
     grid-template-columns: 1fr;
     width: 100%;
   }
+
+  .sv-bonus-badge {
+    padding: 10px 22px;
+  }
+
+  .services-container {
+    padding-top: 129px;
+  }
 }
 
+/* Phone only — 1 column */
 @media (max-width: 600px) {
   .sv-grid--3 {
     grid-template-columns: 1fr;
@@ -335,12 +355,20 @@
 
   .sv-bonus-inner {
     padding: 24px 22px 28px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sv-bonus-list {
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .sv-bonus-badge {
     padding: 10px 22px;
   }
-  .services-container{
+
+  .services-container {
     padding-top: 129px;
   }
 }

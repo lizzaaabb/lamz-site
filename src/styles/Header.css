@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+Georgian:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Montserrat:wght@100..900&family=Noto+Sans+Georgian:wght@300;400;700&display=swap');
 
 /* ─── Gradient token ─────────────────────────────── */
 :root {
@@ -69,15 +69,22 @@
   padding-bottom: 2px;
 }
 
+/* ── Default (KA) — Noto Sans Georgian ── */
 .nav-link-text {
-  font-family: 'Montserrat', 'Noto Sans Georgian', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  font-weight: 300;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 0.89rem;
+  letter-spacing: 0.04em;
+  font-weight: 700;
   color: rgba(255, 255, 255, 0.85);
   text-transform: uppercase;
   transition: color 0.3s ease;
+}
 
+/* ── EN — Syne ── */
+[data-lang="en"] .nav-link-text {
+  font-family: 'Syne', sans-serif;
+  letter-spacing: 0.12em;
+  font-weight: 700;
 }
 
 .nav-link:hover .nav-link-text {
@@ -140,57 +147,38 @@
 @keyframes starlight {
   0% {
     border-color: rgba(167, 139, 250, 0.12);
-    box-shadow:
-      0 0 5px  rgba(167, 139, 250, 0.06),
-      0 0 12px rgba(167, 139, 250, 0.03);
+    box-shadow: 0 0 5px rgba(167, 139, 250, 0.06), 0 0 12px rgba(167, 139, 250, 0.03);
   }
   25% {
     border-color: rgba(124, 185, 232, 0.4);
-    box-shadow:
-      0 0 16px rgba(124, 185, 232, 0.2),
-      0 0 36px rgba(167, 139, 250, 0.1),
-      0 0 65px rgba(167, 139, 250, 0.04);
+    box-shadow: 0 0 16px rgba(124, 185, 232, 0.2), 0 0 36px rgba(167, 139, 250, 0.1), 0 0 65px rgba(167, 139, 250, 0.04);
   }
   50% {
     border-color: rgba(167, 139, 250, 0.6);
-    box-shadow:
-      0 0 22px rgba(167, 139, 250, 0.3),
-      0 0 55px rgba(124, 185, 232, 0.14),
-      0 0 95px rgba(167, 139, 250, 0.05);
+    box-shadow: 0 0 22px rgba(167, 139, 250, 0.3), 0 0 55px rgba(124, 185, 232, 0.14), 0 0 95px rgba(167, 139, 250, 0.05);
   }
   75% {
     border-color: rgba(124, 185, 232, 0.28);
-    box-shadow:
-      0 0 11px rgba(124, 185, 232, 0.13),
-      0 0 26px rgba(167, 139, 250, 0.07);
+    box-shadow: 0 0 11px rgba(124, 185, 232, 0.13), 0 0 26px rgba(167, 139, 250, 0.07);
   }
   100% {
     border-color: rgba(167, 139, 250, 0.12);
-    box-shadow:
-      0 0 5px  rgba(167, 139, 250, 0.06),
-      0 0 12px rgba(167, 139, 250, 0.03);
+    box-shadow: 0 0 5px rgba(167, 139, 250, 0.06), 0 0 12px rgba(167, 139, 250, 0.03);
   }
 }
 
 @keyframes starlight-hover {
   0% {
     border-color: rgba(167, 139, 250, 0.45);
-    box-shadow:
-      0 0 18px rgba(167, 139, 250, 0.28),
-      0 0 45px rgba(124, 185, 232, 0.12);
+    box-shadow: 0 0 18px rgba(167, 139, 250, 0.28), 0 0 45px rgba(124, 185, 232, 0.12);
   }
   50% {
     border-color: rgba(124, 185, 232, 0.85);
-    box-shadow:
-      0 0 28px rgba(124, 185, 232, 0.48),
-      0 0 65px rgba(167, 139, 250, 0.28),
-      0 0 105px rgba(167, 139, 250, 0.1);
+    box-shadow: 0 0 28px rgba(124, 185, 232, 0.48), 0 0 65px rgba(167, 139, 250, 0.28), 0 0 105px rgba(167, 139, 250, 0.1);
   }
   100% {
     border-color: rgba(167, 139, 250, 0.45);
-    box-shadow:
-      0 0 18px rgba(167, 139, 250, 0.28),
-      0 0 45px rgba(124, 185, 232, 0.12);
+    box-shadow: 0 0 18px rgba(167, 139, 250, 0.28), 0 0 45px rgba(124, 185, 232, 0.12);
   }
 }
 
@@ -458,14 +446,22 @@
   background-clip: text;
 }
 
+/* ── Sidebar link label — KA default ── */
 .sidebar-link-label {
-  font-family: 'Montserrat', 'Noto Sans Georgian', sans-serif;
+  font-family: 'Noto Sans Georgian', sans-serif;
   font-size: 22px;
   font-weight: 300;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   color: #ffffff;
   flex: 1;
   transition: letter-spacing 0.3s ease;
+}
+
+/* ── Sidebar link label — EN ── */
+[data-lang="en"] .sidebar-link-label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .sidebar-link:hover .sidebar-link-label {
@@ -473,7 +469,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .sidebar-link-arrow {

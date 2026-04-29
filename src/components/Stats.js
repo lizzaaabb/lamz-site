@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../styles/Stats.css'
 
 const content = {
@@ -117,9 +117,75 @@ const content = {
 
 function Stats({ lang = 'ka' }) {
   const t = content[lang]
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    let ctx
+
+    const init = async () => {
+      const { gsap } = await import('gsap')
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      gsap.registerPlugin(ScrollTrigger)
+
+      ctx = gsap.context(() => {
+        // Set initial states immediately — prevents flash/overlap before ScrollTrigger fires
+        gsap.set('.sv-section-title, .sv-rule, .sv-card, .sv-bonus-card', {
+          opacity: 0,
+          y: 36,
+        })
+
+        const fadeUp = (target, delay = 0) => {
+          gsap.fromTo(target,
+            { opacity: 0, y: 36 },
+            {
+              scrollTrigger: {
+                trigger: target,
+                start: 'top 88%',
+                toggleActions: 'play none none none',
+              },
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay,
+              ease: 'power3.out',
+            }
+          )
+        }
+
+        // Title + rule
+        fadeUp('.sv-section-title')
+        fadeUp('.sv-rule', 0.1)
+
+        // Cards — staggered fromTo
+        gsap.fromTo('.sv-card',
+          { opacity: 0, y: 48 },
+          {
+            scrollTrigger: {
+              trigger: '.sv-grid--3',
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            stagger: 0.15,
+            ease: 'power3.out',
+          }
+        )
+
+        // Bonus card
+        fadeUp('.sv-bonus-card', 0.1)
+
+      }, containerRef)
+    }
+
+    init()
+
+    return () => ctx && ctx.revert()
+  }, [])
 
   return (
-    <div className={`services-container services-container--${lang}`}>
+    <div ref={containerRef} className={`services-container services-container--${lang}`}>
       <div className="sv-header">
         <h2 className="sv-section-title">{t.title}</h2>
         <div className="sv-rule" />

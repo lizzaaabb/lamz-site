@@ -96,10 +96,13 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
 
   return (
     <>
-      <div className={`header-container${scrolled ? ' header-scrolled' : ''}`}>
+      <div
+        className={`header-container${scrolled ? ' header-scrolled' : ''}`}
+        data-lang={activeLang}
+      >
         <div className="header-glass" />
 
-        {/* LEFT — desktop: nav links | mobile: lang switcher */}
+        {/* LEFT */}
         <div className="first-block">
           {t.left.map((item, i) => (
             <a key={i} href={item.href} className="nav-link">
@@ -107,7 +110,6 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
               <span className="nav-link-line" />
             </a>
           ))}
-          {/* shown only on mobile via CSS */}
           <LangSwitcher
             activeLang={activeLang}
             switchLang={switchLang}
@@ -123,7 +125,7 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
           </a>
         </div>
 
-        {/* RIGHT — desktop: nav links + lang + hamburger | mobile: hamburger only */}
+        {/* RIGHT */}
         <div className="third-block">
           {t.right.map((item, i) => (
             <a key={i} href={item.href} className="nav-link">
@@ -131,14 +133,11 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
               <span className="nav-link-line" />
             </a>
           ))}
-
-          {/* shown only on desktop via CSS */}
           <LangSwitcher
             activeLang={activeLang}
             switchLang={switchLang}
             className="lang-switcher--desktop"
           />
-
           <button className="hamburger" onClick={openSidebar} aria-label="Open menu">
             <span />
             <span />
@@ -156,6 +155,7 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
           />
           <aside
             className={`sidebar-panel ${mounted ? 'sidebar-panel--open' : ''}`}
+            data-lang={activeLang}
             aria-label="Navigation menu"
           >
             <div className="sidebar-top">
