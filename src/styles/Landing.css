@@ -122,6 +122,10 @@
   display: block;
   color: #ffffff;
 }
+.word-creations--en {
+  font-size: clamp(1.5rem, 8vw, 4.5rem);
+  font-family: 'Syne', sans-serif;
+}
 
 /* Rule */
 .landing-rule {
