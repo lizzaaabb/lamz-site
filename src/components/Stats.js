@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import '../styles/Stats.css'
-
 import Triangle from '../components/Triangle'
+
 const content = {
   ka: {
     title: 'სერვისები',
@@ -129,7 +129,6 @@ function Stats({ lang = 'ka' }) {
       gsap.registerPlugin(ScrollTrigger)
 
       ctx = gsap.context(() => {
-        // Set initial states immediately — prevents flash/overlap before ScrollTrigger fires
         gsap.set('.sv-section-title, .sv-rule, .sv-card, .sv-bonus-card', {
           opacity: 0,
           y: 36,
@@ -153,11 +152,9 @@ function Stats({ lang = 'ka' }) {
           )
         }
 
-        // Title + rule
         fadeUp('.sv-section-title')
         fadeUp('.sv-rule', 0.1)
 
-        // Cards — staggered fromTo
         gsap.fromTo('.sv-card',
           { opacity: 0, y: 48 },
           {
@@ -174,14 +171,11 @@ function Stats({ lang = 'ka' }) {
           }
         )
 
-        // Bonus card
         fadeUp('.sv-bonus-card', 0.1)
-
       }, containerRef)
     }
 
     init()
-
     return () => ctx && ctx.revert()
   }, [])
 
@@ -221,12 +215,12 @@ function Stats({ lang = 'ka' }) {
       <div className="sv-bonus-card">
         <div className="sv-bonus-badge">{t.bonus.tag}</div>
         <div className="sv-bonus-inner">
-        <div className="sv-bonus-left">
-  <div className="sv-bonus-left-inner">
-    <Triangle size={70} />
-    <p className="sv-bonus-title">{t.bonus.title}</p>
-  </div>
-</div>
+          <div className="sv-bonus-left">
+            <div className="sv-bonus-left-inner">
+              <Triangle size={70} />
+              <p className="sv-bonus-title">{t.bonus.title}</p>
+            </div>
+          </div>
           <ul className="sv-bonus-list">
             {t.bonus.items.map((item, i) => (
               <li key={i} className="sv-list-item sv-list-item--bonus">

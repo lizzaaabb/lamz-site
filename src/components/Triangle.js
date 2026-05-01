@@ -3,8 +3,9 @@ import React from 'react'
 import '../styles/Triangle.css'
 
 function Triangle({ size = 100 }) {
+  const px = typeof size === 'number' ? `${size}px` : size
   return (
-    <div className="pyramid-loader" style={{ width: size, height: size }}>
+    <div className="pyramid-loader" style={{ width: px, height: px }}>
       <div className="wrapper">
         <span className="side side1"></span>
         <span className="side side2"></span>
