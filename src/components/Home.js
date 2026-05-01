@@ -5,6 +5,7 @@ import '../styles/Home.css'
 import Stats from '../components/Stats'
 import Projects from '../components/Projects'
 
+
 function Home({ lang }) {
   return (
     <div className="home-container">
@@ -12,6 +13,7 @@ function Home({ lang }) {
         <Landing lang={lang} />
         <Stats lang={lang}/>
         <Projects lang={lang}/>
+
       </div>
     </div>
   )

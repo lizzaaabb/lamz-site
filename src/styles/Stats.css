@@ -36,6 +36,9 @@
   font-family: var(--font-ka);
   letter-spacing: 0;
 }
+.sv-bonus-title{
+  margin-bottom: -200px;
+}
 
 .sv-rule {
   width: 0;
@@ -273,10 +276,26 @@
 }
 
 .sv-bonus-left {
-  min-width: 200px;
+  min-width: fit-content;
   flex-shrink: 0;
 }
+.sv-bonus-left-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
 
+
+.sv-bonus-title {
+  font-family: var(--font-en);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
 .sv-bonus-title {
   font-family: var(--font-en);
   font-size: 1.4rem;

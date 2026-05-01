@@ -1,0 +1,82 @@
+.pyramid-loader {
+  position: relative;
+  display: block;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg);
+}
+
+.pyramid-loader .wrapper {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  transform-style: preserve-3d;
+  animation: spin 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotateY(360deg); }
+}
+
+.pyramid-loader .wrapper .side {
+  width: 100%;
+  height: calc(100% * 167 / 240);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: center top;
+}
+
+.pyramid-loader .wrapper .side1 {
+  transform: rotateZ(-45deg) rotateY(90deg);
+  background: linear-gradient(to bottom right, #99FFFF, #a78bfa);
+}
+.pyramid-loader .wrapper .side2 {
+  transform: rotateZ(45deg) rotateY(90deg);
+  background: linear-gradient(to bottom right, #a78bfa, #d166ff);
+}
+.pyramid-loader .wrapper .side3 {
+  transform: rotateX(45deg);
+  background: linear-gradient(to bottom right, #7CB9E8, #a78bfa);
+}
+.pyramid-loader .wrapper .side4 {
+  transform: rotateX(-45deg);
+  background: linear-gradient(to bottom right, #d166ff, #99FFFF);
+}
+.pyramid-loader .wrapper .side5 {
+  transform: rotateZ(-45deg) rotateY(90deg) rotateX(180deg);
+  top: 148%;
+  background: linear-gradient(to bottom right, #99FFFF, #a78bfa);
+}
+.pyramid-loader .wrapper .side6 {
+  transform: rotateZ(45deg) rotateY(90deg) rotateX(180deg);
+  top: 148%;
+  background: linear-gradient(to bottom right, #a78bfa, #d166ff);
+}
+.pyramid-loader .wrapper .side7 {
+  transform: rotateX(45deg) rotateX(180deg);
+  top: 148%;
+  background: linear-gradient(to bottom right, #7CB9E8, #a78bfa);
+}
+.pyramid-loader .wrapper .side8 {
+  transform: rotateX(-45deg) rotateX(180deg);
+  top: 148%;
+  background: linear-gradient(to bottom right, #d166ff, #99FFFF);
+}
+
+.pyramid-loader .wrapper .shadow {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 55%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform: rotateX(90deg) translateZ(-40px);
+  background: #a78bfa;
+  filter: blur(20px);
+}

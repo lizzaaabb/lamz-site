@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react'
 import '../styles/Stats.css'
 
+import Triangle from '../components/Triangle'
 const content = {
   ka: {
     title: 'სერვისები',
@@ -220,9 +221,12 @@ function Stats({ lang = 'ka' }) {
       <div className="sv-bonus-card">
         <div className="sv-bonus-badge">{t.bonus.tag}</div>
         <div className="sv-bonus-inner">
-          <div className="sv-bonus-left">
-            <p className="sv-bonus-title">{t.bonus.title}</p>
-          </div>
+        <div className="sv-bonus-left">
+  <div className="sv-bonus-left-inner">
+    <Triangle size={70} />
+    <p className="sv-bonus-title">{t.bonus.title}</p>
+  </div>
+</div>
           <ul className="sv-bonus-list">
             {t.bonus.items.map((item, i) => (
               <li key={i} className="sv-list-item sv-list-item--bonus">
