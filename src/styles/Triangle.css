@@ -111,7 +111,7 @@
   .pyramid-wrapper {
     padding: 10px;
     width: 50px !important;
-    height: 50px !important;
+    height: 100% !important;
   }
 
   .pyramid-loader {
