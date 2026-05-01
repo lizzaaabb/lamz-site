@@ -164,7 +164,10 @@ function Projects({ lang = 'ka' }) {
                 <span className="pj-link-text">
                   {lang === 'ka' ? 'საიტის ნახვა' : 'View site'}
                 </span>
-                <span className="pj-arrow">↗</span>
+               <svg className="pj-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M3 13L12 4" stroke="#d166ff" strokeWidth="1.2" strokeLinecap="round"/>
+  <path d="M8.5 4H12V7.5" stroke="#d166ff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
               </div>
             </div>
           </a>
@@ -174,7 +177,10 @@ function Projects({ lang = 'ka' }) {
       <div className="pj-more-wrap">
         <a href="/projects" className="pj-more-btn">
           {t.more}
-          <span className="pj-more-arrow">↗</span>
+         <svg className="pj-more-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M3 13L12 4" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+  <path d="M8.5 4H12V7.5" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
         </a>
       </div>
     </div>
