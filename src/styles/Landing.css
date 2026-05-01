@@ -27,6 +27,7 @@
   position: relative;
   font-family: 'Syne', sans-serif;
   flex-shrink: 0;
+    overflow-x: hidden;
 }
 
 .landing-gif-bg {

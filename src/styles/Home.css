@@ -14,6 +14,7 @@
   width: 100%;
    background-color: #111111;
   overflow-y: auto;  /* ← hidden-დან auto-ზე */
+  overflow-x: hidden;
 }
 /* ─── Page Content ──────────────────────────────────────────── */
 .home-content {
