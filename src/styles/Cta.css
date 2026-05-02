@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;700;800&display=swap');
+
+:root {
+  --font-en: 'Syne', sans-serif;
+  --font-ka: 'Noto Sans Georgian', sans-serif;
+}
+
+/* ── SECTION ── */
+.cta-section {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  padding: 110px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── GRID PATTERN ── */
+.cta-grid-overlay {
+  position: absolute;
+  inset: 0;
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.2);
+  background-image:
+    linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    );
+  background-size: var(--gap) var(--gap);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── RADIAL FADE — grid only visible in center ── */
+.cta-fade-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 55% 65% at 50% 50%,
+    transparent 0%,
+    transparent 30%,
+    #111111 68%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── INNER ── */
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+/* ── HEADING ── */
+.cta-heading {
+  font-family: var(--font-en);
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.cta-section--ka .cta-heading,
+.cta-section--ka .cta-sub {
+  font-family: var(--font-ka);
+  letter-spacing: 0;
+}
+
+/* ── SUB ── */
+.cta-sub {
+  font-family: var(--font-en);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin: 0 0 44px;
+  max-width: 580px;
+}
+
+/* ── BUTTONS ── */
+.cta-btns {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: 1.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+/* primary — purple gradient */
+.cta-btn--primary {
+  color: #fff;
+  background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed) 0 0 / 200% 200%;
+  box-shadow: 0 0 0 1px #c084fc66, 0 4px 20px #a855f799, inset 0 1px rgba(255,255,255,0.2);
+}
+
+.cta-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px #c084fc99, 0 8px 32px #a855f7bb, inset 0 1px rgba(255,255,255,0.2);
+}
+
+/* ghost — transparent border */
+.cta-btn--ghost {
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.cta-btn--ghost:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* georgian font for buttons */
+.cta-section--ka .cta-btn {
+  font-family: var(--font-ka);
+  letter-spacing: 0;
+  font-size: 0.82rem;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .cta-section {
+    padding: 80px 0;
+  }
+
+  .cta-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-fade-overlay {
+    background: radial-gradient(
+      ellipse 90% 55% at 50% 50%,
+      transparent 0%,
+      transparent 25%,
+      #111111 70%
+    );
+  }
+}
