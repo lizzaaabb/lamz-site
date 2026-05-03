@@ -3,10 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import AnimatedBackground from './AnimatedBackgorund'
 import '../styles/Landing.css'
 
-const BRANDS = [
-  'Litox', 'Motors N1', 'Medikids', 'Greenhall Capital', 'Builde',
-  'Utopia VIP Travel', 'Yourhood', 'Art Gallery Vake', 'Tarinoks', 'Davson',
-]
+const logos = ['/ndoba1.png', '/ndoba2.png', '/ndoba3.svg', '/ndoba4.png', '/ndoba5.png', '/ndoba6.png', '/ndoba7.png', '/ndoba8.png']
 
 const content = {
   ka: {
@@ -29,14 +26,14 @@ const content = {
   },
 }
 
-function BrandPill({ name }) {
+function BrandPill({ src, name }) {
   return (
     <div className="brand-pill">
       <div className="pill-mirror" />
       <div className="pill-shimmer" />
       <div className="pill-top-edge" />
       <div className="pill-bottom-edge" />
-      <span className="pill-label">{name}</span>
+      <img src={src} alt={name} className="pill-logo" />
     </div>
   )
 }
@@ -58,14 +55,12 @@ function Landing({ lang = 'ka' }) {
     }
   }, [])
 
-  const doubled = [...BRANDS, ...BRANDS]
-
   return (
     <div className="landing-container">
       <img src="/des.gif" alt="" aria-hidden="true" className="landing-gif-bg" />
       <AnimatedBackground />
       <div className="landing-vignette" />
-      <div className="landing-bottom-fade" /> 
+      <div className="landing-bottom-fade" />
 
       <div className="landing-ui">
         <p className="landing-pre-tag">{t.preTag}</p>
@@ -91,7 +86,9 @@ function Landing({ lang = 'ka' }) {
         <p className="ticker-eyebrow">{t.trustedBy}</p>
         <div className="ticker-outer">
           <div className="ticker-track" ref={tickerRef}>
-            {doubled.map((name, i) => <BrandPill key={i} name={name} />)}
+            {[...logos, ...logos].map((src, i) => (
+              <BrandPill key={i} src={src} name={`brand-${i}`} />
+            ))}
           </div>
         </div>
       </div>
