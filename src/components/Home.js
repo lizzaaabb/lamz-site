@@ -5,6 +5,7 @@ import '../styles/Home.css'
 import Stats from '../components/Stats'
 import Projects from '../components/Projects'
 import Cta from '../components/Cta'
+import Tech from '../components/Tech'
 
 
 
@@ -15,7 +16,6 @@ function Home({ lang }) {
         <Landing lang={lang} />
         <Stats lang={lang}/>
         <Projects lang={lang}/>
-        <Cta lang={lang}/>
 
       </div>
     </div>
