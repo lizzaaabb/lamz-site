@@ -160,6 +160,7 @@
   margin: 0;
   line-height: 1.25;
   letter-spacing: -0.02em;
+  z-index: 100;
 }
 
 .sv-divider {
