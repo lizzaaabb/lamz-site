@@ -318,8 +318,9 @@
   }
 
   .proc-card__ghost-num { font-size: 2rem; top: 8px; right: 10px; }
-  .proc-card__title     { font-size: 0.78rem; }
-  .proc-card__desc      { font-size: 0.64rem; }
+  .proc-card__title     { font-size: 0.9rem; }
+  .proc-card__desc      { font-size: 0.74rem; }
+
   .proc-card__body      { padding-right: 32px; }
   .proc-title           { font-size: 2rem; }
 }
@@ -328,7 +329,6 @@
   .proc-row { grid-template-columns: 1fr 20px 1fr; }
   .proc-card { padding: 10px 10px; min-height: 52px; }
   .proc-card__ghost-num { font-size: 1.6rem; }
-  .proc-card__title     { font-size: 0.72rem; }
-  .proc-card__desc      { display: none; }
+  .proc-card__title     { font-size: 0.82rem; }
   .proc-card__body      { padding-right: 24px; }
 }
