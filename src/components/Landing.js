@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import AnimatedBackground from './AnimatedBackgorund'
 import '../styles/Landing.css'
 
-const logos = ['/ndoba1.png', '/ndoba2.png', '/ndoba3.svg', '/ndoba4.png', '/ndoba6.png', '/ndoba7.png', '/ndoba8.png','/ndoba9.png']
+const logos = ['/ndoba1.png', '/ndoba2.png', '/ndoba3.svg', '/ndoba4.png', '/ndoba6.png', '/ndoba7.png', '/ndoba8.png']
 
 const content = {
   ka: {
