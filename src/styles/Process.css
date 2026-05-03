@@ -329,6 +329,6 @@
   .proc-row { grid-template-columns: 1fr 20px 1fr; }
   .proc-card { padding: 10px 10px; min-height: 52px; }
   .proc-card__ghost-num { font-size: 1.6rem; }
-  .proc-card__title     { font-size: 0.82rem; }
+  .proc-card__title     { font-size: 0.9rem; }
   .proc-card__body      { padding-right: 24px; }
 }
