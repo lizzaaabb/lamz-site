@@ -30,7 +30,7 @@ const content = {
         url: '#',
       },
     ],
-    more: 'მეტი პროექტი',
+    more: 'მეტის ნახვა',
   },
   en: {
     title: 'Projects',
@@ -177,10 +177,7 @@ function Projects({ lang = 'ka' }) {
       <div className="pj-more-wrap">
         <a href="/projects" className="pj-more-btn">
           {t.more}
-         <svg className="pj-more-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
-  <path d="M3 13L12 4" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
-  <path d="M8.5 4H12V7.5" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
+        
         </a>
       </div>
     </div>

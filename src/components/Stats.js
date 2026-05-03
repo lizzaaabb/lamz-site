@@ -116,6 +116,16 @@ const content = {
   },
 }
 
+const WHATSAPP_NUMBER = '995574065469'
+
+function getWhatsAppUrl(cardTitle, lang) {
+  const message =
+    lang === 'ka'
+      ? `გამარჯობა! მაინტერესებს "${cardTitle}" პაკეტი.`
+      : `Hello! I'm interested in the "${cardTitle}" package.`
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+}
+
 function Stats({ lang = 'ka' }) {
   const t = content[lang]
   const containerRef = useRef(null)
@@ -135,7 +145,8 @@ function Stats({ lang = 'ka' }) {
         })
 
         const fadeUp = (target, delay = 0) => {
-          gsap.fromTo(target,
+          gsap.fromTo(
+            target,
             { opacity: 0, y: 36 },
             {
               scrollTrigger: {
@@ -155,7 +166,8 @@ function Stats({ lang = 'ka' }) {
         fadeUp('.sv-section-title')
         fadeUp('.sv-rule', 0.1)
 
-        gsap.fromTo('.sv-card',
+        gsap.fromTo(
+          '.sv-card',
           { opacity: 0, y: 48 },
           {
             scrollTrigger: {
@@ -200,14 +212,25 @@ function Stats({ lang = 'ka' }) {
                 <li key={j} className="sv-list-item">
                   <span className="sv-check-icon">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                      <circle cx="6.5" cy="6.5" r="6" stroke="rgba(209,102,255,0.5)" strokeWidth="0.8"/>
-                      <path d="M4 6.5L5.8 8.3L9 5" stroke="#d166ff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="6.5" cy="6.5" r="6" stroke="rgba(209,102,255,0.5)" strokeWidth="0.8" />
+                      <path d="M4 6.5L5.8 8.3L9 5" stroke="#d166ff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   {item}
                 </li>
               ))}
             </ul>
+            <div className="sv-btn-wrapper">
+              <a
+                className="sv-order-btn"
+                href={getWhatsAppUrl(c.title, lang)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="cta-shimmer" />
+                {lang === 'ka' ? 'შეკვეთა' : 'Order Now'}
+              </a>
+            </div>
           </div>
         ))}
       </div>
