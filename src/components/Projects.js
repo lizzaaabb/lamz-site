@@ -11,26 +11,24 @@ const content = {
       {
         num: '01',
         name: 'Your Hood',
-        desc: 'ფეშენ ონლაინ მაღაზია',
-        tags: ['Next.js', 'BOG Pay', 'Admin Panel'],
+        desc: 'ონლაინ მაღაზია',
         url: 'https://yourhood.ge',
       },
       {
         num: '02',
         name: 'Studio Arch',
-        desc: 'არქიტექტურის სტუდიის საიტი',
-        tags: ['React', 'GSAP', 'Figma'],
+        desc: 'არქიტექტურის საიტი',
         url: '#',
       },
       {
         num: '03',
         name: 'Fresh Market',
-        desc: 'პროდუქტების ონლაინ კატალოგი',
-        tags: ['Next.js', 'Supabase', 'WhatsApp API'],
+        desc: 'ონლაინ კატალოგი',
         url: '#',
       },
     ],
-    more: 'მეტის ნახვა',
+    more: 'მეტი პროექტები',
+    viewSite: 'საიტის ნახვა',
   },
   en: {
     title: 'Projects',
@@ -38,26 +36,24 @@ const content = {
       {
         num: '01',
         name: 'Your Hood',
-        desc: 'Fashion online store',
-        tags: ['Next.js', 'BOG Pay', 'Admin Panel'],
+        desc: 'Online Store',
         url: 'https://yourhood.ge',
       },
       {
         num: '02',
         name: 'Studio Arch',
-        desc: 'Architecture studio website',
-        tags: ['React', 'GSAP', 'Figma'],
+        desc: 'Architecture Website',
         url: '#',
       },
       {
         num: '03',
         name: 'Fresh Market',
-        desc: 'Products online catalogue',
-        tags: ['Next.js', 'Supabase', 'WhatsApp API'],
+        desc: 'Online Catalogue',
         url: '#',
       },
     ],
     more: 'More projects',
+    viewSite: 'View site',
   },
 }
 
@@ -135,49 +131,29 @@ function Projects({ lang = 'ka' }) {
 
       <div className="pj-grid">
         {t.projects.map((p, i) => (
-          
-          <a  key={i}
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pj-card"
-          >
-            <div className="pj-card-number">{p.num}</div>
-
-            <div className="pj-image-wrap">
-              <img src={mockup} alt={p.name} className="pj-image" />
-              <div className="pj-image-overlay" />
-            </div>
-
-            <div className="pj-card-body">
-              <div className="pj-card-top">
-                <p className="pj-name">{p.name}</p>
-                <p className="pj-desc">{p.desc}</p>
-              </div>
-              <div className="pj-divider" />
-              <div className="pj-tags">
-                {p.tags.map((tag, j) => (
-                  <span key={j} className="pj-tag">{tag}</span>
-                ))}
-              </div>
-              <div className="pj-link-row">
-                <span className="pj-link-text">
-                  {lang === 'ka' ? 'საიტის ნახვა' : 'View site'}
-                </span>
-               <svg className="pj-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
-  <path d="M3 13L12 4" stroke="#d166ff" strokeWidth="1.2" strokeLinecap="round"/>
-  <path d="M8.5 4H12V7.5" stroke="#d166ff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
-              </div>
-            </div>
-          </a>
+         <div key={i} className="pj-card">
+  <img src={mockup} alt={p.name} className="pj-image" />
+  <div className="pj-fade" />
+  <div className="pj-card-number">{p.num}</div>
+  <div className="pj-info">
+    <p className="pj-name">{p.name}</p>
+    <span className="pj-badge">
+      <span className="pj-dot" />
+      {p.desc}
+    </span>
+  </div>
+  <div className="pj-hover-overlay">
+    <a className="pj-view-btn" href={p.url} target="_blank" rel="noopener noreferrer">
+      {t.viewSite} →
+    </a>
+  </div>
+</div>
         ))}
       </div>
 
       <div className="pj-more-wrap">
         <a href="/projects" className="pj-more-btn">
           {t.more}
-        
         </a>
       </div>
     </div>
