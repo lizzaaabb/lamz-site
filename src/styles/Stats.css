@@ -30,7 +30,6 @@
 }
 
 .services-container--ka .sv-section-title,
-.services-container--ka .sv-title,
 .services-container--ka .sv-bonus-title,
 .services-container--ka .sv-list-item,
 .services-container--ka .sv-bonus-badge {
@@ -162,6 +161,7 @@
   line-height: 1.25;
   letter-spacing: -0.02em;
   z-index: 100;
+  text-transform: uppercase;
 }
 
 .sv-divider {
