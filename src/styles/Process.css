@@ -70,7 +70,7 @@
 .proc-eyebrow {
   display: inline-block;
   font-family: 'Syne Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.55em;
   text-transform: uppercase;
   background: linear-gradient(90deg, var(--purple), var(--aqua), var(--blue));
