@@ -40,6 +40,8 @@
       var(--color) var(--gap)
     );
   background-size: var(--gap) var(--gap);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }
