@@ -66,7 +66,7 @@ function Landing({ lang = 'ka' }) {
         <p className="landing-pre-tag">{t.preTag}</p>
         <div className="landing-title-wrap">
           <h1 className={`landing-title landing-title--${lang}`}>
-            <span className="word-apollo">{t.titleLine1}</span>
+            <span className={`word-apollo word-apollo--${lang}`}>{t.titleLine1}</span>
             <span className={`word-creations word-creations--${lang}`}>{t.titleLine2}</span>
           </h1>
         </div>
