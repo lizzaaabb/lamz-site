@@ -241,7 +241,7 @@ function Stats({ lang = 'ka' }) {
           <div className="sv-bonus-left">
             <div className="sv-bonus-left-inner">
               <Triangle size={70} />
-              <p className="sv-bonus-title">{t.bonus.title}</p>
+              <p className={`sv-bonus-title sv-bonus-title--${lang}`}>{t.bonus.title}</p>
             </div>
           </div>
           <ul className="sv-bonus-list">

@@ -168,6 +168,9 @@
     text-transform: uppercase;
 }
 
+.sv-bonus-title--ka{
+  text-transform: uppercase;
+}
 .sv-divider {
   width: 100%;
   height: 1px;
