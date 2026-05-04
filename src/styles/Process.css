@@ -8,7 +8,6 @@
   --dark:          #111111;
 }
 
-/* ── Container ── */
 .process-container {
   width: 100%;
   background: var(--dark);
@@ -18,7 +17,6 @@
   overflow: hidden;
 }
 
-/* grid pattern — full coverage, no fade */
 .process-container::before {
   content: '';
   position: absolute;
@@ -46,7 +44,6 @@
   z-index: 0;
 }
 
-/* purple ambient glow top-center */
 .process-container::after {
   content: '';
   position: absolute;
@@ -59,7 +56,6 @@
   z-index: 0;
 }
 
-/* ── Header ── */
 .proc-header {
   text-align: center;
   margin-bottom: 64px;
@@ -104,7 +100,6 @@
   to { width: min(280px, 50vw); }
 }
 
-/* ── List / Timeline ── */
 .proc-list {
   position: relative;
   max-width: 860px;
@@ -113,7 +108,6 @@
   z-index: 2;
 }
 
-/* ── Vertical fill line ── */
 .proc-line-track {
   position: absolute;
   left: 50%;
@@ -127,21 +121,37 @@
 .proc-line-bg {
   position: absolute;
   inset: 0;
-  background: rgba(167,139,250,0.1);
+  background: rgba(167, 139, 250, 0.08);
   border-radius: 99px;
 }
 
 .proc-line-fill {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--purple-bright), var(--purple), var(--blue));
+  background: linear-gradient(180deg, #fff, #c084fc);
   border-radius: 99px;
   transform: scaleY(0);
   transform-origin: top;
-  box-shadow: 0 0 10px rgba(167,139,250,0.5);
+  transition: all 0.1s ease-out;
+  animation: lightsaber-glow-purple 2.5s ease-in-out infinite alternate;
 }
 
-/* ── Row ── */
+@keyframes lightsaber-glow-purple {
+  0% {
+    box-shadow:
+      0 0 6px rgba(192, 132, 252, 0.7),
+      0 0 10px rgba(167, 139, 250, 0.5),
+      0 0 14px rgba(139, 92, 246, 0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 10px #c084fc,
+      0 0 16px rgba(192, 132, 252, 0.7),
+      0 0 24px rgba(167, 139, 250, 0.5),
+      0 0 36px rgba(139, 92, 246, 0.25);
+  }
+}
+
 .proc-row {
   display: grid;
   grid-template-columns: 1fr 32px 1fr;
@@ -151,7 +161,6 @@
   z-index: 2;
 }
 
-/* ── Dot ── */
 .proc-dot-wrap {
   display: flex;
   justify-content: center;
@@ -162,40 +171,99 @@
 
 .proc-dot {
   position: relative;
-  width: 14px;
-  height: 14px;
+  width: 5px;
+  height: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .proc-dot__ring {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid rgba(167,139,250,0.3);
-  transition: border-color 0.4s, box-shadow 0.4s;
+  display: none;
 }
 
 .proc-dot__core {
-  width: 8px;
-  height: 8px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--purple-bright), var(--blue));
-  box-shadow: 0 0 8px rgba(167,139,250,0.8);
-  transition: transform 0.4s, box-shadow 0.4s;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f0abff 50%, #c084fc 100%);
+  position: relative;
+  animation: star-pulse 3s ease-in-out infinite alternate;
+  box-shadow:
+    0 0 2px #fff,
+    0 0 5px #f0abff,
+    0 0 10px #e879f9,
+    0 0 18px #c084fc,
+    0 0 28px rgba(167, 139, 250, 0.4);
 }
 
-.proc-row:hover .proc-dot__ring {
-  border-color: rgba(167,139,250,0.8);
-  box-shadow: 0 0 16px rgba(167,139,250,0.3);
+.proc-dot__core::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 10px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.7), transparent);
+  border-radius: 99px;
+  animation: spike-pulse 3s ease-in-out infinite alternate;
 }
+
+.proc-dot__core::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+  border-radius: 99px;
+  animation: spike-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes star-pulse {
+  0% {
+    box-shadow:
+      0 0 2px #fff,
+      0 0 5px #f0abff,
+      0 0 10px #e879f9,
+      0 0 18px #c084fc,
+      0 0 28px rgba(167, 139, 250, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 3px #fff,
+      0 0 7px #f0abff,
+      0 0 14px #e879f9,
+      0 0 24px #c084fc,
+      0 0 40px rgba(167, 139, 250, 0.5);
+  }
+}
+
+@keyframes spike-pulse {
+  0%   { opacity: 0.4; }
+  100% { opacity: 0.75; }
+}
+
 .proc-row:hover .proc-dot__core {
-  transform: scale(1.5);
-  box-shadow: 0 0 16px rgba(167,139,250,1);
+  animation: none;
+  box-shadow:
+    0 0 4px #fff,
+    0 0 8px #fff,
+    0 0 16px #f0abff,
+    0 0 28px #e879f9,
+    0 0 45px #c084fc,
+    0 0 70px rgba(167, 139, 250, 0.6);
 }
 
-/* ── Slot ── */
+.proc-row:hover .proc-dot__core::before,
+.proc-row:hover .proc-dot__core::after {
+  opacity: 1;
+  animation: none;
+}
+
 .proc-slot {
   display: flex;
   align-items: center;
@@ -206,7 +274,6 @@
 .proc-row--left  .proc-slot:first-child { justify-content: flex-end;   padding-right: 20px; }
 .proc-row--left  .proc-slot:last-child  { justify-content: flex-start; }
 
-/* ── Card ── */
 .proc-card {
   position: relative;
   display: flex;
@@ -243,12 +310,12 @@
   pointer-events: none;
   transition: left 0s;
 }
+
 .proc-card:hover .proc-card__shimmer {
   left: 150%;
   transition: left 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 
-/* ── Ghost number ── */
 .proc-card__ghost-num {
   position: absolute;
   top: 10px;
@@ -265,11 +332,11 @@
   z-index: 0;
   transition: -webkit-text-stroke-color 0.4s;
 }
+
 .proc-card:hover .proc-card__ghost-num {
   -webkit-text-stroke-color: rgba(209,102,255,0.5);
 }
 
-/* ── Body ── */
 .proc-card__body {
   position: relative;
   z-index: 1;
@@ -293,7 +360,6 @@
   font-family: 'Syne Mono', monospace;
 }
 
-/* ── Mobile ── */
 @media (max-width: 600px) {
   .process-container { padding: 22px 0 80px; }
   .proc-header { margin-bottom: 44px; }
@@ -307,9 +373,6 @@
   .proc-row--right .proc-slot:last-child  { padding-left: 10px; }
   .proc-row--left  .proc-slot:first-child { padding-right: 10px; }
 
-  .proc-dna-wrap { width: 24px; }
-  .proc-dna-svg  { width: 24px; }
-
   .proc-card {
     padding: 14px 14px;
     border-radius: 12px;
@@ -320,7 +383,6 @@
   .proc-card__ghost-num { font-size: 2rem; top: 8px; right: 10px; }
   .proc-card__title     { font-size: 0.9rem; }
   .proc-card__desc      { font-size: 0.74rem; }
-
   .proc-card__body      { padding-right: 32px; }
   .proc-title           { font-size: 2.3rem; }
 }
