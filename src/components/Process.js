@@ -95,7 +95,6 @@ function Process({ lang = 'ka' }) {
   return (
     <div ref={containerRef} className="process-container">
       <div className="proc-header">
-        <span className="proc-eyebrow">{t.eyebrow}</span>
         <h2 className="proc-title">{t.title}</h2>
         <div className="proc-rule" />
       </div>

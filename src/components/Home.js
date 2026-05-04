@@ -17,7 +17,6 @@ function Home({ lang }) {
         <Landing lang={lang} />
         <Stats lang={lang}/>
         <Projects lang={lang}/>
-        <Process lang={lang}/>
         <Cta lang={lang}/>
 
       </div>
