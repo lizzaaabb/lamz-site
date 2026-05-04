@@ -28,7 +28,7 @@ const content = {
         img: '/mock11.png',
       },
     ],
-    more: 'მეტი პროექტები',
+    more: 'იხილეთ პროექტები',
     viewSite: 'საიტის ნახვა',
   },
   en: {
