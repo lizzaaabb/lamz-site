@@ -60,7 +60,7 @@ function Cta({ lang = 'ka' }) {
         <h2 className="cta-heading">{t.heading}</h2>
         <p className="cta-sub">{t.sub}</p>
         <div className="cta-btns">
-          <a href={t.contact} className="cta-btn cta-btn--primary">
+          <a href={t.contact} className="cta-btn2 cta-btn--primary2">
             {t.btnText}
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
               <path d="M2.5 12.5L11.5 3.5" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>

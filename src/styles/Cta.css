@@ -121,7 +121,7 @@
   justify-content: center;
 }
 
-.cta-btn {
+.cta-btn2 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -168,7 +168,7 @@
 }
 
 /* georgian font for buttons */
-.cta-section--ka .cta-btn {
+.cta-section--ka .cta-btn2 {
   font-family: var(--font-ka);
   letter-spacing: 0;
   font-size: 0.82rem;
@@ -185,7 +185,7 @@
     width: 100%;
   }
 
-  .cta-btn {
+  .cta-btn2 {
     width: 100%;
     justify-content: center;
   }
