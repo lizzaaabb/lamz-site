@@ -161,7 +161,11 @@
   line-height: 1.25;
   letter-spacing: -0.02em;
   z-index: 100;
-  text-transform: uppercase;
+
+}
+
+.sv-title--ka {
+    text-transform: uppercase;
 }
 
 .sv-divider {
