@@ -204,7 +204,7 @@ function Stats({ lang = 'ka' }) {
             <div className="sv-card-number">{c.num}</div>
             <div className="sv-card-top">
               <div className="sv-price">{c.price}</div>
-              <p className="sv-title">{c.title}</p>
+             <p className={`sv-title sv-title--${lang}`}>{c.title}</p>
             </div>
             <div className="sv-divider" />
             <ul className="sv-list">
