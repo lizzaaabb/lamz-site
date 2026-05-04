@@ -18,12 +18,12 @@
   overflow: hidden;
 }
 
-/* grid pattern with edge fade */
+/* grid pattern — full coverage, no fade */
 .process-container::before {
   content: '';
   position: absolute;
   inset: 0;
-  --gap: 4em;
+  --gap: 5em;
   --line: 1px;
   --color: rgba(167, 139, 250, 0.07);
   background-image:
@@ -40,8 +40,6 @@
       var(--color) var(--gap)
     );
   background-size: var(--gap) var(--gap);
-  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 100%);
-  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }
