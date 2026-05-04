@@ -20,7 +20,7 @@
 }
 
 .sv-section-title {
-  font-family: var(--font-en);
+  font-family: Syne, sans-serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 800;
   color: #ffffff;
