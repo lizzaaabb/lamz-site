@@ -117,11 +117,13 @@
   color: transparent;
   position: relative;
   filter: drop-shadow(0 0 18px rgba(167, 139, 250, 0.5));
+  text-transform: uppercase;
 }
 
 .word-creations {
   display: block;
   color: #ffffff;
+  text-transform: uppercase;
 }
 .word-creations--en {
   font-size: clamp(1.5rem, 8vw, 4.5rem);
