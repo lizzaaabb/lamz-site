@@ -218,7 +218,7 @@
 }
 
 @media (max-width: 600px) {
-  .customers-container { padding: 60px 0; }
+  .customers-container { padding: 10px 0; }
   .rv-grid { grid-template-columns: 1fr; }
   .rv-section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
  .rv-verified{
