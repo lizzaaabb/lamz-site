@@ -121,8 +121,8 @@ const WHATSAPP_NUMBER = '995574065469'
 function getWhatsAppUrl(cardTitle, lang) {
   const message =
     lang === 'ka'
-      ? `გამარჯობა! მაინტერესებს "${cardTitle}" პაკეტი.`
-      : `Hello! I'm interested in the "${cardTitle}" package.`
+      ? `გამარჯობა! მინდა ${cardTitle}.`
+      : `Hello! I'm interested in the ${cardTitle}.`
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 

@@ -340,7 +340,7 @@
   display: flex;
   gap: 12px;
   width: max-content;
-  animation: tickerRoll 34s linear infinite;
+  animation: tickerRoll 48s linear infinite;
   padding: 8px 0;
 }
 

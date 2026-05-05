@@ -86,9 +86,9 @@ function Landing({ lang = 'ka' }) {
         <p className="ticker-eyebrow">{t.trustedBy}</p>
         <div className="ticker-outer">
           <div className="ticker-track" ref={tickerRef}>
-            {[...logos, ...logos].map((src, i) => (
-              <BrandPill key={i} src={src} name={`brand-${i}`} />
-            ))}
+           {[...logos, ...logos, ...logos, ...logos].map((src, i) => (
+  <BrandPill key={i} src={src} name={`brand-${i}`} />
+))}
           </div>
         </div>
       </div>
