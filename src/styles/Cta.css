@@ -17,71 +17,110 @@
   justify-content: center;
 }
 
-/* ── HOLE ANIMATION ── */
-.cta-hole-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ── AMBIENT GLOWS ── */
+.cta-bg-glow {
   position: absolute;
-  inset: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 0;
+  filter: blur(100px);
 }
 
-.cta-hole-overlay i {
-  display: block;
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 140px;
-  opacity: 0;
-  animation-name: cta-hole-scale;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
 
-.cta-hole-overlay i:nth-child(1)  { animation-delay: 0.3s; }
-.cta-hole-overlay i:nth-child(2)  { animation-delay: 0.6s; }
-.cta-hole-overlay i:nth-child(3)  { animation-delay: 0.9s; }
-.cta-hole-overlay i:nth-child(4)  { animation-delay: 1.2s; }
-.cta-hole-overlay i:nth-child(5)  { animation-delay: 1.5s; }
-.cta-hole-overlay i:nth-child(6)  { animation-delay: 1.8s; }
-.cta-hole-overlay i:nth-child(7)  { animation-delay: 2.1s; }
-.cta-hole-overlay i:nth-child(8)  { animation-delay: 2.4s; }
-.cta-hole-overlay i:nth-child(9)  { animation-delay: 2.7s; }
-.cta-hole-overlay i:nth-child(10) { animation-delay: 3.0s; }
 
-@keyframes cta-hole-scale {
-  0% {
-    transform: scale(2);
-    opacity: 0;
-    box-shadow: 0px 0px 50px rgba(169, 85, 247, 0.619);
-  }
-  50% {
-    transform: scale(1) translate(0px, -5px);
-    opacity: 1;
-    box-shadow: 0px 8px 20px rgba(169, 85, 247, 0.583);
-  }
-  100% {
-    transform: scale(0.1) translate(0px, 5px);
-    opacity: 0;
-    box-shadow: 0px 10px 20px rgba(169, 85, 247, 0.351);
-  }
+.cta-bg-glow--right {
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.1) 0%, transparent 70%);
+  bottom: -100px;
+  right: -100px;
 }
 
 /* ── INNER ── */
 .cta-inner {
   position: relative;
   z-index: 2;
-  width: 92%;
-  max-width: 780px;
+  width: 80%;
   margin: 0 auto;
+}
+
+/* ── GLASS CARD ── */
+.cta-card {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.032) 0%,
+    rgba(168, 85, 247, 0.02) 25%,
+    rgba(255, 255, 255, 0.012) 50%,
+    rgba(192, 132, 252, 0.02) 75%,
+    rgba(255, 255, 255, 0.032) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 80px rgba(168, 85, 247, 0.08);
+}
+
+/* gradient border overlay */
+.cta-card-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(192, 132, 252, 0.3),
+    transparent 25%,
+    transparent 75%,
+    rgba(134, 215, 247, 0.1)
+  );
+  z-index: -1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* shimmer sweep */
+.cta-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(192, 132, 252, 0.08) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: cta-glass-shine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cta-glass-shine {
+  0%   { left: -100%; opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* ── CARD CONTENT ── */
+.cta-card-content {
+  position: relative;
+  z-index: 1;
+  padding: 64px 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0;
 }
 
 /* ── HEADING ── */
@@ -93,6 +132,7 @@
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin: 0 0 20px;
+  text-transform: uppercase;
 }
 
 .cta-section--ka .cta-heading,
@@ -105,8 +145,8 @@
 .cta-sub {
   font-family: var(--font-en);
   font-size: clamp(0.9rem, 2vw, 1.05rem);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.831);
   line-height: 1.7;
   margin: 0 0 44px;
   max-width: 580px;
@@ -125,7 +165,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-en);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -141,30 +181,45 @@
 }
 
 /* primary — purple gradient */
-.cta-btn--primary {
+.cta-btn--primary2 {
   color: #fff;
-  background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed) 0 0 / 200% 200%;
-  box-shadow: 0 0 0 1px #c084fc66, 0 4px 20px #a855f799, inset 0 1px rgba(255,255,255,0.2);
+  background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed);
+  background-size: 200% 200%;
+  box-shadow:
+    0 0 0 1px rgba(192, 132, 252, 0.4),
+    0 4px 20px rgba(168, 85, 247, 0.6),
+    inset 0 1px rgba(255, 255, 255, 0.2);
 }
 
-.cta-btn--primary:hover {
+.cta-btn--primary2:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 0 1px #c084fc99, 0 8px 32px #a855f7bb, inset 0 1px rgba(255,255,255,0.2);
+  box-shadow:
+    0 0 0 1px rgba(192, 132, 252, 0.5),
+    0 8px 36px rgba(168, 85, 247, 0.8),
+    0 0 80px rgba(168, 85, 247, 0.3),
+    inset 0 1px rgba(255, 255, 255, 0.2);
 }
 
-/* ghost — transparent border */
-.cta-btn--ghost {
+.cta-btn--primary2:active {
+  transform: translateY(1px);
+}
+
+/* ghost */
+.cta-btn--ghost2 {
   color: rgba(255, 255, 255, 0.75);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: none;
 }
 
-.cta-btn--ghost:hover {
+.cta-btn--ghost2:hover {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
+}
+
+.cta-btn--ghost2:active {
+  transform: translateY(1px);
 }
 
 /* georgian font for buttons */
@@ -174,10 +229,29 @@
   font-size: 0.82rem;
 }
 
+/* ── TABLET ── */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 80px 0;
+  }
+
+  .cta-card-content {
+    padding: 48px 40px;
+  }
+}
+
 /* ── MOBILE ── */
 @media (max-width: 600px) {
   .cta-section {
-    padding: 80px 0;
+    padding: 60px 0;
+  }
+
+  .cta-inner {
+    width: 96%;
+  }
+
+  .cta-card-content {
+    padding: 40px 24px;
   }
 
   .cta-btns {
@@ -189,4 +263,5 @@
     width: 100%;
     justify-content: center;
   }
+
 }
