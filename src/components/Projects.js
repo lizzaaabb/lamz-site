@@ -46,7 +46,7 @@ const content = {
         name: 'Your Hood',
         desc: 'Online Shop',
         url: 'https://yourhood.ge/',
-        img: '/mock14.png',
+        img: '/mock15.png',
       },
       {
         num: '03',
