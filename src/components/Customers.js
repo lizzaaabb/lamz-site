@@ -23,11 +23,11 @@ const reviews = [
     profileUrl: 'https://www.google.com/maps/contrib/117941736533994726438/reviews?hl=en-GB',
   },
   {
-    name: 'Sali Babuadze',
+    name: 'Forweb',
     rating: 5,
     date: '7 weeks ago',
     text: 'ძალიან მაგარი საიტია 💕💕 ძალიან დიდი მადლობა',
-    initials: 'SB',
+    initials: 'FW',
     color: '#c084fc',
     profileUrl: 'https://www.google.com/maps/contrib/109010656176008881610/reviews?hl=en-GB',
   },
@@ -61,7 +61,9 @@ function GoogleIcon() {
   )
 }
 
-function ReviewCard({ review }) {
+function ReviewCard({ review, lang }) {
+  const verified = lang === 'ka' ? 'რეალური შეფასებები Google-ზე' : 'Verified on Google'
+  const viewProfile = lang === 'ka' ? 'პროფილის ნახვა →' : 'View profile →'
   return (
     <a
       href={review.profileUrl}
@@ -97,9 +99,9 @@ function ReviewCard({ review }) {
             <circle cx="12" cy="12" r="10" fill="white" stroke="rgba(52,211,153,0.3)" strokeWidth="1.5"/>
             <path d="M8 12l3 3 5-5" stroke="#10b981" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          რეალური შეფასებები Google-ზე
+          {verified}
         </span>
-        <span className="rv-link-hint">პროფილის ნახვა →</span>
+        <span className="rv-link-hint">{viewProfile}</span>
       </div>
     </a>
   )
@@ -159,7 +161,7 @@ function Customers({ lang = 'ka' }) {
       </div>
       <div className="rv-grid">
         {reviews.map((r, i) => (
-          <ReviewCard key={i} review={r} />
+          <ReviewCard key={i} review={r} lang={lang} />
         ))}
       </div>
     </div>

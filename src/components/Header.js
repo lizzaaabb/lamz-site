@@ -41,7 +41,7 @@ const content = {
 
 const LangSwitcher = ({ activeLang, switchLang, className = '' }) => (
   <div className={`lang-switcher ${className}`}>
-    {[['ka', 'KA'], ['en', 'EN']].map(([code, label]) => (
+    {[['ka', 'GEO'], ['en', 'EN']].map(([code, label]) => (
       <button
         key={code}
         className={`lang-btn${activeLang === code ? ' lang-btn--active' : ''}`}
