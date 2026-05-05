@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;700;800&display=swap');
+
+.customers-container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+/* ── HEADER — Stats style ── */
+.rv-header {
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rv-section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.customers-container--ka .rv-section-title {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  letter-spacing: 0;
+}
+
+.rv-rule {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--purple),
+    var(--aqua),
+    var(--blue),
+    transparent
+  );
+  margin: 28px 0;
+  animation: rvRuleGrow 1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s 1 normal forwards running;
+}
+
+@keyframes rvRuleGrow {
+  to { width: min(420px, 60vw); }
+}
+
+/* ── GRID — 4 cards in a row ── */
+.rv-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ── CARD — original styles ── */
+.rv-card {
+  position: relative;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.262);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+.rv-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(168,85,247,0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.rv-card:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(168,85,247,0.1);
+}
+
+.rv-card:hover::before { opacity: 1; }
+
+/* ── TOP ROW ── */
+.rv-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rv-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rv-initials {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.rv-meta { flex: 1; min-width: 0; }
+
+.rv-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.rv-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rv-badge {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #FBBC04;
+  background: rgba(251,188,4,0.1);
+  border: 1px solid rgba(251,188,4,0.2);
+  border-radius: 99px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.rv-date {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.642);
+  margin: 2px 0 0;
+}
+
+.rv-google-icon-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+}
+
+/* ── STARS ── */
+.rv-stars { display: flex; gap: 2px; }
+
+/* ── TEXT ── */
+.rv-text {
+  font-family: 'Noto Sans Georgian', 'Syne', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── FOOTER ── */
+.rv-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rv-verified {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Noto Sans Georgian', 'Syne', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.728);
+}
+
+.rv-link-hint {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.581);
+  transition: color 0.3s ease;
+}
+
+.rv-card:hover .rv-link-hint {
+  color: rgba(192,132,252,0.6);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .rv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .customers-container { padding: 60px 0; }
+  .rv-grid { grid-template-columns: 1fr; }
+  .rv-section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+}

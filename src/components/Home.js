@@ -7,6 +7,7 @@ import Projects from '../components/Projects'
 import Cta from '../components/Cta'
 import Tech from '../components/Tech'
 import Process from '../components/Process'
+import Customers from '../components/Customers'
 
 
 
@@ -17,6 +18,7 @@ function Home({ lang }) {
         <Landing lang={lang} />
         <Stats lang={lang}/>
         <Projects lang={lang}/>
+        <Customers lang={lang}/>
         <Cta lang={lang}/>
 
       </div>
