@@ -28,8 +28,6 @@
   filter: blur(100px);
 }
 
-
-
 .cta-bg-glow--right {
   background: radial-gradient(circle, rgba(192, 132, 252, 0.1) 0%, transparent 70%);
   bottom: -100px;
@@ -180,7 +178,7 @@
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
 }
 
-/* primary — purple gradient */
+/* ── PRIMARY — purple gradient (WhatsApp) ── */
 .cta-btn--primary2 {
   color: #fff;
   background: linear-gradient(135deg, #c084fc, #a855f7, #7c3aed);
@@ -204,21 +202,25 @@
   transform: translateY(1px);
 }
 
-/* ghost */
-.cta-btn--ghost2 {
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+/* ── CALL — solid white ── */
+.cta-btn--call2 {
+  color: #0c0c10;
+  background: #ffffff;
+  box-shadow:
+    0 4px 20px rgba(255, 255, 255, 0.15),
+    inset 0 1px rgba(255, 255, 255, 0.8);
 }
 
-.cta-btn--ghost2:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
+.cta-btn--call2:hover {
   transform: translateY(-2px);
+  background: #f3e8ff;
+  color: #7c3aed;
+  box-shadow:
+    0 8px 32px rgba(255, 255, 255, 0.25),
+    0 0 60px rgba(192, 132, 252, 0.2);
 }
 
-.cta-btn--ghost2:active {
+.cta-btn--call2:active {
   transform: translateY(1px);
 }
 
@@ -263,5 +265,4 @@
     width: 100%;
     justify-content: center;
   }
-
 }
