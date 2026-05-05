@@ -15,10 +15,10 @@ const content = {
       },
       {
         num: '02',
-        name: 'Studio Arch',
-        desc: 'არქიტექტურის საიტი',
-        url: '#',
-        img: '/mock11.png',
+        name: 'Your Hood',
+        desc: 'ონლაინ მაღაზია',
+        url: 'https://yourhood.ge/',
+        img: '/mock14.png',
       },
       {
         num: '03',
@@ -43,10 +43,10 @@ const content = {
       },
       {
         num: '02',
-        name: 'Studio Arch',
-        desc: 'Architecture Website',
-        url: '#',
-        img: '/mock11.png',
+        name: 'Your Hood',
+        desc: 'Online Shop',
+        url: 'https://yourhood.ge/',
+        img: '/mock14.png',
       },
       {
         num: '03',
