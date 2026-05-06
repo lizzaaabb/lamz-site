@@ -56,7 +56,6 @@
   margin-bottom: 24px;
 }
 
-/* Georgian font override for desc */
 .ft--ka .ft-brand-desc {
   font-family: 'Noto Sans Georgian', sans-serif;
   font-weight: 300;
@@ -66,28 +65,35 @@
 /* ── SOCIALS ── */
 .ft-socials {
   display: flex;
-  gap: 10px;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
 }
 
 .ft-social-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   color: #ffffff;
-  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
   flex-shrink: 0;
 }
 
-.ft-social-btn:hover {
-  border-color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
+.ft-social-btn img {
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.ft-social-btn:hover img {
   transform: translateY(-2px);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55))
+          drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
 }
 
 /* ── COL LABEL ── */
@@ -113,6 +119,7 @@
   margin-bottom: 14px;
   width: fit-content;
   position: relative;
+  cursor: pointer;
 }
 
 .ft--ka .ft-nav-link {
@@ -141,22 +148,31 @@
 /* ── CONTACT ── */
 .ft-contact-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   margin-bottom: 18px;
 }
 
 .ft-contact-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #ffffff;
+  cursor: pointer;
+}
+
+.ft-contact-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+  transition: filter 0.25s ease;
+}
+
+.ft-contact-item:hover .ft-contact-icon img {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))
+          drop-shadow(0 0 10px rgba(255, 255, 255, 0.18));
 }
 
 .ft-contact-text {
@@ -166,7 +182,7 @@
   color: #ffffff;
   text-decoration: none;
   line-height: 1.6;
-  padding-top: 6px;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
