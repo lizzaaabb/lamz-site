@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Noto+Sans+Georgian:wght@300;400;700&display=swap');
+
+.ft {
+  background: #111111;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 56px 0 28px;
+  font-family: 'Syne', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.ft::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(167, 139, 250, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ft-inner {
+  max-width: 1200px;
+  width: 92%;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* ── GRID ── */
+.ft-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── BRAND COL ── */
+.ft-brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.ft-brand-desc {
+  font-size: 13.5px;
+  color: #ffffff;
+  line-height: 1.75;
+  max-width: 260px;
+  margin-bottom: 24px;
+}
+
+/* Georgian font override for desc */
+.ft--ka .ft-brand-desc {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+/* ── SOCIALS ── */
+.ft-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.ft-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.ft-social-btn:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ── COL LABEL ── */
+.ft-col-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 22px;
+}
+
+/* ── NAV LINKS ── */
+.ft-nav-link {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+  width: fit-content;
+  position: relative;
+}
+
+.ft--ka .ft-nav-link {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.ft-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ffffff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.ft-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── CONTACT ── */
+.ft-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ft-contact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.ft-contact-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  line-height: 1.6;
+  padding-top: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.ft-contact-text:hover {
+  opacity: 0.7;
+}
+
+/* ── BOTTOM BAR ── */
+.ft-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ft-copy {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ft--ka .ft-copy {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.ft-rule {
+  flex: 1;
+  height: 1px;
+  max-width: 200px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* ── TABLET ── */
+@media (max-width: 1024px) {
+  .ft-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .ft-col-brand {
+    grid-column: 1 / -1;
+  }
+
+  .ft-brand-desc {
+    max-width: 100%;
+  }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .ft {
+    padding: 44px 0 24px;
+  }
+
+  .ft-inner {
+    padding: 0 20px;
+  }
+
+  .ft-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+
+  .ft-col-brand {
+    grid-column: auto;
+  }
+
+  .ft-brand-name {
+    font-size: 18px;
+  }
+
+  .ft-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .ft-rule {
+    display: none;
+  }
+}

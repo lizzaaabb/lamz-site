@@ -20,11 +20,11 @@
 }
 
 .sv-section-title {
-  font-family: Syne, sans-serif;
+  font-family: 'sansation', sans-serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   text-align: center;
   text-transform: uppercase;
 }
@@ -190,13 +190,14 @@
 }
 
 .sv-list-item {
-  font-family: var(--font-en);
-  font-size: 0.95rem;
+  font-family: 'sansation', sans-serif;
+  font-size: 1rem;
   font-weight: 300;
   color: #ffffff;
   line-height: 1.4;
   display: flex;
   align-items: flex-start;
+  letter-spacing: 0.01em;
   gap: 10px;
 }
 
@@ -224,8 +225,8 @@
   border: none;
   outline: none;
   cursor: pointer;
-  font-family: var(--font-en);
-  font-size: 0.82rem;
+  font-family: 'sansation', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -465,4 +466,17 @@
   .services-container {
     padding-top: 60px;
   }
+}
+
+.sv-title--en{
+  font-family: 'sansation', sans-serif;
+  font-size: 2rem;
+}
+
+.sv-bonus-title--en{
+  font-family: 'sansation', sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  
 }

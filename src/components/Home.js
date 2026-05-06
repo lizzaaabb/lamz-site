@@ -8,6 +8,8 @@ import Cta from '../components/Cta'
 import Tech from '../components/Tech'
 import Process from '../components/Process'
 import Customers from '../components/Customers'
+import Footer from '../components/Footer'
+
 
 
 
@@ -20,6 +22,7 @@ function Home({ lang }) {
         <Projects lang={lang}/>
         <Customers lang={lang}/>
         <Cta lang={lang}/>
+        <Footer lang={lang}/>
 
       </div>
     </div>

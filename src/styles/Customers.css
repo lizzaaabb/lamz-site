@@ -16,11 +16,11 @@
 }
 
 .rv-section-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'sansation', sans-serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   text-align: center;
   text-transform: uppercase;
   margin: 0;

@@ -123,11 +123,11 @@
 
 /* ── HEADING ── */
 .cta-heading {
-  font-family: var(--font-en);
+  font-family: 'sansation', sans-serif;
   font-size: clamp(1.9rem, 4.5vw, 3.2rem);
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   line-height: 1.15;
   margin: 0 0 20px;
   text-transform: uppercase;
@@ -163,8 +163,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-en);
-  font-size: 0.82rem;
+  font-family: 'sansation', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
