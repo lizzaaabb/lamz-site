@@ -202,9 +202,9 @@
 }
 
 .ft-copy {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.18em;
+  font-family: 'sansation', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.35);
 }
