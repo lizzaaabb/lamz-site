@@ -63,7 +63,7 @@ function Footer({ lang = 'ka' }) {
             <p className="ft-brand-desc">{t.desc}</p>
             <div className="ft-socials">
               
-               <a href="https://instagram.com/apollocreations"
+               <a  href="https://instagram.com/apollocreations"
                 className="ft-social-btn"
                 aria-label="Instagram"
                 target="_blank"
