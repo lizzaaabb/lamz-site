@@ -98,20 +98,21 @@
 
 /* ── COL LABEL ── */
 .ft-col-label {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.22em;
+  font-family: 'sansation', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
   margin-bottom: 22px;
+  font-style: italic;
 }
 
 /* ── NAV LINKS ── */
 .ft-nav-link {
   display: block;
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+  font-family: 'sansation', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
@@ -124,7 +125,7 @@
 
 .ft--ka .ft-nav-link {
   font-family: 'Noto Sans Georgian', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: 0.01em;
 }
 
@@ -176,8 +177,8 @@
 }
 
 .ft-contact-text {
-  font-family: 'Syne', sans-serif;
-  font-size: 13.5px;
+  font-family: 'sansation', sans-serif;
+  font-size: 1.05rem;
   font-weight: 500;
   color: #ffffff;
   text-decoration: none;
