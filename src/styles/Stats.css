@@ -466,6 +466,10 @@
   .services-container {
     padding-top: 60px;
   }
+  .sv-bonus-title--en{
+  font-size: 1.3rem !important;
+  
+}
 }
 
 .sv-title--en{

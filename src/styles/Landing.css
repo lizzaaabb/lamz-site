@@ -3,11 +3,11 @@
 :root {
   --blue:   #7CB9E8;
   --aqua:   #99FFFF;
-  --purple: #a78bfa;
+  --purple: #8be7fa;
   --light:  #F5F9FA;
   --silver: #E8ECEE;
   --dark:   #202020;
-  --brightpurple: #d166ff;
+  --brightpurple: #66c9ff;
 }
 
 * {
