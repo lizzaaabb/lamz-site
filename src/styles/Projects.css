@@ -10,6 +10,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 0;
+  padding-top: 120px;
 }
 
 .pj-header {
@@ -18,7 +19,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 .pj-section-title {
   font-family: 'sansation', sans-serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
@@ -27,6 +27,40 @@
   letter-spacing: 0.01em;
   text-align: center;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pj-section-title::before,
+.pj-section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  flex-shrink: 0;
+}
+
+.pj-section-title::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(209, 102, 255, 0.6),
+    rgba(153, 255, 255, 0.8)
+  );
+}
+
+.pj-section-title::after {
+  background: linear-gradient(
+    90deg,
+    rgba(153, 255, 255, 0.8),
+    rgba(209, 102, 255, 0.6),
+    transparent
+  );
+}
+
+.pj-rule {
+  display: none;
 }
 
 .projects-container--ka .pj-badge,
