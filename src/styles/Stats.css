@@ -11,7 +11,7 @@
   margin: 0 auto;
   padding: 40px 0;
 }
-
+/* ── HEADER ── */
 .sv-header {
   margin-bottom: 48px;
   display: flex;
@@ -27,8 +27,39 @@
   letter-spacing: 0.02em;
   text-align: center;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
+.sv-section-title::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(209, 102, 255, 0.6),
+    rgba(153, 255, 255, 0.8)
+  );
+}
+
+.sv-section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(153, 255, 255, 0.8),
+    rgba(209, 102, 255, 0.6),
+    transparent
+  );
+}
+.sv-rule {
+  display: none;
+}
 .services-container--ka .sv-section-title,
 .services-container--ka .sv-bonus-title,
 .services-container--ka .sv-list-item,
