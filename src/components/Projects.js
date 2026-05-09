@@ -18,7 +18,7 @@ const content = {
         name: 'Your Hood',
         desc: 'ონლაინ მაღაზია',
         url: 'https://yourhood.ge/',
-        img: '/mock14.png',
+        img: '/mockup2.png',
       },
       {
         num: '03',
@@ -46,7 +46,7 @@ const content = {
         name: 'Your Hood',
         desc: 'Online Shop',
         url: 'https://yourhood.ge/',
-        img: '/mock14.png',
+        img: '/mockup2.png',
       },
       {
         num: '03',
@@ -133,7 +133,7 @@ function Projects({ lang = 'ka' }) {
       src={p.img}
       alt={p.name}
       className="pj-image"
-      style={i === 2 ? { transform: 'scale(1.05)', transformOrigin: 'center top' } : undefined}
+      style={i=== 1|i === 2 ? { transform: 'scale(1.05)', transformOrigin: 'center top' } : undefined}
     />
     <div className="pj-fade" />
             <div className="pj-card-number">{p.num}</div>
