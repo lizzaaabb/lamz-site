@@ -25,7 +25,7 @@ const content = {
         name: 'Utopia VIP Tourism',
         desc: 'ტურისტული კომპანია',
         url: 'https://www.utopiaviptravel.com/',
-        img: '/mock5.png',
+        img: '/mockup.png',
       },
     ],
     more: 'იხილეთ პროექტები',
@@ -54,7 +54,7 @@ const content = {
         desc: 'Tourism Company',
         url: 'https://www.utopiaviptravel.com/',
 
-        img: '/mock5.png',
+        img: '/mockup.png',
       },
     ],
     more: 'More projects',
@@ -128,9 +128,14 @@ function Projects({ lang = 'ka' }) {
       </div>
       <div className="pj-grid">
         {t.projects.map((p, i) => (
-          <div key={i} className="pj-card">
-            <img src={p.img} alt={p.name} className="pj-image" />
-            <div className="pj-fade" />
+  <div key={i} className="pj-card">
+    <img
+      src={p.img}
+      alt={p.name}
+      className="pj-image"
+      style={i === 2 ? { transform: 'scale(1.05)', transformOrigin: 'center top' } : undefined}
+    />
+    <div className="pj-fade" />
             <div className="pj-card-number">{p.num}</div>
             <div className="pj-info">
               <p className="pj-name">{p.name}</p>
