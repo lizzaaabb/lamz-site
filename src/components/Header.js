@@ -8,7 +8,7 @@ const logo = '/logo.png'
 const content = {
   ka: {
     left: [
-      { label: 'ჩვენს შესახებ', href: '#about' },
+      { label: 'ბლოგი', href: '#about' },
       { label: 'სერვისები',     href: '#services' },
     ],
     right: [
@@ -16,7 +16,7 @@ const content = {
       { label: 'კონტაქტი',  href: 'contact' },
     ],
     nav: [
-      { label: 'ჩვენს შესახებ', href: '#about',    num: '01' },
+      { label: 'ბლოგი', href: '#about',    num: '01' },
       { label: 'სერვისები',     href: '#services',  num: '02' },
       { label: 'პროექტები',     href: 'projects',  num: '03' },
       { label: 'კონტაქტი',      href: 'contact',   num: '04' },
@@ -24,7 +24,7 @@ const content = {
   },
   en: {
     left: [
-      { label: 'About',    href: '#about' },
+      { label: 'Blog',    href: '#about' },
       { label: 'Services', href: '#services' },
     ],
     right: [
@@ -32,7 +32,7 @@ const content = {
       { label: 'Contact',  href: 'contact' },
     ],
     nav: [
-      { label: 'About',    href: '#about',    num: '01' },
+      { label: 'Blog',    href: '#about',    num: '01' },
       { label: 'Services', href: '#services', num: '02' },
       { label: 'Projects', href: 'projects', num: '03' },
       { label: 'Contact',  href: 'contact',  num: '04' },
