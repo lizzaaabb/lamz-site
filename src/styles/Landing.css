@@ -573,7 +573,7 @@
     margin-bottom: 10px;
  }
  .word-apollo--en{
-  font-size: clamp(4rem, 10vw, 4.5rem);
+  font-size: clamp(3.2rem, 10vw, 4.5rem);
  }
  .word-creations--en{
   font-size: clamp(3rem, 10vw, 4.5rem);
