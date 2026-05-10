@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import '../styles/Contact.css'
+import { useLang } from '../components/LanguageContext'
 
 const IconMail = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -47,19 +48,19 @@ const content = {
       { Icon: IconPhone, label: 'ტელეფონი', value: '+995 574 06 54 69',             href: 'tel:+995574065469' },
     ],
     socialsLabel: 'სოციალური მედია',
-    cta: 'WhatsApp-ით დაგვიკავშირდით',
+    cta: 'WhatsApp',
     ctaHref: 'https://wa.me/995574065469',
   },
   en: {
     preTag: 'Get in touch',
     title: 'Contact',
-    sub: 'Ready to turn your idea into reality',
+    sub: 'we are ready to turn your idea into reality',
     cards: [
       { Icon: IconMail,  label: 'Email', value: 'business@apollocreations.net', href: 'mailto:business@apollocreations.net' },
       { Icon: IconPhone, label: 'Phone', value: '+995 574 06 54 69',             href: 'tel:+995574065469' },
     ],
     socialsLabel: 'Social Media',
-    cta: 'Message us on WhatsApp',
+    cta: 'WhatsApp',
     ctaHref: 'https://wa.me/995574065469',
   },
 }
@@ -71,8 +72,9 @@ const socials = [
   { label: 'WhatsApp',  Icon: IconWhatsApp,  href: 'https://wa.me/995574065469'            },
 ]
 
-function Contact({ lang = 'ka' }) {
-  const t = content[lang] || content['ka']
+function Contact() {
+  const { lang } = useLang()
+  const t = content[lang] || content['en']
   const containerRef = useRef(null)
 
   useEffect(() => {
