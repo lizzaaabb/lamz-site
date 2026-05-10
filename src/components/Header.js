@@ -12,13 +12,13 @@ const content = {
       { label: 'სერვისები',     href: '#services' },
     ],
     right: [
-      { label: 'პროექტები', href: '#projects' },
+      { label: 'პროექტები', href: 'projects' },
       { label: 'კონტაქტი',  href: 'contact' },
     ],
     nav: [
       { label: 'ჩვენს შესახებ', href: '#about',    num: '01' },
       { label: 'სერვისები',     href: '#services',  num: '02' },
-      { label: 'პროექტები',     href: '#projects',  num: '03' },
+      { label: 'პროექტები',     href: 'projects',  num: '03' },
       { label: 'კონტაქტი',      href: 'contact',   num: '04' },
     ],
   },
@@ -28,13 +28,13 @@ const content = {
       { label: 'Services', href: '#services' },
     ],
     right: [
-      { label: 'Projects', href: '#projects' },
+      { label: 'Projects', href: 'projects' },
       { label: 'Contact',  href: 'contact' },
     ],
     nav: [
       { label: 'About',    href: '#about',    num: '01' },
       { label: 'Services', href: '#services', num: '02' },
-      { label: 'Projects', href: '#projects', num: '03' },
+      { label: 'Projects', href: 'projects', num: '03' },
       { label: 'Contact',  href: 'contact',  num: '04' },
     ],
   },
