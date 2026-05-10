@@ -35,7 +35,7 @@ const content = {
         ],
       },
       {
-        price: '2,499₾-იდან',
+        price: '2,999₾-იდან',
         title: 'ონლაინ მაღაზია',
         num: '03',
         items: [
@@ -90,7 +90,7 @@ const content = {
         ],
       },
       {
-        price: 'From 2,499₾',
+        price: 'From 2,999₾',
         title: 'Online Store',
         num: '03',
         items: [
