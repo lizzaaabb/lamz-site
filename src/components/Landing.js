@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react'
 import AnimatedBackground from './AnimatedBackgorund'
 import '../styles/Landing.css'
+import { useLang } from '../components/LanguageContext'
 
 const logos = ['/ndoba1.png', '/ndoba2.png', '/ndoba3.svg', '/ndoba4.png', '/ndoba6.png', '/ndoba7.png', '/ndoba8.png']
 
@@ -38,7 +39,8 @@ function BrandPill({ src, name }) {
   )
 }
 
-function Landing({ lang = 'ka' }) {
+function Landing() {
+  const { lang } = useLang()
   const tickerRef = useRef(null)
   const t = content[lang] || content['ka']
 
@@ -61,7 +63,6 @@ function Landing({ lang = 'ka' }) {
       <AnimatedBackground />
       <div className="landing-vignette" />
       <div className="landing-bottom-fade" />
-
       <div className="landing-ui">
         <p className="landing-pre-tag">{t.preTag}</p>
         <div className="landing-title-wrap">
@@ -81,14 +82,13 @@ function Landing({ lang = 'ka' }) {
           </button>
         </div>
       </div>
-
       <div className="ticker-section">
         <p className="ticker-eyebrow">{t.trustedBy}</p>
         <div className="ticker-outer">
           <div className="ticker-track" ref={tickerRef}>
-           {[...logos, ...logos, ...logos, ...logos].map((src, i) => (
-  <BrandPill key={i} src={src} name={`brand-${i}`} />
-))}
+            {[...logos, ...logos, ...logos, ...logos].map((src, i) => (
+              <BrandPill key={i} src={src} name={`brand-${i}`} />
+            ))}
           </div>
         </div>
       </div>

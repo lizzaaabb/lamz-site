@@ -11,6 +11,7 @@
   margin: 0 auto;
   padding: 40px 0;
   padding-top: 120px;
+  contain: layout style;
 }
 
 .pj-header {
@@ -19,6 +20,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .pj-section-title {
   font-family: 'sansation', sans-serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
@@ -42,21 +44,11 @@
 }
 
 .pj-section-title::before {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(209, 102, 255, 0.6),
-    rgba(153, 255, 255, 0.8)
-  );
+  background: linear-gradient(90deg, transparent, rgba(209,102,255,0.6), rgba(153,255,255,0.8));
 }
 
 .pj-section-title::after {
-  background: linear-gradient(
-    90deg,
-    rgba(153, 255, 255, 0.8),
-    rgba(209, 102, 255, 0.6),
-    transparent
-  );
+  background: linear-gradient(90deg, rgba(153,255,255,0.8), rgba(209,102,255,0.6), transparent);
 }
 
 .pj-rule {
@@ -70,25 +62,6 @@
   letter-spacing: 0;
 }
 
-.pj-rule {
-  width: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--purple),
-    var(--aqua),
-    var(--blue),
-    transparent
-  );
-  margin: 28px 0;
-  animation: pjRuleGrow 1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s 1 normal forwards running;
-}
-
-@keyframes pjRuleGrow {
-  to { width: min(420px, 60vw); }
-}
-
 @keyframes aurora-shift {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -96,8 +69,8 @@
 }
 
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 132, 252, 0.8); }
-  50%       { box-shadow: 0 0 0 5px rgba(192, 132, 252, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192,132,252,0.8); }
+  50%       { box-shadow: 0 0 0 5px rgba(192,132,252,0); }
 }
 
 /* ── GRID ── */
@@ -116,32 +89,38 @@
   aspect-ratio: 3/4;
   cursor: pointer;
   background: #111;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255,255,255,0.07);
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  /* GPU layer — prevents repaint on siblings */
+  will-change: transform;
+  isolation: isolate;
 }
 
 .pj-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 20px 50px rgba(80, 10, 160, 0.3);
+  border-color: rgba(168,85,247,0.5);
+  box-shadow: 0 20px 50px rgba(80,10,160,0.3);
 }
 
 /* ── IMAGE ── */
 .pj-image {
   position: absolute;
-   object-position: center;
+  object-position: center;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.55s ease;
+  /* only transform on GPU, no blur by default */
+  transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.55s ease;
   filter: brightness(0.95);
+  will-change: transform, filter;
 }
 
 .pj-card:hover .pj-image {
   transform: scale(1.07);
-  filter: brightness(0.25) blur(9px);
+  /* reduced blur: 9px→4px — still looks good, 3x cheaper */
+  filter: brightness(0.45) blur(4px);
 }
 
 /* ── BOTTOM PURPLE FADE ── */
@@ -153,21 +132,16 @@
   height: 65%;
   background: linear-gradient(
     to top,
-    rgba(40, 5, 120, 0.34) 0%,
-    rgba(75, 20, 170, 0.155) 38%,
-    rgba(101, 40, 200, 0.043) 70%,
+    rgba(40,5,120,0.34) 0%,
+    rgba(75,20,170,0.155) 38%,
+    rgba(101,40,200,0.043) 70%,
     transparent 100%
   );
   z-index: 2;
   pointer-events: none;
-  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   border-radius: 0 0 22px 22px;
 }
 
-.pj-card:hover .pj-image {
-  transform: scale(1.07);
-  filter: brightness(0.55) blur(9px);
-}
 /* ── CARD NUMBER ── */
 .pj-card-number {
   position: absolute;
@@ -180,7 +154,7 @@
   line-height: 1;
   letter-spacing: -0.03em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(192, 132, 252, 0.45);
+  -webkit-text-stroke: 1px rgba(192,132,252,0.45);
   pointer-events: none;
   user-select: none;
   transition: opacity 0.35s ease;
@@ -199,7 +173,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1);
 }
 
 .pj-card:hover .pj-info {
@@ -216,10 +190,10 @@
   margin: 0;
   letter-spacing: 0.02em;
   line-height: 1.15;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
 }
 
-/* ── BADGE ── */
+/* ── BADGE — backdrop-filter ამოღებულია ── */
 .pj-badge {
   display: inline-flex;
   align-items: center;
@@ -230,13 +204,12 @@
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: rgba(220, 185, 255, 0.9);
-  background: rgba(100, 30, 220, 0.25);
-  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: rgba(220,185,255,0.9);
+  /* მყარი ფერი blur-ის მაგივრად */
+  background: rgba(80,20,180,0.55);
+  border: 1px solid rgba(168,85,247,0.35);
   border-radius: 50px;
   padding: 4px 12px 4px 8px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 /* ── GLOWING DOT ── */
@@ -244,7 +217,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(192, 132, 252, 1);
+  background: rgba(192,132,252,1);
   flex-shrink: 0;
   animation: pulse-dot 2.2s ease-in-out infinite;
 }
@@ -263,7 +236,7 @@
 
 .pj-card:hover .pj-hover-overlay { opacity: 1; }
 
-/* ── VIEW BUTTON ── */
+/* ── VIEW BUTTON — backdrop-filter ამოღებულია ── */
 .pj-view-btn {
   position: relative;
   overflow: hidden;
@@ -274,8 +247,9 @@
   padding: 0 30px;
   height: 50px;
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1.5px solid rgba(192, 132, 252, 0.5);
+  /* მყარი ფერი blur-ის მაგივრად */
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(192,132,252,0.5);
   color: #ffffff;
   font-family: var(--font-en);
   font-size: 0.76rem;
@@ -283,8 +257,6 @@
   letter-spacing: 0.13em;
   text-transform: uppercase;
   text-decoration: none;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   cursor: pointer;
   transition: border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
 }
@@ -293,7 +265,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(192, 132, 252, 0.28), rgba(99, 102, 241, 0.22));
+  background: linear-gradient(135deg, rgba(192,132,252,0.28), rgba(99,102,241,0.22));
   opacity: 0;
   transition: opacity 0.35s ease;
   border-radius: inherit;
@@ -302,9 +274,9 @@
 .pj-view-btn:hover::before { opacity: 1; }
 
 .pj-view-btn:hover {
-  border-color: rgba(192, 132, 252, 0.9);
+  border-color: rgba(192,132,252,0.9);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.45);
+  box-shadow: 0 8px 32px rgba(168,85,247,0.45);
 }
 
 .pj-view-btn:active { transform: translateY(1px); }
@@ -322,33 +294,28 @@
   text-transform: uppercase;
   text-decoration: none;
   color: #ffffff;
-  background: linear-gradient(
-    135deg,
-    rgb(192, 132, 252),
-    rgb(168, 85, 247),
-    rgb(124, 58, 237)
-  ) 0px 0px / 200% 200%;
+  background: linear-gradient(135deg, rgb(192,132,252), rgb(168,85,247), rgb(124,58,237)) 0px 0px / 200% 200%;
   animation: aurora-shift 6s ease infinite;
   box-shadow:
-    rgba(192, 132, 252, 0.4) 0px 0px 0px 1px,
-    rgba(168, 85, 247, 0.6) 0px 4px 20px,
-    rgba(255, 255, 255, 0.2) 0px 1px inset;
+    rgba(192,132,252,0.4) 0px 0px 0px 1px,
+    rgba(168,85,247,0.6) 0px 4px 20px,
+    rgba(255,255,255,0.2) 0px 1px inset;
   border: none;
   border-radius: 1.5rem;
   outline: none;
   height: 52px;
   padding: 0 34px;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
 }
 
 .pj-more-btn:hover {
   transform: translateY(-2px);
   box-shadow:
-    rgba(192, 132, 252, 0.5) 0px 0px 0px 1px,
-    rgba(168, 85, 247, 0.8) 0px 8px 32px,
-    rgba(168, 85, 247, 0.3) 0px 0px 60px,
-    rgba(255, 255, 255, 0.2) 0px 1px inset;
+    rgba(192,132,252,0.5) 0px 0px 0px 1px,
+    rgba(168,85,247,0.8) 0px 8px 32px,
+    rgba(168,85,247,0.3) 0px 0px 60px,
+    rgba(255,255,255,0.2) 0px 1px inset;
 }
 
 .pj-more-btn:active { transform: translateY(1px); }

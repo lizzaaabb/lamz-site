@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useEffect } from 'react'
 import '../styles/Customers.css'
+import { useLang } from '../components/LanguageContext'
 
 const reviews = [
   {
@@ -61,12 +62,14 @@ function GoogleIcon() {
   )
 }
 
-function ReviewCard({ review, lang }) {
+function ReviewCard({ review }) {
+  const { lang } = useLang()
   const verified = lang === 'ka' ? 'რეალური შეფასებები Google-ზე' : 'Verified on Google'
   const viewProfile = lang === 'ka' ? 'პროფილის ნახვა →' : 'View profile →'
+
   return (
-    <a
-      href={review.profileUrl}
+    
+      <a href={review.profileUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="rv-card"
@@ -107,9 +110,9 @@ function ReviewCard({ review, lang }) {
   )
 }
 
-function Customers({ lang = 'ka' }) {
+function Customers() {
+  const { lang } = useLang()
   const containerRef = useRef(null)
-
   const title = lang === 'ka' ? 'რას ამბობენ ჩვენი მომხმარებლები' : 'What Our Clients Say'
 
   useEffect(() => {
@@ -120,7 +123,6 @@ function Customers({ lang = 'ka' }) {
       gsap.registerPlugin(ScrollTrigger)
       ctx = gsap.context(() => {
         gsap.set('.rv-section-title, .rv-rule, .rv-card', { opacity: 0, y: 36 })
-
         gsap.fromTo(
           '.rv-section-title',
           { opacity: 0, y: 36 },
@@ -129,7 +131,6 @@ function Customers({ lang = 'ka' }) {
             opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
           }
         )
-
         gsap.fromTo(
           '.rv-rule',
           { opacity: 0, y: 36 },
@@ -138,7 +139,6 @@ function Customers({ lang = 'ka' }) {
             opacity: 1, y: 0, duration: 0.8, delay: 0.1, ease: 'power3.out',
           }
         )
-
         gsap.fromTo(
           '.rv-card',
           { opacity: 0, y: 48 },
@@ -161,7 +161,7 @@ function Customers({ lang = 'ka' }) {
       </div>
       <div className="rv-grid">
         {reviews.map((r, i) => (
-          <ReviewCard key={i} review={r} lang={lang} />
+          <ReviewCard key={i} review={r} />
         ))}
       </div>
     </div>

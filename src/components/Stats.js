@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react'
 import '../styles/Stats.css'
 import Triangle from '../components/Triangle'
+import { useLang } from '../components/LanguageContext'
 
 const content = {
   ka: {
@@ -44,7 +45,7 @@ const content = {
           'BOG და TBC ონლაინ გადახდები',
           'SMS შეტყობინება შეკვეთაზე',
           'ადმინ პანელი — პროდუქტები, კატეგორიები, შეკვეთები, გადახდები',
-          'მომხმარებლის ავტორიზაცია ',
+          'მომხმარებლის ავტორიზაცია',
         ],
       },
     ],
@@ -126,24 +127,22 @@ function getWhatsAppUrl(cardTitle, lang) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
-function Stats({ lang = 'ka' }) {
+function Stats() {
+  const { lang } = useLang()
   const t = content[lang]
   const containerRef = useRef(null)
 
   useEffect(() => {
     let ctx
-
     const init = async () => {
       const { gsap } = await import('gsap')
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
-
       ctx = gsap.context(() => {
         gsap.set('.sv-section-title, .sv-rule, .sv-card, .sv-bonus-card', {
           opacity: 0,
           y: 36,
         })
-
         const fadeUp = (target, delay = 0) => {
           gsap.fromTo(
             target,
@@ -162,10 +161,8 @@ function Stats({ lang = 'ka' }) {
             }
           )
         }
-
         fadeUp('.sv-section-title')
         fadeUp('.sv-rule', 0.1)
-
         gsap.fromTo(
           '.sv-card',
           { opacity: 0, y: 48 },
@@ -182,11 +179,9 @@ function Stats({ lang = 'ka' }) {
             ease: 'power3.out',
           }
         )
-
         fadeUp('.sv-bonus-card', 0.1)
       }, containerRef)
     }
-
     init()
     return () => ctx && ctx.revert()
   }, [])
@@ -204,7 +199,7 @@ function Stats({ lang = 'ka' }) {
             <div className="sv-card-number">{c.num}</div>
             <div className="sv-card-top">
               <div className="sv-price">{c.price}</div>
-             <p className={`sv-title sv-title--${lang}`}>{c.title}</p>
+              <p className={`sv-title sv-title--${lang}`}>{c.title}</p>
             </div>
             <div className="sv-divider" />
             <ul className="sv-list">
@@ -221,8 +216,8 @@ function Stats({ lang = 'ka' }) {
               ))}
             </ul>
             <div className="sv-btn-wrapper">
-              <a
-                className="sv-order-btn"
+              
+               <a className="sv-order-btn"
                 href={getWhatsAppUrl(c.title, lang)}
                 target="_blank"
                 rel="noopener noreferrer"

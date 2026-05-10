@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import '../styles/Cta.css'
+import { useLang } from '../components/LanguageContext'
 
 const WHATSAPP_NUMBER = '995574065469'
 
@@ -23,7 +24,8 @@ const content = {
   },
 }
 
-function Cta({ lang = 'ka' }) {
+function Cta() {
+  const { lang } = useLang()
   const t = content[lang]
   const containerRef = useRef(null)
 
@@ -74,9 +76,8 @@ function Cta({ lang = 'ka' }) {
             <p className="cta-sub">{t.sub}</p>
             <div className="cta-btns">
 
-              {/* WhatsApp — primary purple */}
-              <a
-                href={t.whatsapp}
+              
+               <a href={t.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-btn2 cta-btn--primary2"
@@ -88,9 +89,8 @@ function Cta({ lang = 'ka' }) {
                 {t.btnWhatsapp}
               </a>
 
-              {/* Call — solid white/light */}
-              <a
-                href={t.phone}
+              
+              <a  href={t.phone}
                 className="cta-btn2 cta-btn--call2"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

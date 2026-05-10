@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import '../styles/Header.css'
+import { useLang } from '../components/LanguageContext'
 
 const logo = '/logo.png'
 
@@ -12,13 +13,13 @@ const content = {
     ],
     right: [
       { label: 'პროექტები', href: '#projects' },
-      { label: 'კონტაქტი',  href: '#contact' },
+      { label: 'კონტაქტი',  href: 'contact' },
     ],
     nav: [
       { label: 'ჩვენს შესახებ', href: '#about',    num: '01' },
       { label: 'სერვისები',     href: '#services',  num: '02' },
       { label: 'პროექტები',     href: '#projects',  num: '03' },
-      { label: 'კონტაქტი',      href: '#contact',   num: '04' },
+      { label: 'კონტაქტი',      href: 'contact',   num: '04' },
     ],
   },
   en: {
@@ -28,48 +29,40 @@ const content = {
     ],
     right: [
       { label: 'Projects', href: '#projects' },
-      { label: 'Contact',  href: '#contact' },
+      { label: 'Contact',  href: 'contact' },
     ],
     nav: [
       { label: 'About',    href: '#about',    num: '01' },
       { label: 'Services', href: '#services', num: '02' },
       { label: 'Projects', href: '#projects', num: '03' },
-      { label: 'Contact',  href: '#contact',  num: '04' },
+      { label: 'Contact',  href: 'contact',  num: '04' },
     ],
   },
 }
 
-const LangSwitcher = ({ activeLang, switchLang, className = '' }) => (
-  <div className={`lang-switcher ${className}`}>
-    {[['ka', 'GEO'], ['en', 'EN']].map(([code, label]) => (
-      <button
-        key={code}
-        className={`lang-btn${activeLang === code ? ' lang-btn--active' : ''}`}
-        onClick={() => switchLang(code)}
-        aria-pressed={activeLang === code}
-      >
-        {label}
-      </button>
-    ))}
-  </div>
-)
+const LangSwitcher = ({ className = '' }) => {
+  const { lang, setLang } = useLang()
+  return (
+    <div className={`lang-switcher ${className}`}>
+      {[['ka', 'GEO'], ['en', 'EN']].map(([code, label]) => (
+        <button
+          key={code}
+          className={`lang-btn${lang === code ? ' lang-btn--active' : ''}`}
+          onClick={() => setLang(code)}
+          aria-pressed={lang === code}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  )
+}
 
-function Header({ onLangChange, activeLang: activeLangProp }) {
-  const [activeLang, setActiveLang] = useState(activeLangProp ?? 'ka')
+function Header() {
+  const { lang } = useLang()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mounted, setMounted]         = useState(false)
   const [scrolled, setScrolled]       = useState(false)
-
-  useEffect(() => {
-    if (activeLangProp && activeLangProp !== activeLang) {
-      setActiveLang(activeLangProp)
-    }
-  }, [activeLangProp])
-
-  const switchLang = (code) => {
-    setActiveLang(code)
-    onLangChange?.(code)
-  }
 
   const openSidebar = () => {
     setSidebarOpen(true)
@@ -92,13 +85,13 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
     }
   }, [])
 
-  const t = content[activeLang]
+  const t = content[lang]
 
   return (
     <>
       <div
         className={`header-container${scrolled ? ' header-scrolled' : ''}`}
-        data-lang={activeLang}
+        data-lang={lang}
       >
         <div className="header-glass" />
 
@@ -110,16 +103,12 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
               <span className="nav-link-line" />
             </a>
           ))}
-          <LangSwitcher
-            activeLang={activeLang}
-            switchLang={switchLang}
-            className="lang-switcher--mobile"
-          />
+          <LangSwitcher className="lang-switcher--mobile" />
         </div>
 
         {/* CENTER — logo */}
         <div className="second-block">
-          <a href="#home" className="header-logo-link" aria-label="Apollo Creations">
+          <a href="/" className="header-logo-link" aria-label="Apollo Creations">
             <div className="logo-glow-ring" />
             <img src={logo} alt="Apollo Creations" className="header-logo-img" />
           </a>
@@ -133,11 +122,7 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
               <span className="nav-link-line" />
             </a>
           ))}
-          <LangSwitcher
-            activeLang={activeLang}
-            switchLang={switchLang}
-            className="lang-switcher--desktop"
-          />
+          <LangSwitcher className="lang-switcher--desktop" />
           <button className="hamburger" onClick={openSidebar} aria-label="Open menu">
             <span />
             <span />
@@ -155,7 +140,7 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
           />
           <aside
             className={`sidebar-panel ${mounted ? 'sidebar-panel--open' : ''}`}
-            data-lang={activeLang}
+            data-lang={lang}
             aria-label="Navigation menu"
           >
             <div className="sidebar-top">
@@ -169,8 +154,8 @@ function Header({ onLangChange, activeLang: activeLangProp }) {
 
             <nav className="sidebar-nav">
               {t.nav.map((item, i) => (
-                <a
-                  key={i}
+                
+                 <a key={i}
                   href={item.href}
                   className="sidebar-link"
                   style={{ '--i': i }}

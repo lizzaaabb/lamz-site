@@ -8,7 +8,6 @@ export default function Page() {
 
   return (
     <>
-      <Header onLangChange={setLang} />
       <Home lang={lang}/>
     </>
   )

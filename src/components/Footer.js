@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import '../styles/Footer.css'
+import { useLang } from '../components/LanguageContext'
 
 const content = {
   ka: {
@@ -32,29 +33,14 @@ const content = {
 }
 
 const socials = [
-  {
-    label: 'Instagram',
-    icon: '/instagram.png',
-    href: 'https://instagram.com/apollocreations',
-  },
-  {
-    label: 'TikTok',
-    icon: '/tiktok.png',
-    href: 'https://tiktok.com/@apollocreations',
-  },
-  {
-    label: 'Facebook',
-    icon: '/facebook.png',
-    href: 'https://facebook.com/apollocreations',
-  },
-  {
-    label: 'WhatsApp',
-    icon: '/whatsapp.png',
-    href: 'https://wa.me/995574065469',
-  },
+  { label: 'Instagram', icon: '/instagram.png', href: 'https://instagram.com/apollocreations' },
+  { label: 'TikTok',    icon: '/tiktok.png',    href: 'https://tiktok.com/@apollocreations'  },
+  { label: 'Facebook',  icon: '/facebook.png',  href: 'https://facebook.com/apollocreations' },
+  { label: 'WhatsApp',  icon: '/whatsapp.png',  href: 'https://wa.me/995574065469'           },
 ]
 
-function Footer({ lang = 'ka' }) {
+function Footer() {
+  const { lang } = useLang()
   const t = content[lang] || content['ka']
 
   return (
@@ -69,7 +55,7 @@ function Footer({ lang = 'ka' }) {
             <div className="ft-socials">
               {socials.map((s) => (
                 
-                 <a  key={s.label}
+                <a  key={s.label}
                   href={s.href}
                   className="ft-social-btn"
                   aria-label={s.label}

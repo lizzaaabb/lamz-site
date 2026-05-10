@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import '../styles/Projects.css'
+import { useLang } from '../components/LanguageContext'
 
 const content = {
   ka: {
@@ -11,21 +12,21 @@ const content = {
         name: 'Art Of Movement',
         desc: 'ლენდინგ გვერდი',
         url: 'https://artofmovement.net',
-        img: '/mock11.png',
+        img: '/mock11.jpg',
       },
       {
         num: '02',
         name: 'Your Hood',
         desc: 'ონლაინ მაღაზია',
         url: 'https://yourhood.ge/',
-        img: '/mockup2.png',
+        img: '/mockup2.jpg',
       },
       {
         num: '03',
         name: 'Utopia VIP Tourism',
         desc: 'ტურისტული კომპანია',
         url: 'https://www.utopiaviptravel.com/',
-        img: '/mockup.png',
+        img: '/mockup.jpg',
       },
     ],
     more: 'იხილეთ პროექტები',
@@ -53,7 +54,6 @@ const content = {
         name: 'Utopia VIP Tourism',
         desc: 'Tourism Company',
         url: 'https://www.utopiaviptravel.com/',
-
         img: '/mockup.png',
       },
     ],
@@ -62,7 +62,8 @@ const content = {
   },
 }
 
-function Projects({ lang = 'ka' }) {
+function Projects() {
+  const { lang } = useLang()
   const t = content[lang]
   const containerRef = useRef(null)
 
@@ -128,14 +129,14 @@ function Projects({ lang = 'ka' }) {
       </div>
       <div className="pj-grid">
         {t.projects.map((p, i) => (
-  <div key={i} className="pj-card">
-    <img
-      src={p.img}
-      alt={p.name}
-      className="pj-image"
-      style={i=== 1|i === 2 ? { transform: 'scale(1.05)', transformOrigin: 'center top' } : undefined}
-    />
-    <div className="pj-fade" />
+          <div key={i} className="pj-card">
+            <img
+              src={p.img}
+              alt={p.name}
+              className="pj-image"
+              style={i === 1 || i === 2 ? { transform: 'scale(1.05)', transformOrigin: 'center top' } : undefined}
+            />
+            <div className="pj-fade" />
             <div className="pj-card-number">{p.num}</div>
             <div className="pj-info">
               <p className="pj-name">{p.name}</p>
