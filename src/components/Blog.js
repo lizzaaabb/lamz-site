@@ -72,7 +72,6 @@ const content = {
 }
 
 function Blog() {
-  // ✅ useLang() is called INSIDE the function — this is the correct place
   const { lang, prefix } = useLang()
   const t = content[lang] || content['en']
   const containerRef = useRef(null)
@@ -115,26 +114,31 @@ function Blog() {
 
       {/* ── GRID ── */}
       <div className="bl-grid">
-        {t.posts.map((p, i) => (
-          <div key={i} className="bl-card">
-            <div className="bl-card-top">
-              <span className="bl-tag">{p.tag}</span>
-              <span className="bl-num">{p.num}</span>
-            </div>
-            <div className="bl-card-body">
-              <p className="bl-date">{p.date}</p>
-              <h3 className="bl-post-title">{p.title}</h3>
-              <p className="bl-desc">{p.desc}</p>
-            </div>
-            <div className="bl-card-footer">
-              <span className="bl-read-time">{p.readTime}</span>
-              {/* ✅ prefix keeps /ka in the URL when in Georgian mode */}
-              <a href={p.slug ? `${prefix}/${p.slug}` : '#'} className="bl-read-more">
-                {t.readMore}
-              </a>
-            </div>
-          </div>
-        ))}
+        {t.posts.map((p, i) => {
+          const href = p.slug ? `${prefix}/${p.slug}` : '#'
+          return (
+            <a
+              key={i}
+              href={href}
+              className="bl-card"
+              style={{ textDecoration: 'none', color: 'inherit', cursor: p.slug ? 'pointer' : 'default' }}
+            >
+              <div className="bl-card-top">
+                <span className="bl-tag">{p.tag}</span>
+                <span className="bl-num">{p.num}</span>
+              </div>
+              <div className="bl-card-body">
+                <p className="bl-date">{p.date}</p>
+                <h3 className="bl-post-title">{p.title}</h3>
+                <p className="bl-desc">{p.desc}</p>
+              </div>
+              <div className="bl-card-footer">
+                <span className="bl-read-time">{p.readTime}</span>
+                <span className="bl-read-more">{t.readMore}</span>
+              </div>
+            </a>
+          )
+        })}
       </div>
 
     </div>
