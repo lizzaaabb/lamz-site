@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react'
 import '../styles/Blog.css'
 import { useLang } from '../components/LanguageContext'
+import Blog1, { blogContentKa, blogContentEn } from '../components/Blog1'
 
 const content = {
   ka: {
@@ -10,11 +11,12 @@ const content = {
     posts: [
       {
         num: '01',
-        tag: 'დიზაინი',
-        date: '12 მაისი, 2025',
-        title: 'საიტის შეკვეთა: 5 აუცილებელი მოთხოვნა წარმატებული პროექტისთვის',
+        tag: blogContentKa.category,
+        date: blogContentKa.date,
+        title: blogContentKa.title,
         desc: 'თქვენი საიტის ვიზიტორი 3 წამში წყვეტს — დარჩეს თუ გადავიდეს. გაიგეთ, როგორ ქმნის სწორი დიზაინი ნდობას.',
-        readTime: '4 წუთი',
+        readTime: blogContentKa.readTime,
+        slug: blogContentKa.slug,
       },
       {
         num: '02',
@@ -41,17 +43,18 @@ const content = {
     posts: [
       {
         num: '01',
-        tag: 'Design',
-        date: 'May 12, 2025',
-        title: 'Ordering a Website: 5 Essential Requirements for a Successful Project',
+        tag: blogContentEn.category,
+        date: blogContentEn.date,
+        title: blogContentEn.title,
         desc: 'Your visitor decides in 3 seconds whether to stay or leave. Learn how the right design builds instant trust.',
-        readTime: '4 min read',
+        readTime: blogContentEn.readTime,
+        slug: blogContentEn.slug,
       },
       {
         num: '02',
         tag: 'SEO',
         date: 'April 28, 2025',
-        title: 'Wordpress VS Next.js - 5 ReasonsWhy Next.js is Better for Your Business',
+        title: 'Wordpress VS Next.js - 5 Reasons Why Next.js is Better for Your Business',
         desc: "Google's algorithm keeps getting smarter. Find out which factors actually determine your ranking today.",
         readTime: '6 min read',
       },
@@ -124,7 +127,7 @@ function Blog() {
             </div>
             <div className="bl-card-footer">
               <span className="bl-read-time">{p.readTime}</span>
-              <a href="#" className="bl-read-more">{t.readMore}</a>
+              <a href={p.slug ? `/${p.slug}` : '#'} className="bl-read-more">{t.readMore}</a>
             </div>
           </div>
         ))}
