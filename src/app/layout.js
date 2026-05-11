@@ -4,7 +4,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export const metadata = {
-  // --- Basic ---
   title: {
     default: "საიტის დამზადება | ვებგვერდის შექმნა | Web Development | Apollo Creations",
     template: "%s | საიტის დამზადება - Apollo Creations",
@@ -12,7 +11,6 @@ export const metadata = {
   description:
     "საიტის დამზადება პროფესიონალურად — სწრაფი, თანამედროვე და მიმზიდველი ვებგვერდები. Professional web development agency in Georgia. Fast, modern & beautiful websites built by Apollo Creations.",
   keywords: [
-    // Georgian first (priority)
     "საიტის დამზადება",
     "ვებგვერდის დამზადება",
     "ვებგვერდის შექმნა",
@@ -21,7 +19,6 @@ export const metadata = {
     "ციფრული სააგენტო თბილისი",
     "პროგრამირება საქართველო",
     "ვებსაიტი თბილისი",
-    // English
     "web development Georgia",
     "website development Tbilisi",
     "web design agency Georgia",
@@ -31,8 +28,6 @@ export const metadata = {
     "web agency Tbilisi",
     "Apollo Creations",
   ],
-
-  // --- Canonical & hreflang ---
   alternates: {
     canonical: "https://apollocreations.net",
     languages: {
@@ -40,8 +35,6 @@ export const metadata = {
       "ka": "https://apollocreations.net/ka",
     },
   },
-
-  // --- Open Graph (Facebook, WhatsApp, LinkedIn) ---
   openGraph: {
     title: "საიტის დამზადება | ვებგვერდის შექმნა | Apollo Creations",
     description:
@@ -60,8 +53,6 @@ export const metadata = {
       },
     ],
   },
-
-  // --- Robots ---
   robots: {
     index: true,
     follow: true,
@@ -72,13 +63,9 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-
-  // --- Icons ---
   icons: {
     icon: "/favicon.ico",
   },
-
-  // --- Metadata base ---
   metadataBase: new URL("https://apollocreations.net"),
 };
 

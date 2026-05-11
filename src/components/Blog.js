@@ -72,7 +72,8 @@ const content = {
 }
 
 function Blog() {
-  const { lang } = useLang()
+  // ✅ useLang() is called INSIDE the function — this is the correct place
+  const { lang, prefix } = useLang()
   const t = content[lang] || content['en']
   const containerRef = useRef(null)
 
@@ -127,7 +128,10 @@ function Blog() {
             </div>
             <div className="bl-card-footer">
               <span className="bl-read-time">{p.readTime}</span>
-              <a href={p.slug ? `/${p.slug}` : '#'} className="bl-read-more">{t.readMore}</a>
+              {/* ✅ prefix keeps /ka in the URL when in Georgian mode */}
+              <a href={p.slug ? `${prefix}/${p.slug}` : '#'} className="bl-read-more">
+                {t.readMore}
+              </a>
             </div>
           </div>
         ))}

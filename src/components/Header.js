@@ -5,41 +5,6 @@ import { useLang } from '../components/LanguageContext'
 
 const logo = '/logo.png'
 
-const content = {
-  ka: {
-    left: [
-      { label: 'ბლოგი', href: 'blog' },
-      { label: 'სერვისები',     href: '#services' },
-    ],
-    right: [
-      { label: 'პროექტები', href: 'projects' },
-      { label: 'კონტაქტი',  href: 'contact' },
-    ],
-    nav: [
-      { label: 'ბლოგი', href: 'blog',    num: '01' },
-      { label: 'სერვისები',     href: '#services',  num: '02' },
-      { label: 'პროექტები',     href: 'projects',  num: '03' },
-      { label: 'კონტაქტი',      href: 'contact',   num: '04' },
-    ],
-  },
-  en: {
-    left: [
-      { label: 'Blog',    href: 'blog' },
-      { label: 'Services', href: '#services' },
-    ],
-    right: [
-      { label: 'Projects', href: 'projects' },
-      { label: 'Contact',  href: 'contact' },
-    ],
-    nav: [
-      { label: 'Blog',    href: 'blog',    num: '01' },
-      { label: 'Services', href: '#services', num: '02' },
-      { label: 'Projects', href: 'projects', num: '03' },
-      { label: 'Contact',  href: 'contact',  num: '04' },
-    ],
-  },
-}
-
 const LangSwitcher = ({ className = '' }) => {
   const { lang, setLang } = useLang()
   return (
@@ -59,7 +24,7 @@ const LangSwitcher = ({ className = '' }) => {
 }
 
 function Header() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mounted, setMounted]         = useState(false)
   const [scrolled, setScrolled]       = useState(false)
@@ -85,6 +50,42 @@ function Header() {
     }
   }, [])
 
+  // All links are built with prefix so /ka is preserved when navigating
+  const content = {
+    ka: {
+      left: [
+        { label: 'ბლოგი',     href: `${prefix}/blog` },
+        { label: 'სერვისები', href: `${prefix}#services` },
+      ],
+      right: [
+        { label: 'პროექტები', href: `${prefix}/projects` },
+        { label: 'კონტაქტი',  href: `${prefix}/contact` },
+      ],
+      nav: [
+        { label: 'ბლოგი',     href: `${prefix}/blog`,     num: '01' },
+        { label: 'სერვისები', href: `${prefix}#services`,  num: '02' },
+        { label: 'პროექტები', href: `${prefix}/projects`,  num: '03' },
+        { label: 'კონტაქტი',  href: `${prefix}/contact`,   num: '04' },
+      ],
+    },
+    en: {
+      left: [
+        { label: 'Blog',     href: `/blog` },
+        { label: 'Services', href: `#services` },
+      ],
+      right: [
+        { label: 'Projects', href: `/projects` },
+        { label: 'Contact',  href: `/contact` },
+      ],
+      nav: [
+        { label: 'Blog',     href: `/blog`,     num: '01' },
+        { label: 'Services', href: `#services`,  num: '02' },
+        { label: 'Projects', href: `/projects`,  num: '03' },
+        { label: 'Contact',  href: `/contact`,   num: '04' },
+      ],
+    },
+  }
+
   const t = content[lang]
 
   return (
@@ -108,7 +109,7 @@ function Header() {
 
         {/* CENTER — logo */}
         <div className="second-block">
-          <a href="/" className="header-logo-link" aria-label="Apollo Creations">
+          <a href={prefix || '/'} className="header-logo-link" aria-label="Apollo Creations">
             <div className="logo-glow-ring" />
             <img src={logo} alt="Apollo Creations" className="header-logo-img" />
           </a>
@@ -154,8 +155,8 @@ function Header() {
 
             <nav className="sidebar-nav">
               {t.nav.map((item, i) => (
-                
-                 <a key={i}
+                <a
+                  key={i}
                   href={item.href}
                   className="sidebar-link"
                   style={{ '--i': i }}

@@ -32,7 +32,7 @@ function renderContent(lines) {
 }
 
 function Blog1Page() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()
   const post = lang === 'ka' ? blogContentKa : blogContentEn
   const containerRef = useRef(null)
 
@@ -81,9 +81,9 @@ function Blog1Page() {
 
       {/* BACK */}
       <div className="bp-back-wrap">
-        <a href="/blog" className="bp-back">
-          ← {lang === 'ka' ? 'ბლოგზე დაბრუნება' : 'Back to Blog'}
-        </a>
+       <a href={`${prefix}/blog`} className="bp-back">
+  ← {lang === 'ka' ? 'ბლოგზე დაბრუნება' : 'Back to Blog'}
+</a>
       </div>
 
     </div>
