@@ -255,4 +255,7 @@
   .bl-title { font-size: 1.8rem; gap: 12px; }
   .bl-title::before, .bl-title::after { width: 30px; }
   .bl-card { padding: 24px 20px; }
+  .bl-header{
+    padding-top: 50px;
+  }
 }
