@@ -2,7 +2,8 @@
 import React, { useEffect, useRef } from 'react'
 import '../styles/Blog.css'
 import { useLang } from '../components/LanguageContext'
-import Blog1, { blogContentKa, blogContentEn } from '../components/Blog1'
+import { blogContentKa as blog1Ka, blogContentEn as blog1En } from '../components/Blog1'
+import { blogContentKa as blog2Ka, blogContentEn as blog2En } from '../components/Blog2'
 
 const content = {
   ka: {
@@ -11,20 +12,21 @@ const content = {
     posts: [
       {
         num: '01',
-        tag: blogContentKa.category,
-        date: blogContentKa.date,
-        title: blogContentKa.title,
+        tag: blog1Ka.category,
+        date: blog1Ka.date,
+        title: blog1Ka.title,
         desc: 'თქვენი საიტის ვიზიტორი 3 წამში წყვეტს — დარჩეს თუ გადავიდეს. გაიგეთ, როგორ ქმნის სწორი დიზაინი ნდობას.',
-        readTime: blogContentKa.readTime,
-        slug: blogContentKa.slug,
+        readTime: blog1Ka.readTime,
+        slug: blog1Ka.slug,
       },
       {
         num: '02',
-        tag: 'SEO',
-        date: '28 აპრილი, 2025',
-        title: 'ვორდპრესი VS Next.js - 5 მიზეზი თუ რატომ არის Next.js უკეთესი თქვენი ბიზნესისთვის',
-        desc: 'Google-ის ალგორითმი სულ უფრო ჭკვიანდება. გაიგეთ, რომელი ფაქტორები განსაზღვრავს პოზიციას დღეს.',
-        readTime: '6 წუთი',
+        tag: blog2Ka.category,
+        date: blog2Ka.date,
+        title: blog2Ka.title,
+        desc: 'Next.js თუ WordPress? გაიგეთ 5 მთავარი მიზეზი, რის გამოც Next.js უკეთეს შედეგებს იძლევა თქვენი ბიზნესისთვის.',
+        readTime: blog2Ka.readTime,
+        slug: blog2Ka.slug,
       },
       {
         num: '03',
@@ -43,20 +45,21 @@ const content = {
     posts: [
       {
         num: '01',
-        tag: blogContentEn.category,
-        date: blogContentEn.date,
-        title: blogContentEn.title,
+        tag: blog1En.category,
+        date: blog1En.date,
+        title: blog1En.title,
         desc: 'Your visitor decides in 3 seconds whether to stay or leave. Learn how the right design builds instant trust.',
-        readTime: blogContentEn.readTime,
-        slug: blogContentEn.slug,
+        readTime: blog1En.readTime,
+        slug: blog1En.slug,
       },
       {
         num: '02',
-        tag: 'SEO',
-        date: 'April 28, 2025',
-        title: 'Wordpress VS Next.js - 5 Reasons Why Next.js is Better for Your Business',
-        desc: "Google's algorithm keeps getting smarter. Find out which factors actually determine your ranking today.",
-        readTime: '6 min read',
+        tag: blog2En.category,
+        date: blog2En.date,
+        title: blog2En.title,
+        desc: 'Next.js or WordPress? Learn 5 key reasons why Next.js delivers better speed, SEO and results for your business.',
+        readTime: blog2En.readTime,
+        slug: blog2En.slug,
       },
       {
         num: '03',
