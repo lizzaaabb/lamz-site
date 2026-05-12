@@ -63,7 +63,7 @@ const content = {
 }
 
 function Projects() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()  // ← added prefix
   const t = content[lang]
   const containerRef = useRef(null)
 
@@ -154,7 +154,7 @@ function Projects() {
         ))}
       </div>
       <div className="pj-more-wrap">
-        <a href="/projects" className="pj-more-btn">
+        <a href={`${prefix}/projects`} className="pj-more-btn"> {/* ← fixed */}
           {t.more}
         </a>
       </div>
