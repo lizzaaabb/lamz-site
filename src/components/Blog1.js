@@ -6,7 +6,7 @@ export const blogContentKa = {
   date: "2026-02-16",
 
   content: `
-დღეს ბიზნესისთვის ვებსაიტის ქონა უბრალოდ დამატებითი კომფორტი აღარ არის — ეს აუცილებლობაა. ხშირად, მომხმარებლის პირველი შეხება თქვენს ბრენდთან სწორედ ინტერნეტში ხდება. სწორედ ამიტომ, მნიშვნელოვანია, რომ ვებსაიტის შექმნის პროცესი თავიდანვე სწორად დაიგეგმოს.
+დღეს ბიზნესისთვის ვებსაიტის ქონა უბრალოდ დამატებითი კომფორტი აღარ არის - ეს აუცილებლობაა. ხშირად, მომხმარებლის პირველი შეხება თქვენს ბრენდთან სწორედ ინტერნეტში ხდება. სწორედ ამიტომ, მნიშვნელოვანია, რომ ვებსაიტის შექმნის პროცესი თავიდანვე სწორად დაიგეგმოს.
 
 ბევრი პროექტი არა დიზაინის ან ტექნიკური პრობლემების, არამედ არასწორი კომუნიკაციისა და გაუგებარი მოთხოვნების გამო ფერხდება. თუ გსურთ, რომ ვებსაიტის პროექტი სწრაფად, ორგანიზებულად და ეფექტურად განვითარდეს, მნიშვნელოვანია ყურადღება მიაქციოთ შემდეგ 5 საკითხს.
 
@@ -29,7 +29,7 @@ export const blogContentKa = {
 
 როდესაც პროექტის მოთხოვნები თავიდანვე სწორად არის შეთანხმებული, პროცესი ბევრად სწრაფი და სტაბილური ხდება ორივე მხარისთვის.
 
-## 2. პროექტის Scope თავიდანვე უნდა შეთანხმდეს
+## 2. პროექტის მასშტაბი თავიდანვე უნდა შეთანხმდეს
 
 ვებსაიტის შექმნის დაწყებამდე აუცილებელია პროექტის სრული scope-ის შეთანხმება.
 
@@ -102,7 +102,7 @@ export const blogContentEn = {
   date: "2026-02-16",
 
   content: `
-Today, having a website is no longer just an extra advantage for businesses — it is a necessity. In many cases, a customer’s first interaction with your brand happens online. That is why it is important to properly plan the website development process from the very beginning.
+Today, having a website is no longer just an extra advantage for businesses - it is a necessity. In many cases, a customer’s first interaction with your brand happens online. That is why it is important to properly plan the website development process from the very beginning.
 
 Many projects fail not because of design or technical issues, but because of poor communication and unclear requirements. If you want your website project to move forward quickly, smoothly, and efficiently, it is important to focus on these 5 essential points.
 
