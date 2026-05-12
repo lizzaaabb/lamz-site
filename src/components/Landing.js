@@ -40,7 +40,7 @@ function BrandPill({ src, name }) {
 }
 
 function Landing() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()
   const tickerRef = useRef(null)
   const t = content[lang] || content['ka']
 
@@ -74,12 +74,12 @@ function Landing() {
         <div className="landing-rule" />
         <p className="landing-sub">{t.sub}</p>
         <div className="landing-cta">
-          <button className="cta-btn cta-primary" onClick={() => window.location.href = '/projects'}>
-            <span className="cta-shimmer" /><span className="cta-dot" />{t.ctaPrimary}
-          </button>
-          <button className="cta-btn cta-secondary" onClick={() => window.location.href = '/contact'}>
-            <span className="cta-shimmer" /><span className="cta-dot" />{t.ctaSecondary}
-          </button>
+         <button className="cta-btn cta-primary" onClick={() => window.location.href = `${prefix}/projects`}>
+  <span className="cta-shimmer" /><span className="cta-dot" />{t.ctaPrimary}
+</button>
+        <button className="cta-btn cta-secondary" onClick={() => window.location.href = `${prefix}/contact`}>
+  <span className="cta-shimmer" /><span className="cta-dot" />{t.ctaSecondary}
+</button>
         </div>
       </div>
       <div className="ticker-section">
