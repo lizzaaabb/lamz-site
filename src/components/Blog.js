@@ -4,6 +4,7 @@ import '../styles/Blog.css'
 import { useLang } from '../components/LanguageContext'
 import { blogContentKa as blog1Ka, blogContentEn as blog1En } from '../components/Blog1'
 import { blogContentKa as blog2Ka, blogContentEn as blog2En } from '../components/Blog2'
+import { blogContentKa as blog3Ka, blogContentEn as blog3En } from '../components/Blog3'
 
 const content = {
   ka: {
@@ -30,11 +31,12 @@ const content = {
       },
       {
         num: '03',
-        tag: 'ბიზნესი',
-        date: '10 აპრილი, 2025',
-        title: '5 მიზეზი თუ რატომ სჭირდება თქვენს ბიზნესს ვებსაიტი',
-        desc: 'ბევრი ბიზნესი იხდის მეტს ვიდრე სჭირდება. გაიგეთ სხვაობა და აირჩიეთ სწორი გადაწყვეტა.',
-        readTime: '5 წუთი',
+        tag: blog3Ka.category,
+        date: blog3Ka.date,
+        title: blog3Ka.title,
+        desc: 'ბევრი ბიზნესი კარგავს კლიენტებს იმიტომ, რომ ონლაინ არ ჩანს. გაიგეთ 5 მიზეზი, რის გამოც ვებსაიტი თქვენს ბიზნესს სჭირდება.',
+        readTime: blog3Ka.readTime,
+        slug: blog3Ka.slug,
       },
     ],
     readMore: 'სრულად წაკითხვა →',
@@ -63,11 +65,12 @@ const content = {
       },
       {
         num: '03',
-        tag: 'Business',
-        date: 'April 10, 2025',
-        title: '5 Reasons Why Your Business Needs a Website',
-        desc: 'Many businesses overpay for features they never use. Learn the difference and choose the right solution.',
-        readTime: '5 min read',
+        tag: blog3En.category,
+        date: blog3En.date,
+        title: blog3En.title,
+        desc: 'Many businesses lose customers simply because they are not visible online. Learn 5 reasons why your business needs a website.',
+        readTime: blog3En.readTime,
+        slug: blog3En.slug,
       },
     ],
     readMore: 'Read more →',
