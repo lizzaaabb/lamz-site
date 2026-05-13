@@ -9,9 +9,8 @@ function renderContent(lines, prefix, lang) {
   const elements = []
   let i = 0
 
-  const blog1Line  = lang === 'ka' ? 'რა უნდა იცოდეთ ვებსაიტის შეკვეთამდე' : 'What You Should Know Before Ordering a Website'
-  const contactLine = lang === 'ka' ? 'შესაკვეთად დაგვიკავშირდით' : 'Contact Us to Order'
-
+  const blog1Line   = lang === 'ka' ? 'რა უნდა იცოდეთ ვებსაიტის შეკვეთამდე' : 'Things to know before ordering a website'
+const contactLine = lang === 'ka' ? 'შესაკვეთად დაგვიკავშირდით'            : 'Place an order'
   while (i < lines.length) {
     const line = lines[i]
 

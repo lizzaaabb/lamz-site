@@ -76,7 +76,7 @@ A website works 24/7 — even while you sleep, your business can still generate 
 
 We create modern, fast, and SEO-optimized websites focused on real results.
 
-What you should know before ordering a website  
-Contact us to place an order
+Things to know before ordering a website  
+Place an order
 `,
 };
