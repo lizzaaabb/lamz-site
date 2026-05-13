@@ -54,7 +54,7 @@ function Header() {
     ka: {
       left: [
         { label: 'ბლოგი',     href: `${prefix}/blog` },
-        { label: 'სერვისები', href: `${prefix}#services` },
+        { label: 'სერვისები', href: `${prefix}/services` },
       ],
       right: [
         { label: 'პროექტები', href: `${prefix}/projects` },
@@ -63,7 +63,7 @@ function Header() {
       nav: [
         { label: 'მთავარი',   href: `${prefix}/`,        num: '00' },
         { label: 'ბლოგი',     href: `${prefix}/blog`,    num: '01' },
-        { label: 'სერვისები', href: `${prefix}#services`, num: '02' },
+        { label: 'სერვისები', href: `${prefix}/services`, num: '02' },
         { label: 'პროექტები', href: `${prefix}/projects`, num: '03' },
         { label: 'კონტაქტი',  href: `${prefix}/contact`,  num: '04' },
       ],
@@ -71,7 +71,7 @@ function Header() {
     en: {
       left: [
         { label: 'Blog',     href: `/blog` },
-        { label: 'Services', href: `#services` },
+        { label: 'Services', href: `/services` },
       ],
       right: [
         { label: 'Projects', href: `/projects` },
@@ -80,7 +80,7 @@ function Header() {
       nav: [
         { label: 'Home',     href: `/`,         num: '00' },
         { label: 'Blog',     href: `/blog`,     num: '01' },
-        { label: 'Services', href: `#services`, num: '02' },
+        { label: 'Services', href: `/services`, num: '02' },
         { label: 'Projects', href: `/projects`, num: '03' },
         { label: 'Contact',  href: `/contact`,  num: '04' },
       ],
