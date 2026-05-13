@@ -208,3 +208,20 @@
   .bp-p { font-size: 0.97rem; }
   .bp-h2 { font-size: 1.05rem; }
 }
+
+/* ── CTA buttons inside blog body ── */
+.bp-cta {
+  margin-top: 16px;
+  text-decoration: none;
+}
+
+.bp-body .bp-cta + .bp-cta {
+  margin-left: 14px;
+}
+
+@media (max-width: 540px) {
+  .bp-body .bp-cta {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+}

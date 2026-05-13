@@ -3,13 +3,40 @@ import React, { useEffect, useRef } from 'react'
 import { useLang } from '../components/LanguageContext'
 import { blogContentKa, blogContentEn } from '../components/Blog1'
 import '../styles/BlogPage1.css'
+import '../styles/Landing.css'
 
-function renderContent(lines) {
+function renderContent(lines, prefix, lang) {
   const elements = []
   let i = 0
+  const servicesLine = lang === 'ka' ? 'იხილეთ ჩვენი სერვისები' : 'View Our Services'
+  const contactLine  = lang === 'ka' ? 'დაგვიკავშირდით პროექტის განსახილველად' : 'Contact Us to Discuss Your Project'
+
   while (i < lines.length) {
     const line = lines[i]
-    if (line.startsWith('## ')) {
+
+    if (line.trim() === servicesLine || line.trim() === contactLine) {
+      const ctaGroup = []
+      while (i < lines.length && (lines[i].trim() === servicesLine || lines[i].trim() === contactLine)) {
+        const isServices = lines[i].trim() === servicesLine
+        ctaGroup.push(
+          isServices
+            ? <a key={i} href={`${prefix}/services`} className="cta-btn cta-primary bp-cta">
+                <span className="cta-shimmer" />
+                {servicesLine}
+              </a>
+            : <a key={i} href="tel:+995574065469" className="cta-btn cta-secondary bp-cta">
+                <span className="cta-shimmer" />
+                {contactLine}
+              </a>
+        )
+        i++
+      }
+      elements.push(
+        <div key={`cta-group-${i}`} className="bp-cta-row">
+          {ctaGroup}
+        </div>
+      )
+    } else if (line.startsWith('## ')) {
       elements.push(<h2 key={i} className="bp-h2">{line.replace('## ', '')}</h2>)
       i++
     } else if (line.startsWith('- ') || line.startsWith('  - ')) {
@@ -43,11 +70,13 @@ function Blog1Page() {
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
       ctx = gsap.context(() => {
-        gsap.fromTo('.bp-hero-tag, .bp-hero-title, .bp-hero-meta',
+        gsap.fromTo(
+          '.bp-hero-tag, .bp-hero-title, .bp-hero-meta',
           { opacity: 0, y: 24 },
           { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out', delay: 0.1 }
         )
-        gsap.fromTo('.bp-body',
+        gsap.fromTo(
+          '.bp-body',
           { opacity: 0, y: 32 },
           { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: 0.4 }
         )
@@ -61,8 +90,6 @@ function Blog1Page() {
 
   return (
     <div ref={containerRef} className={`bp-page bp-page--${lang}`}>
-
-      {/* HERO */}
       <div className="bp-hero">
         <span className="bp-hero-tag">{post.category}</span>
         <h1 className="bp-hero-title">{post.title}</h1>
@@ -74,18 +101,15 @@ function Blog1Page() {
         <div className="bp-hero-rule" />
       </div>
 
-      {/* BODY */}
       <article className="bp-body">
-        {renderContent(lines)}
+        {renderContent(lines, prefix, lang)}
       </article>
 
-      {/* BACK */}
       <div className="bp-back-wrap">
-       <a href={`${prefix}/blog`} className="bp-back">
-  ← {lang === 'ka' ? 'ბლოგზე დაბრუნება' : 'Back to Blog'}
-</a>
+        <a href={`${prefix}/blog`} className="bp-back">
+          ← {lang === 'ka' ? 'ბლოგზე დაბრუნება' : 'Back to Blog'}
+        </a>
       </div>
-
     </div>
   )
 }
