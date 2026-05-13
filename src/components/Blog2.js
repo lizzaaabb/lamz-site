@@ -73,6 +73,6 @@ WordPress requires frequent updates for both core and plugins, which can sometim
 Next.js is better suited for modern, fast, and scalable business websites. WordPress is still a good choice for simple projects, but when performance, stability, and growth matter — Next.js is often the better option.
 
 Order Next.js Website
-Discover Why your business Needs a website
+Why Every Business Needs A Website
 `,
 };
