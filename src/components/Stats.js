@@ -22,7 +22,7 @@ const content = {
         ],
       },
       {
-        price: '1,499₾-იდან',
+        price: '1,799₾-იდან',
         title: 'ონლაინ კატალოგი',
         num: '02',
         items: [
@@ -64,7 +64,7 @@ const content = {
     title: 'Services',
     cards: [
       {
-        price: 'From 799₾',
+        price: 'From799₾',
         title: 'One-Page Website',
         num: '01',
         items: [
@@ -77,7 +77,7 @@ const content = {
         ],
       },
       {
-        price: 'From 1,499₾',
+        price: 'From 1,799₾',
         title: 'Online Catalogue',
         num: '02',
         items: [
