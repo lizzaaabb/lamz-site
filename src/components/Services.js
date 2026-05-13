@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import '../styles/Services.css'
 import { useLang } from '../components/LanguageContext'
 
-const servicePictures = ['service1.jpg', 'service2.jpg', 'service3.jpg']
+const servicePictures = ['service.jpg', 'service2.jpg', 'service3.jpg']
 
 const content = {
   ka: {
