@@ -3,13 +3,53 @@ import React, { useEffect, useRef } from 'react'
 import { useLang } from '../components/LanguageContext'
 import { blogContentKa, blogContentEn } from '../components/Blog2'
 import '../styles/BlogPage1.css'
+import '../styles/Landing.css'
 
-function renderContent(lines) {
+function renderContent(lines, prefix, lang) {
   const elements = []
   let i = 0
+
+  const nextjsLine = lang === 'ka' ? 'Next.js ვებსაიტის შეკვეთა'     : 'Order Next.js Website'
+  const blog3Line  = lang === 'ka' ? 'გაიგე რატომ გჭირდება ვებსაიტი' : 'Discover Why your business Needs a website'
+
+  const ctaLines = new Set([nextjsLine, blog3Line])
+
+  const blog3Slug = lang === 'ka' ? '/ka/5-reasons-why-your-business-needs-a-website' : '/en/5-reasons-why-your-business-needs-a-website'
+
   while (i < lines.length) {
     const line = lines[i]
-    if (line.startsWith('## ')) {
+
+    if (ctaLines.has(line.trim())) {
+      const ctaGroup = []
+
+      while (i < lines.length && ctaLines.has(lines[i].trim())) {
+        const t = lines[i].trim()
+
+        if (t === nextjsLine) {
+          ctaGroup.push(
+            <a key={i} href={`${prefix}/contact`} className="cta-btn cta-primary bp-cta">
+              <span className="cta-shimmer" />
+              {nextjsLine}
+            </a>
+          )
+        } else if (t === blog3Line) {
+          ctaGroup.push(
+            <a key={i} href={blog3Slug} className="cta-btn cta-secondary bp-cta">
+              <span className="cta-shimmer" />
+              {blog3Line}
+            </a>
+          )
+        }
+        i++
+      }
+
+      elements.push(
+        <div key={`cta-group-${i}`} className="bp-cta-row">
+          {ctaGroup}
+        </div>
+      )
+
+    } else if (line.startsWith('## ')) {
       elements.push(<h2 key={i} className="bp-h2">{line.replace('## ', '')}</h2>)
       i++
     } else if (line.startsWith('- ') || line.startsWith('  - ')) {
@@ -43,11 +83,13 @@ function Blog2Page() {
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
       ctx = gsap.context(() => {
-        gsap.fromTo('.bp-hero-tag, .bp-hero-title, .bp-hero-meta',
+        gsap.fromTo(
+          '.bp-hero-tag, .bp-hero-title, .bp-hero-meta',
           { opacity: 0, y: 24 },
           { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out', delay: 0.1 }
         )
-        gsap.fromTo('.bp-body',
+        gsap.fromTo(
+          '.bp-body',
           { opacity: 0, y: 32 },
           { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: 0.4 }
         )
@@ -61,7 +103,6 @@ function Blog2Page() {
 
   return (
     <div ref={containerRef} className={`bp-page bp-page--${lang}`}>
-
       {/* HERO */}
       <div className="bp-hero">
         <span className="bp-hero-tag">{post.category}</span>
@@ -76,7 +117,7 @@ function Blog2Page() {
 
       {/* BODY */}
       <article className="bp-body">
-        {renderContent(lines)}
+        {renderContent(lines, prefix, lang)}
       </article>
 
       {/* BACK */}
@@ -85,7 +126,6 @@ function Blog2Page() {
           ← {lang === 'ka' ? 'ბლოგზე დაბრუნება' : 'Back to Blog'}
         </a>
       </div>
-
     </div>
   )
 }
