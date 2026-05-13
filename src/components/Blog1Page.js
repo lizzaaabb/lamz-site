@@ -9,7 +9,7 @@ function renderContent(lines, prefix, lang) {
   const elements = []
   let i = 0
   const servicesLine = lang === 'ka' ? 'იხილეთ ჩვენი სერვისები' : 'View Our Services'
-  const contactLine  = lang === 'ka' ? 'დაგვიკავშირდით პროექტის განსახილველად' : 'Contact Us to Discuss Your Project'
+  const contactLine  = lang === 'ka' ? 'დაგვიკავშირდით საიტის შესაკვეთად' : 'Contact Us to Discuss Your Project'
 
   while (i < lines.length) {
     const line = lines[i]
