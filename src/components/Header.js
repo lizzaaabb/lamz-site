@@ -50,7 +50,6 @@ function Header() {
     }
   }, [])
 
-  // All links are built with prefix so /ka is preserved when navigating
   const content = {
     ka: {
       left: [
@@ -62,10 +61,11 @@ function Header() {
         { label: 'კონტაქტი',  href: `${prefix}/contact` },
       ],
       nav: [
-        { label: 'ბლოგი',     href: `${prefix}/blog`,     num: '01' },
-        { label: 'სერვისები', href: `${prefix}#services`,  num: '02' },
-        { label: 'პროექტები', href: `${prefix}/projects`,  num: '03' },
-        { label: 'კონტაქტი',  href: `${prefix}/contact`,   num: '04' },
+        { label: 'მთავარი',   href: `${prefix}/`,        num: '00' },
+        { label: 'ბლოგი',     href: `${prefix}/blog`,    num: '01' },
+        { label: 'სერვისები', href: `${prefix}#services`, num: '02' },
+        { label: 'პროექტები', href: `${prefix}/projects`, num: '03' },
+        { label: 'კონტაქტი',  href: `${prefix}/contact`,  num: '04' },
       ],
     },
     en: {
@@ -78,10 +78,11 @@ function Header() {
         { label: 'Contact',  href: `/contact` },
       ],
       nav: [
+        { label: 'Home',     href: `/`,         num: '00' },
         { label: 'Blog',     href: `/blog`,     num: '01' },
-        { label: 'Services', href: `#services`,  num: '02' },
-        { label: 'Projects', href: `/projects`,  num: '03' },
-        { label: 'Contact',  href: `/contact`,   num: '04' },
+        { label: 'Services', href: `#services`, num: '02' },
+        { label: 'Projects', href: `/projects`, num: '03' },
+        { label: 'Contact',  href: `/contact`,  num: '04' },
       ],
     },
   }
@@ -155,8 +156,8 @@ function Header() {
 
             <nav className="sidebar-nav">
               {t.nav.map((item, i) => (
-                <a
-                  key={i}
+                
+                  <a key={i}
                   href={item.href}
                   className="sidebar-link"
                   style={{ '--i': i }}
