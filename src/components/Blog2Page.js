@@ -10,7 +10,7 @@ function renderContent(lines, prefix, lang) {
   let i = 0
 
   const nextjsLine = lang === 'ka' ? 'Next.js ვებსაიტის შეკვეთა'     : 'Order Next.js Website'
-  const blog3Line  = lang === 'ka' ? 'გაიგე რატომ გჭირდება ვებსაიტი' : 'Discover Why your business Needs a website'
+  const blog3Line  = lang === 'ka' ? 'გაიგე რატომ გჭირდება ვებსაიტი' : 'Why Every Business Needs A Website'
 
   const ctaLines = new Set([nextjsLine, blog3Line])
 
