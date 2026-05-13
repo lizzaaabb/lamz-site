@@ -6,6 +6,8 @@ import { blogContentKa as blog1Ka, blogContentEn as blog1En } from '../component
 import { blogContentKa as blog2Ka, blogContentEn as blog2En } from '../components/Blog2'
 import { blogContentKa as blog3Ka, blogContentEn as blog3En } from '../components/Blog3'
 
+const blogPictures = ['blog1.jpg', 'blog2.jpg', 'blog3.jpg']
+
 const content = {
   ka: {
     preTag: 'სტატიები',
@@ -92,8 +94,10 @@ function Blog() {
         gsap.fromTo(
           '.bl-pre-tag, .bl-title',
           { opacity: 0, y: 28 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out',
-            scrollTrigger: { trigger: '.bl-header', start: 'top 88%', toggleActions: 'play none none none' } }
+          {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out',
+            scrollTrigger: { trigger: '.bl-header', start: 'top 88%', toggleActions: 'play none none none' },
+          }
         )
         gsap.fromTo(
           '.bl-card',
@@ -123,21 +127,33 @@ function Blog() {
         {t.posts.map((p, i) => {
           const href = p.slug ? `${prefix}/${p.slug}` : '#'
           return (
-            <a
-              key={i}
+            
+            <a  key={i}
               href={href}
               className="bl-card"
               style={{ textDecoration: 'none', color: 'inherit', cursor: p.slug ? 'pointer' : 'default' }}
             >
-              <div className="bl-card-top">
-                <span className="bl-tag">{p.tag}</span>
-                <span className="bl-num">{p.num}</span>
+              {/* ── IMAGE ── */}
+              <div className="bl-card-img-wrap">
+              <img
+  src={`/${blogPictures[i]}`}
+  alt={p.title}
+  className="bl-card-img"
+/>
+                <div className="bl-card-img-overlay" />
+                {/* tag floated over image */}
+                <span className="bl-tag bl-tag--over">{p.tag}</span>
               </div>
+
               <div className="bl-card-body">
-                <p className="bl-date">{p.date}</p>
+                <div className="bl-card-meta">
+                  <p className="bl-date">{p.date}</p>
+                  <span className="bl-num">{p.num}</span>
+                </div>
                 <h3 className="bl-post-title">{p.title}</h3>
                 <p className="bl-desc">{p.desc}</p>
               </div>
+
               <div className="bl-card-footer">
                 <span className="bl-read-time">{p.readTime}</span>
                 <span className="bl-read-more">{t.readMore}</span>

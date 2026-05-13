@@ -89,14 +89,14 @@
   background: #141414;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 28px;
-  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0;
   transition: border-color 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
   cursor: pointer;
   overflow: hidden;
   will-change: transform;
+  padding: 0;         /* image bleeds to edges, padding moved to body/footer */
 }
 
 .bl-card::before {
@@ -104,25 +104,65 @@
   position: absolute;
   inset: 0;
   border-radius: 28px;
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(209,102,255,0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(209,102,255,0.12) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
+  z-index: 1;
 }
 .bl-card:hover::before { opacity: 1; }
 .bl-card:hover {
   border-color: rgba(209,102,255,0.35);
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(80,10,160,0.2);
+  box-shadow: 0 20px 50px rgba(80,10,160,0.22);
 }
 
-/* ── CARD TOP ── */
-.bl-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ── CARD IMAGE ── */
+.bl-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 28px 28px 0 0;
+  flex-shrink: 0;
 }
 
+.bl-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+  filter: brightness(0.82) saturate(0.9);
+}
+.bl-card:hover .bl-card-img {
+  transform: scale(1.04);
+  filter: brightness(0.88) saturate(1);
+}
+
+/* gradient that fades the image bottom into the card background */
+.bl-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20,20,20,0)   0%,
+    rgba(20,20,20,0.15) 55%,
+    rgba(20,20,20,0.85) 88%,
+    rgba(20,20,20,1)   100%
+  );
+  pointer-events: none;
+}
+
+/* tag floated over the image */
+.bl-tag--over {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+}
+
+/* ── TAG (base) ── */
 .bl-tag {
   font-family: 'Sansation', sans-serif;
   font-size: 0.6rem;
@@ -130,26 +170,17 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(220,185,255,0.9);
-  background: rgba(80,20,180,0.55);
-  border: 1px solid rgba(168,85,247,0.35);
+  background: rgba(80,20,180,0.6);
+  border: 1px solid rgba(168,85,247,0.4);
   border-radius: 50px;
   padding: 4px 14px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 .bl-container--ka .bl-tag {
   font-family: var(--font-ka);
   letter-spacing: 0;
   font-size: 0.65rem;
-}
-
-.bl-num {
-  font-family: 'Sansation', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(192,132,252,0.3);
-  user-select: none;
 }
 
 /* ── CARD BODY ── */
@@ -158,6 +189,13 @@
   flex-direction: column;
   gap: 10px;
   flex: 1;
+  padding: 22px 28px 10px;
+}
+
+.bl-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .bl-date {
@@ -173,9 +211,20 @@
   letter-spacing: 0;
 }
 
+.bl-num {
+  font-family: 'Sansation', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(192,132,252,0.25);
+  user-select: none;
+}
+
 .bl-post-title {
   font-family: 'Sansation', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #ffffff;
   margin: 0;
@@ -185,14 +234,14 @@
 .bl-container--ka .bl-post-title {
   font-family: var(--font-ka);
   letter-spacing: 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .bl-desc {
   font-family: 'Sansation', sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.48);
   line-height: 1.65;
   margin: 0;
 }
@@ -206,7 +255,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 16px;
+  padding: 16px 28px 28px;
   border-top: 1px solid rgba(255,255,255,0.06);
   margin-top: auto;
 }
@@ -254,8 +303,7 @@
   .bl-container { padding: 48px 0; }
   .bl-title { font-size: 1.8rem; gap: 12px; }
   .bl-title::before, .bl-title::after { width: 30px; }
-  .bl-card { padding: 24px 20px; }
-  .bl-header{
-    padding-top: 50px;
-  }
+  .bl-header { padding-top: 50px; }
+  .bl-card-body { padding: 18px 20px 8px; }
+  .bl-card-footer { padding: 14px 20px 22px; }
 }

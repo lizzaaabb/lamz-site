@@ -8,7 +8,7 @@ const logos = ['/ndoba1.png', '/ndoba2.png', '/ndoba3.svg', '/ndoba4.png', '/ndo
 
 const content = {
   ka: {
-    preTag:       'ვებსაიტები · ბრენდინგი · ზრდა',
+    preTag:       'საიტები · ბრენდინგი · ზრდა',
     titleLine1:   'საიტის',
     titleLine2:   'დამზადება',
     sub:          'სადაც იდეები ფრთებს ისხამენ',
