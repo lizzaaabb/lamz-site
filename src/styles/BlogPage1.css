@@ -206,13 +206,14 @@
 @media (max-width: 768px) {
   .bp-page { padding: 90px 0 72px; }
   .bp-hero-title { font-size: clamp(1.4rem, 6vw, 2rem); }
-  .bp-h2 { font-size: 1.15rem; margin-top: 36px; }
+  .bp-h2 { font-size: 1.35rem; margin-top: 36px; }
 }
 
 @media (max-width: 480px) {
   .bp-page { padding: 72px 0 56px; }
-  .bp-p { font-size: 0.97rem; }
-  .bp-h2 { font-size: 1.05rem; }
+  .bp-p { font-size: 1.05rem; }
+  .bp-h2 { font-size: 1.35rem; }
+  .bp-page--ka .bp-h2 {font-size: 1.35rem;}
 }
 
 /* ── CTA buttons inside blog body ── */
