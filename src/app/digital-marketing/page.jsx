@@ -1,5 +1,4 @@
-import WebDevelopment from '../../../components/services/WebDevelopment'
-
-export default function WebDevelopmentPage() {
-  return <WebDevelopment />
+import Marketing from '../../components/services/Marketing'
+export default function MakrketingPage() {
+  return <Marketing />
 }

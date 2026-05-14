@@ -24,7 +24,7 @@ const content = {
         title: 'ბრენდინგი',
         desc: 'ვქმნით ძლიერ ბრენდ იდენტობას — ლოგოდან დაწყებული ვიზუალური სტილის სახელმძღვანელომდე, რომელიც თქვენს ბიზნესს გამოარჩევს კონკურენტებისგან.',
         cta: 'დეტალურად →',
-        slug: null,
+        slug: 'branding',
       },
       {
         num: '03',
@@ -54,7 +54,7 @@ const content = {
         title: 'Branding',
         desc: 'We craft strong brand identities — from logo design to full visual style guides — that make your business stand out from the competition.',
         cta: 'Learn more →',
-        slug: null,
+        slug: 'branding',
       },
       {
         num: '03',
