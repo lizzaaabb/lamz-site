@@ -202,7 +202,7 @@ const TILES = {
 
 const TEXT = {
   en: { pre: 'What We Build', title: 'Web Development' },
-  ka: { pre: 'რას ვქმნით', title: 'ვებ დეველოპმენტი' },
+  ka: { pre: 'რას ვქმნით', title: 'ვებ გვერდის დამზადება' },
 }
 
 function useSlideshow(imgs, interval = 3500) {

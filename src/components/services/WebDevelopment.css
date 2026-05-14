@@ -420,9 +420,7 @@
   .wd-sub {
     font-size: 0.82rem;
   }
-  .wd-title{
-    font-size: clamp(1.2rem, 5vw, 2.8rem);
-  }
+
   .wd-pre{
     font-size: 15px;
     letter-spacing: 0.32em;
