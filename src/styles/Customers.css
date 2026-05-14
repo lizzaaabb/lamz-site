@@ -227,9 +227,26 @@
 
   .rv-verified { width: 180px; }
 
+  .rv-card {
+    transform: none !important;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+    will-change: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .rv-card:hover {
+    transform: none !important;
+  }
+
   .rv-swiper {
     width: 100%;
     padding-bottom: 44px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .rv-swiper .swiper-wrapper {
+    will-change: transform;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   }
 
   .rv-swiper .swiper-pagination {
