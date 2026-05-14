@@ -7,7 +7,7 @@
   padding: 50px 0;
 }
 
-/* ── HEADER — Stats style ── */
+/* ── HEADER ── */
 .rv-header {
   margin-bottom: 48px;
   display: flex;
@@ -50,14 +50,14 @@
   to { width: min(420px, 60vw); }
 }
 
-/* ── GRID — 4 cards in a row ── */
+/* ── GRID ── */
 .rv-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
-/* ── CARD — original styles ── */
+/* ── CARD ── */
 .rv-card {
   position: relative;
   background: #141414;
@@ -212,16 +212,39 @@
   color: rgba(192,132,252,0.6);
 }
 
-/* ── RESPONSIVE ── */
+/* ── TABLET ── */
 @media (max-width: 1024px) {
   .rv-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ── MOBILE ── */
 @media (max-width: 600px) {
-  .customers-container { padding: 10px 0; }
-  .rv-grid { grid-template-columns: 1fr; }
+  .customers-container {
+    padding: 0;
+  }
+
   .rv-section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
- .rv-verified{
-    width: 180px;
- }
+
+  .rv-verified { width: 180px; }
+
+  .rv-swiper {
+    width: 100%;
+    padding-bottom: 44px !important;
+  }
+
+  .rv-swiper .swiper-pagination {
+    bottom: 0;
+  }
+
+  .rv-swiper .swiper-pagination-bullet {
+    background: rgba(192, 132, 252, 0.4);
+    opacity: 1;
+  }
+
+  .rv-swiper .swiper-pagination-bullet-active {
+    background: #c084fc;
+    width: 20px;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
 }

@@ -62,18 +62,12 @@ function GoogleIcon() {
   )
 }
 
-function ReviewCard({ review }) {
-  const { lang } = useLang()
+function ReviewCard({ review, lang }) {
   const verified = lang === 'ka' ? 'რეალური შეფასებები Google-ზე' : 'Verified on Google'
   const viewProfile = lang === 'ka' ? 'პროფილის ნახვა →' : 'View profile →'
 
   return (
-    
-      <a href={review.profileUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="rv-card"
-    >
+    <a href={review.profileUrl} target="_blank" rel="noopener noreferrer" className="rv-card">
       <div className="rv-card-top">
         <div className="rv-avatar" style={{ background: `${review.color}22`, border: `1.5px solid ${review.color}66` }}>
           <span className="rv-initials" style={{ color: review.color }}>{review.initials}</span>
@@ -113,9 +107,32 @@ function ReviewCard({ review }) {
 function Customers() {
   const { lang } = useLang()
   const containerRef = useRef(null)
+  const [isMobile, setIsMobile] = React.useState(false)
+  const [SwiperComponents, setSwiperComponents] = React.useState(null)
   const title = lang === 'ka' ? 'რას ამბობენ ჩვენი მომხმარებლები' : 'What Our Clients Say'
 
   useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 600)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) {
+      Promise.all([
+        import('swiper/react'),
+        import('swiper/modules'),
+        import('swiper/css'),
+        import('swiper/css/pagination'),
+      ]).then(([{ Swiper, SwiperSlide }, { Pagination }]) => {
+        setSwiperComponents({ Swiper, SwiperSlide, Pagination })
+      })
+    }
+  }, [isMobile])
+
+  useEffect(() => {
+    if (isMobile) return
     let ctx
     const init = async () => {
       const { gsap } = await import('gsap')
@@ -123,35 +140,26 @@ function Customers() {
       gsap.registerPlugin(ScrollTrigger)
       ctx = gsap.context(() => {
         gsap.set('.rv-section-title, .rv-rule, .rv-card', { opacity: 0, y: 36 })
-        gsap.fromTo(
-          '.rv-section-title',
+        gsap.fromTo('.rv-section-title',
           { opacity: 0, y: 36 },
-          {
-            scrollTrigger: { trigger: '.rv-section-title', start: 'top 88%', toggleActions: 'play none none none' },
-            opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-          }
+          { scrollTrigger: { trigger: '.rv-section-title', start: 'top 88%', toggleActions: 'play none none none' },
+            opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
         )
-        gsap.fromTo(
-          '.rv-rule',
+        gsap.fromTo('.rv-rule',
           { opacity: 0, y: 36 },
-          {
-            scrollTrigger: { trigger: '.rv-rule', start: 'top 88%', toggleActions: 'play none none none' },
-            opacity: 1, y: 0, duration: 0.8, delay: 0.1, ease: 'power3.out',
-          }
+          { scrollTrigger: { trigger: '.rv-rule', start: 'top 88%', toggleActions: 'play none none none' },
+            opacity: 1, y: 0, duration: 0.8, delay: 0.1, ease: 'power3.out' }
         )
-        gsap.fromTo(
-          '.rv-card',
+        gsap.fromTo('.rv-card',
           { opacity: 0, y: 48 },
-          {
-            scrollTrigger: { trigger: '.rv-grid', start: 'top 85%', toggleActions: 'play none none none' },
-            opacity: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out',
-          }
+          { scrollTrigger: { trigger: '.rv-grid', start: 'top 85%', toggleActions: 'play none none none' },
+            opacity: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out' }
         )
       }, containerRef)
     }
     init()
     return () => ctx && ctx.revert()
-  }, [])
+  }, [isMobile])
 
   return (
     <div ref={containerRef} className={`customers-container customers-container--${lang}`}>
@@ -159,11 +167,30 @@ function Customers() {
         <h2 className="rv-section-title">{title}</h2>
         <div className="rv-rule" />
       </div>
-      <div className="rv-grid">
-        {reviews.map((r, i) => (
-          <ReviewCard key={i} review={r} />
-        ))}
-      </div>
+
+      {isMobile ? (
+        SwiperComponents ? (
+          <SwiperComponents.Swiper
+            modules={[SwiperComponents.Pagination]}
+            pagination={{ clickable: true }}
+            spaceBetween={16}
+            slidesPerView={1}
+            className="rv-swiper"
+          >
+            {reviews.map((r, i) => (
+              <SwiperComponents.SwiperSlide key={i}>
+                <ReviewCard review={r} lang={lang} />
+              </SwiperComponents.SwiperSlide>
+            ))}
+          </SwiperComponents.Swiper>
+        ) : null
+      ) : (
+        <div className="rv-grid">
+          {reviews.map((r, i) => (
+            <ReviewCard key={i} review={r} lang={lang} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
