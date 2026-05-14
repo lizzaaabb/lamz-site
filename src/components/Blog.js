@@ -6,7 +6,7 @@ import { blogContentKa as blog1Ka, blogContentEn as blog1En } from '../component
 import { blogContentKa as blog2Ka, blogContentEn as blog2En } from '../components/Blog2'
 import { blogContentKa as blog3Ka, blogContentEn as blog3En } from '../components/Blog3'
 
-const blogPictures = ['blog11.jpg', 'blog22.jpg', 'blog33.jpg']
+const blogPictures = ['blog1.jpg', 'blog2.jpg', 'blog3.jpg']
 
 const content = {
   ka: {

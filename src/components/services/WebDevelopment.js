@@ -1,139 +1,246 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
-import '../../components/services/WebDevelopment.css'
-import { useLang } from '../../components/LanguageContext'
+import React, { useState, useEffect } from 'react'
+import { useLang } from '../LanguageContext'
+import './WebDevelopment.css'
 
-const pics = ['/web1.jpg', '/web2.jpg', '/web3.jpg', '/web4.jpg', '/web5.jpg', '/web6.jpg', '/web7.jpg']
+const building = '/icons/building.png'
+const catalogue = '/icons/catalogue.png'
+const corp = '/icons/corp.png'
+const custom = '/icons/custom.png'
+const ecommerce = '/icons/ecommerce.png'
+const plane = '/icons/plane.png'
+const car = '/icons/car.png'
 
-const content = {
-  ka: {
-    preTag: 'ვებ დეველოპმენტი',
-    title: 'სერვისები',
-    subtitle: 'ვქმნით თანამედროვე, სწრაფ და SEO-ოპტიმიზებულ ვებსაიტებს — ყველა ტიპის ბიზნესისთვის.',
-    back: '← სერვისები',
-    ctaLabel: 'დაიწყეთ პროექტი',
-    services: [
-      { num: '01', title: 'ბიზნეს ვებსაიტების შექმნა',          subtitle: 'პროფესიონალური საიტები თქვენი ბიზნესისთვის',    tag: 'ბიზნესი'    },
-      { num: '02', title: 'ონლაინ მაღაზიების შექმნა',            subtitle: 'ონლაინ მაღაზიები გაყიდვების გაზრდისთვის',      tag: 'ე-კომერცია' },
-      { num: '03', title: 'უძრავი ქონების სააგენტოს ვებსაიტები', subtitle: 'ობიექტების განცხადება და სააგენტოს პლატფორმა',  tag: 'უძ. ქონება' },
-      { num: '04', title: 'მანქანების გაქირავების ვებსაიტები',   subtitle: 'დაჯავშნის და ფლოტის მართვის სისტემები',         tag: 'ქირავნობა'  },
-      { num: '05', title: 'ტურისტული ვებსაიტები',                subtitle: 'სამოგზაურო და დანიშნულების ვებ პლატფორმები',    tag: 'ტურიზმი'    },
-      { num: '06', title: 'ონლაინ კატალოგის ვებსაიტები',         subtitle: 'წარმოაჩინეთ თქვენი პროდუქცია ონლაინ',           tag: 'კატალოგი'   },
-      { num: '07', title: 'ინდივიდუალური ვებ პლატფორმები',       subtitle: 'მორგებული გადაწყვეტილებები ნებისმიერი საჭიროებისთვის', tag: 'Custom' },
-    ],
-  },
-  en: {
-    preTag: 'Web Development',
-    title: 'Services',
-    subtitle: 'We build modern, fast and SEO-optimized websites for every type of business.',
-    back: '← Services',
-    ctaLabel: 'Start Your Project',
-    services: [
-      { num: '01', title: 'Corporate Websites',         subtitle: 'Professional sites for your business',         tag: 'Business'   },
-      { num: '02', title: 'E-Commerce Solutions',       subtitle: 'Online stores built to convert',               tag: 'E-Commerce' },
-      { num: '03', title: 'Real Estate Platforms',      subtitle: 'Property listings and agency websites',        tag: 'Real Estate'},
-      { num: '04', title: 'Car Rental Systems',         subtitle: 'Booking and fleet management websites',        tag: 'Car Rental' },
-      { num: '05', title: 'Tourism & Travel Websites',  subtitle: 'Destination and travel booking platforms',     tag: 'Tourism'    },
-      { num: '06', title: 'Product Catalog Websites',   subtitle: 'Showcase your products online',                tag: 'Catalog'    },
-      { num: '07', title: 'Custom Web Applications',    subtitle: 'Tailor-made platforms for any need',           tag: 'Custom'     },
-    ],
-  },
+const TILES = {
+  en: [
+    {
+      label: 'Corporate Websites',
+      sub: 'Polished brand presence that converts',
+      imgs: [
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+      ],
+      accent: '#6366f1',
+      icon: corp,
+    },
+    {
+      label: 'E-Commerce Solutions',
+      sub: 'Shops built to sell, 24/7',
+      imgs: [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+        'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80',
+      ],
+      accent: '#ec4899',
+      icon: ecommerce,
+    },
+    {
+      label: 'Real Estate Platforms',
+      sub: 'Listings, maps & lead capture',
+      imgs: [
+        'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
+        'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
+        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+      ],
+      accent: '#10b981',
+      icon: building,
+    },
+    {
+      label: 'Car Rental Systems',
+      sub: 'Fleet management & booking flows',
+      imgs: [
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
+        'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
+        'https://images.unsplash.com/photo-1493238792000-8113da705763?w=800&q=80',
+      ],
+      accent: '#f59e0b',
+      icon: car,
+    },
+    {
+      label: 'Tourism & Travel',
+      sub: 'Destinations that inspire adventure',
+      imgs: [
+        'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80',
+        'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80',
+        'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&q=80',
+      ],
+      accent: '#06b6d4',
+      icon: plane,
+    },
+    {
+      label: 'Product Catalogs',
+      sub: 'Showcase every SKU beautifully',
+      imgs: [
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+      ],
+      accent: '#8b5cf6',
+      icon: catalogue,
+    },
+    {
+      label: 'Custom Web Apps',
+      sub: 'Tailored platforms, zero compromise',
+      imgs: [
+        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
+        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80',
+      ],
+      accent: '#ef4444',
+      icon: custom,
+    },
+  ],
+  ka: [
+    {
+      label: 'ბიზნეს ვებსაიტების შექმნა',
+      sub: 'ბრენდი, რომელიც გაყიდავს',
+      imgs: [
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+      ],
+      accent: '#6366f1',
+      icon: corp,
+    },
+    {
+      label: 'ონლაინ მაღაზიების შექმნა',
+      sub: 'მაღაზია, რომელიც 24/7 ყიდის',
+      imgs: [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+        'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80',
+      ],
+      accent: '#ec4899',
+      icon: ecommerce,
+    },
+    {
+      label: 'უძრავი ქონების ვებსაიტები',
+      sub: 'განცხადებები, რუქები და ლიდები',
+      imgs: [
+        'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
+        'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
+        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+      ],
+      accent: '#10b981',
+      icon: building,
+    },
+    {
+      label: 'მანქანების გაქირავება',
+      sub: 'ფლოტი და ჯავშნის სისტემები',
+      imgs: [
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
+        'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
+        'https://images.unsplash.com/photo-1493238792000-8113da705763?w=800&q=80',
+      ],
+      accent: '#f59e0b',
+      icon: car,
+    },
+    {
+      label: 'ტურისტული ვებსაიტები',
+      sub: 'დანიშნულებები, რომლებიც გაუბიძგებს',
+      imgs: [
+        'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80',
+        'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80',
+        'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&q=80',
+      ],
+      accent: '#06b6d4',
+      icon: plane,
+    },
+    {
+      label: 'ონლაინ კატალოგის ვებსაიტები',
+      sub: 'ყველა პროდუქტი — ლამაზად',
+      imgs: [
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+      ],
+      accent: '#8b5cf6',
+      icon: catalogue,
+    },
+    {
+      label: 'ინდივიდუალური ვებ პლატფორმები',
+      sub: 'მორგებული პლატფორმა, ნულოვანი კომპრომისი',
+      imgs: [
+        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
+        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80',
+      ],
+      accent: '#ef4444',
+      icon: custom,
+    },
+  ],
 }
 
-function WebDevelopment() {
-  const { lang, prefix } = useLang()
-  const t = content[lang] || content['en']
-  const containerRef = useRef(null)
+const TEXT = {
+  en: { pre: 'What We Build', title: 'Web Development' },
+  ka: { pre: 'რას ვქმნით', title: 'ვებ დეველოპმენტი' },
+}
 
+function useSlideshow(imgs, interval = 3500) {
+  const [idx, setIdx] = useState(0)
   useEffect(() => {
-    let ctx
-    const init = async () => {
-      const { gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
-      ctx = gsap.context(() => {
-        gsap.fromTo(
-          '.wd-back, .wd-pre-tag, .wd-title, .wd-subtitle',
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out',
-            scrollTrigger: { trigger: '.wd-header', start: 'top 90%', toggleActions: 'play none none none' },
-          }
-        )
-        gsap.fromTo(
-          '.wd-item',
-          { opacity: 0, y: 16 },
-          {
-            opacity: 1, y: 0, duration: 0.55, stagger: 0.07, ease: 'power3.out',
-            scrollTrigger: { trigger: '.wd-list', start: 'top 88%', toggleActions: 'play none none none' },
-          }
-        )
-        gsap.fromTo(
-          '.wd-cta-wrap',
-          { opacity: 0, y: 16 },
-          {
-            opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
-            scrollTrigger: { trigger: '.wd-cta-wrap', start: 'top 93%', toggleActions: 'play none none none' },
-          }
-        )
-      }, containerRef)
-    }
-    init()
-    return () => ctx && ctx.revert()
-  }, [])
+    const t = setInterval(() => setIdx(i => (i + 1) % imgs.length), interval)
+    return () => clearInterval(t)
+  }, [imgs.length, interval])
+  return idx
+}
 
+function Tile({ tile, index, areaClass }) {
+  const slideIdx = useSlideshow(tile.imgs, 3500 + index * 300)
   return (
-    <div className="wd-page">
-      <div ref={containerRef} className={`wd-container wd-container--${lang}`}>
-
-        {/* BACK */}
-        <a href={`${prefix}/services`} className="wd-back">{t.back}</a>
-
-        {/* HEADER */}
-        <div className="wd-header">
-          <p className="wd-pre-tag">{t.preTag}</p>
-          <h2 className="wd-title">{t.title}</h2>
-          <p className="wd-subtitle">{t.subtitle}</p>
-        </div>
-
-        {/* SERVICE LIST */}
-        <div className="wd-list">
-          {t.services.map((s, i) => (
-            <a
-              key={i}
-              href={`${prefix}/contact`}
-              className="wd-item"
-            >
-              {/* IMAGE PANEL */}
-              <div className="wd-item-img-wrap">
-                <img
-                  className="wd-item-img"
-                  src={pics[i]}
-                  alt={s.title}
-                />
-                <div className="wd-item-img-fade" />
-                <span className="wd-item-tag">{s.tag}</span>
-              </div>
-
-              {/* TEXT */}
-              <div className="wd-item-content">
-                <h3 className="wd-item-title">{s.title}</h3>
-                <p className="wd-item-subtitle">{s.subtitle}</p>
-              </div>
-
-              {/* GHOST NUMBER */}
-              <span className="wd-item-num">{s.num}</span>
-
-              {/* ARROW */}
-              <span className="wd-item-arrow">→</span>
-            </a>
-          ))}
-        </div>
-
-      
+    <article
+      className={`wd-tile ${areaClass}`}
+      style={{ '--accent': tile.accent, animationDelay: `${index * 0.08}s` }}
+    >
+      <div className="wd-slide-wrap">
+        {tile.imgs.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            className={`wd-slide-img${i === slideIdx ? ' active' : ''}`}
+            loading="lazy"
+          />
+        ))}
       </div>
-    </div>
+      <div className="wd-overlay" />
+      <span className="wd-icon">
+        {tile.icon.startsWith('/')
+          ? <img src={tile.icon} alt="" className="wd-icon-img" />
+          : tile.icon}
+      </span>
+      <div className="wd-info">
+        <p className="wd-label">{tile.label}</p>
+        <p className="wd-sub">{tile.sub}</p>
+      </div>
+      <button className="wd-cta">↗</button>
+    </article>
   )
 }
 
-export default WebDevelopment
+export default function WebDevelopment() {
+  const { lang } = useLang()
+  const t = TEXT[lang]
+  const tiles = TILES[lang]
+  const areas = ['t0', 't1', 't2', 't3', 't4', 't5', 't6']
+
+  return (
+    <section className={`wd-section${lang === 'ka' ? ' wd-section--ka' : ''}`}>
+      <div className="wd-header">
+        <span className="wd-pre">{t.pre}</span>
+        <h2 className="wd-title">{t.title}</h2>
+      </div>
+      <div className="wd-bento">
+        {tiles.map((tile, i) => (
+          <Tile
+            key={tile.label}
+            tile={tile}
+            index={i}
+            areaClass={areas[i]}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}

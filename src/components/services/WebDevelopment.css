@@ -1,57 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Georgian:wght@400;500;700;800&display=swap');
 
-:root {
-  --font-en: 'Sansation', sans-serif;
-  --font-ka: 'Noto Sans Georgian', sans-serif;
-}
+/* ─── Tokens ─────────────────────────────────────── */
+.wd-section {
+  --gap: 10px;
+  --radius: 20px;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --overlay: linear-gradient(160deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%);
+  --text: #f0f4ff;
+  --muted: rgba(240, 244, 255, 0.55);
 
-/* ── CONTAINER ── */
-.wd-container {
-  width: 92%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 0;
+  font-family: 'DM Sans', sans-serif;
+  background: transparent;
+  color: var(--text);
+  padding: 64px 16px 80px;
+  position: relative;
   padding-top: 120px;
-  contain: layout style;
 }
 
-/* ── BACK LINK ── */
-.wd-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-en);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: linear-gradient(90deg, #c084fc, #7cb9e8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 48px;
-  transition: filter 0.3s ease;
-}
-.wd-back:hover { filter: brightness(1.3); }
-.wd-container--ka .wd-back {
-  font-family: var(--font-ka);
-  letter-spacing: 0;
-  font-size: 0.78rem;
-}
-
-/* ── HEADER ── */
+/* ─── Header ─────────────────────────────────────── */
 .wd-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.wd-pre-tag {
-  font-family: var(--font-en);
+.wd-pre {
+  font-family: 'Sansation', sans-serif;
   font-size: 11px;
   letter-spacing: 0.52em;
   text-transform: uppercase;
@@ -62,14 +41,14 @@
   filter: brightness(1.3);
   margin: 0;
 }
-.wd-container--ka .wd-pre-tag {
-  font-family: var(--font-ka);
+.wd-section--ka .wd-pre {
+  font-family: 'Noto Sans Georgian', sans-serif;
   letter-spacing: 0.08em;
   text-transform: none;
 }
 
 .wd-title {
-  font-family: var(--font-en);
+  font-family: 'Sansation', sans-serif;
   font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 800;
   color: #ffffff;
@@ -94,274 +73,337 @@
 .wd-title::after {
   background: linear-gradient(90deg, rgba(153,255,255,0.8), rgba(209,102,255,0.6), transparent);
 }
-.wd-container--ka .wd-title {
-  font-family: var(--font-ka);
+.wd-section--ka .wd-title {
+  font-family: 'Noto Sans Georgian', sans-serif;
   letter-spacing: 0;
   text-transform: none;
 }
 
-.wd-subtitle {
-  font-family: var(--font-en);
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.85);
-  margin: 0;
-  max-width: 520px;
-  line-height: 1.7;
-}
-.wd-container--ka .wd-subtitle {
-  font-family: var(--font-ka);
-  letter-spacing: 0;
-}
-
-/* ── CARD LIST ── */
-.wd-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* ── CARD ── */
-.wd-item {
+/* ─── Bento grid ─────────────────────────────────── */
+.wd-bento {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+  grid-auto-rows: 220px;
   position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 240px;
-  border-radius: 22px;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* tablet: 2 columns */
+@media (min-width: 600px) {
+  .wd-bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+
+/* desktop: 4-col bento */
+@media (min-width: 960px) {
+  .wd-bento {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    grid-template-areas:
+      "t0 t0 t1 t2"
+      "t0 t0 t3 t2"
+      "t4 t5 t3 t6";
+  }
+  .t0 { grid-area: t0; }
+  .t1 { grid-area: t1; }
+  .t2 { grid-area: t2; }
+  .t3 { grid-area: t3; }
+  .t4 { grid-area: t4; }
+  .t5 { grid-area: t5; }
+  .t6 { grid-area: t6; }
+}
+
+/* ─── Tile ───────────────────────────────────────── */
+.wd-tile {
+  position: relative;
+  border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid rgba(255,255,255,0.07);
-  transition: border-color 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
-  will-change: transform;
-  isolation: isolate;
-  background: rgba(255,255,255,0.02);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  animation: wdFadeUp 0.65s ease forwards;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.wd-item:hover {
-  border-color: rgba(168,85,247,0.45);
-  transform: translateY(-3px);
-  box-shadow: 0 20px 50px rgba(80,10,160,0.28);
+.wd-tile:hover {
+  transform: translateY(-5px) scale(1.015);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.1);
 }
 
-/* ── CARD IMAGE PANEL (40% width) ── */
-.wd-item-img-wrap {
-  position: relative;
-  width: 40%;
-  min-width: 40%;
-  height: 240px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 20px 0 0 20px;
+/* Accent glow strip on hover */
+.wd-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 2px #d166ff99;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+.wd-tile:hover::before {
+  opacity: 1;
 }
 
-.wd-item-img {
+/* ─── Slideshow images ───────────────────────────── */
+.wd-slide-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.wd-slide-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.65s cubic-bezier(0.16,1,0.3,1), filter 0.45s ease;
-  will-change: transform, filter;
-}
-.wd-item:hover .wd-item-img {
-  transform: scale(1.05);
+  opacity: 0;
+  transition: opacity 1.4s ease;
+  transform: scale(1.04);
 }
 
-/* ── TAG (top-left of image) ── */
-.wd-item-tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 3;
-  font-family: var(--font-en);
-  font-size: 0.52rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(220,185,255,0.95);
-  background: rgba(80,20,180,0.65);
-  border: 1px solid rgba(168,85,247,0.45);
-  border-radius: 50px;
-  padding: 4px 12px;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  white-space: nowrap;
-}
-.wd-container--ka .wd-item-tag {
-  font-family: var(--font-ka);
-  letter-spacing: 0;
-  font-size: 0.58rem;
+.wd-slide-img.active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1.4s ease, transform 6s ease;
 }
 
-/* ── IMAGE → CARD FADE ── */
-.wd-item-img-fade {
+/* ─── Dark overlay ───────────────────────────────── */
+.wd-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, transparent 60%, rgba(10,5,30,0.55) 100%);
+  background: var(--overlay);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: var(--radius);
+}
+
+/* ─── Icon ───────────────────────────────────────── */
+.wd-icon {
+  position: absolute;
+  top: 14px;
+  left: 16px;
   z-index: 2;
-  pointer-events: none;
-}
-
-/* ── TEXT CONTENT ── */
-.wd-item-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 36px;
-  gap: 10px;
-  z-index: 4;
-  min-width: 0;
-}
-
-.wd-item-title {
-  font-family: var(--font-en);
-  font-size: 1.55rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
-}
-.wd-container--ka .wd-item-title {
-  font-family: var(--font-ka);
-  letter-spacing: 0;
-  font-size: 1.3rem;
-}
-
-.wd-item-subtitle {
-  font-family: var(--font-en);
-  font-size: 1rem;
-  color: rgba(255,255,255,0.75);
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-.wd-container--ka .wd-item-subtitle {
-  font-family: var(--font-ka);
-  letter-spacing: 0;
-}
-
-/* ── NUMBER (ghost, right side) ── */
-.wd-item-num {
-  font-family: var(--font-en);
-  font-size: 5rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(192,132,252,0.45);
-  pointer-events: none;
-  user-select: none;
-  flex-shrink: 0;
-  padding: 0 20px 0 0;
-  transition: opacity 0.3s ease, -webkit-text-stroke 0.3s ease;
-}
-.wd-item:hover .wd-item-num {
-  opacity: 0.8;
-  -webkit-text-stroke: 1.5px rgba(192,132,252,0.75);
-}
-
-/* ── ARROW ── */
-.wd-item-arrow {
   font-size: 1.4rem;
-  background: linear-gradient(90deg, #c084fc, #7cb9e8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  flex-shrink: 0;
-  padding: 0 32px 0 0;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  transition: transform 0.3s ease;
 }
-.wd-item:hover .wd-item-arrow {
-  transform: translateX(5px);
-  filter: brightness(1.3);
+.wd-tile:hover .wd-icon {
+  transform: scale(1.2) rotate(-5deg);
 }
 
-/* ── CTA ── */
-.wd-cta-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 56px;
+/* ─── Label + sub ────────────────────────────────── */
+.wd-info {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 2;
+  max-width: calc(100% - 60px);
 }
 
-.wd-cta-btn {
-  font-family: var(--font-en);
-  font-size: 0.78rem;
+.wd-label {
+  font-family: 'Syne', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #ffffff;
-  background: linear-gradient(135deg, rgba(80,20,180,0.7), rgba(140,60,220,0.5));
-  border: 1px solid rgba(168,85,247,0.45);
-  border-radius: 50px;
-  padding: 14px 40px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: #fff;
+  margin: 0 0 3px;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
-.wd-cta-btn:hover {
-  border-color: rgba(192,132,252,0.7);
-  box-shadow: 0 0 28px rgba(140,60,220,0.35);
+
+.wd-sub {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+}
+
+/* ─── CTA arrow button ───────────────────────────── */
+.wd-cta {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+   background: #d166ff99;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+}
+.wd-tile:hover .wd-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wd-cta:hover {
   filter: brightness(1.15);
-}
-.wd-container--ka .wd-cta-btn {
-  font-family: var(--font-ka);
-  letter-spacing: 0;
-  text-transform: none;
+  transform: scale(1.1) !important;
 }
 
-/* ── TABLET ── */
-@media (max-width: 768px) {
-  .wd-container { padding: 60px 0; }
-  .wd-item-img-wrap { width: 38%; min-width: 38%; height: 175px; }
-  .wd-item { min-height: 175px; }
-  .wd-item-content { padding: 0 22px; }
-  .wd-item-num { font-size: 3.5rem; padding: 0 12px 0 0; }
-  .wd-item-title { font-size: 1.2rem; }
-  .wd-item-subtitle { font-size: 0.85rem; }
+/* ─── Modal ──────────────────────────────────────── */
+.wd-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: wdFadeIn 0.25s ease;
 }
 
-/* ── MOBILE ── */
-@media (max-width: 480px) {
-  .wd-container { padding: 48px 0; }
-  .wd-title { font-size: 1.8rem; gap: 12px; }
-  .wd-title::before, .wd-title::after { width: 30px; }
+.wd-modal {
+  background: #111827;
+  border-radius: 24px;
+  max-width: 480px;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--accent, #6366f1) inset;
+  position: relative;
+  animation: wdPopIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
-  .wd-item {
-    flex-direction: column;
-    align-items: stretch;
-    min-height: unset;
-  }
+.wd-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.wd-modal-close:hover { background: rgba(255,255,255,0.15); }
 
-  .wd-item-img-wrap {
-    width: 100%;
-    min-width: 100%;
-    height: 180px;
-    border-radius: 20px 20px 0 0;
-  }
+.wd-modal-img {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.wd-modal-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, #111827);
+}
 
-  .wd-item-img-fade {
-    background: linear-gradient(to bottom, transparent 50%, rgba(10,5,30,0.5) 100%);
-  }
+.wd-modal-body {
+  padding: 20px 28px 32px;
+}
 
-  .wd-item-content {
-    padding: 16px 20px;
-    gap: 6px;
-  }
+.wd-modal-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
 
-  .wd-item-num { display: none; }
+.wd-modal-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
 
-  .wd-item-arrow {
-    position: absolute;
-    bottom: 16px;
-    right: 20px;
-    padding: 0;
-  }
+.wd-modal-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
 
-  .wd-item:hover { transform: none; }
+.wd-modal-btn {
+  display: inline-block;
+  padding: 11px 24px;
+  background: var(--accent, #6366f1);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: filter 0.2s ease, transform 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.wd-modal-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+/* ─── Animations ─────────────────────────────────── */
+@keyframes wdFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wdFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes wdPopIn {
+  from { opacity: 0; transform: scale(0.88) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* ─── Light theme support ────────────────────────── */
+[data-theme="light"] .wd-section {
+  --text: #0f172a;
+  --muted: rgba(15,23,42,0.55);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+[data-theme="light"] .wd-modal {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .wd-modal-img::after {
+  background: linear-gradient(to bottom, transparent, #ffffff);
+}
+[data-theme="light"] .wd-section::before {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(99,102,241,0.07) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(236,72,153,0.06) 0%, transparent 55%);
+}
+
+.wd-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes it white, remove if your icons are already colored */
+  opacity: 0.8;
 }
