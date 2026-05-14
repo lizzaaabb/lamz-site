@@ -81,7 +81,7 @@ export const blogContentKa = {
 - უსაფრთხოებით
 - მარტივი და კომფორტული მომხმარებლის გამოცდილებით
 
-ჩვენთვის ვებსაიტი მხოლოდ ვიზუალი არ არის — მისი მთავარი მიზანია მომხმარებლის რეალურ კლიენტად გადაქცევა და ბიზნესისთვის შედეგების მოტანა.
+ჩვენთვის ვებსაიტი მხოლოდ ვიზუალი არ არის - მისი მთავარი მიზანია მომხმარებლის რეალურ კლიენტად გადაქცევა და ბიზნესისთვის შედეგების მოტანა.
 
 ## მზად ხართ თქვენი ბიზნესისთვის ვებსაიტის შესაქმნელად?
 
@@ -108,7 +108,7 @@ Many projects fail not because of design or technical issues, but because of poo
 
 ## 1. Clearly Define What You Need
 
-One of the biggest problems in website projects is not design — it is unclear requirements.
+One of the biggest problems in website projects is not design - it is unclear requirements.
 
 Before the project starts, it is important to define:
 
@@ -177,7 +177,7 @@ Our websites are built with:
 - Strong security
 - Simple and user-friendly experience
 
-For us, a website is not just about visuals — its main goal is to turn visitors into real customers and help businesses grow.
+For us, a website is not just about visuals - its main goal is to turn visitors into real customers and help businesses grow.
 
 ## Ready to Build a Website for Your Business?
 

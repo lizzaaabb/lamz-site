@@ -28,7 +28,7 @@ export const blogContentKa = {
 
 ## 5. ვებსაიტი მუშაობს 24/7
 
-ვებსაიტი მუშაობს 24/7-ზე — მაშინაც კი, როცა გძინავთ, თქვენს ბიზნესს მაინც შეუძლია შემოსავლის მიღება.
+ვებსაიტი მუშაობს 24/7-ზე - მაშინაც კი, როცა გძინავთ, თქვენს ბიზნესს მაინც შეუძლია შემოსავლის მიღება.
 
 ## მზად ხართ თქვენი ბიზნესისთვის ვებსაიტის შესაქმნელად?
 
@@ -70,7 +70,7 @@ A website allows you to be accessible from anywhere in the world and sell your s
 
 ## 5. A website works 24/7
 
-A website works 24/7 — even while you sleep, your business can still generate income.
+A website works 24/7 - even while you sleep, your business can still generate income.
 
 ## Ready to build a website for your business?
 
