@@ -11,15 +11,43 @@ const ecommerce = '/icons/ecommerce.png'
 const plane = '/icons/plane.png'
 const car = '/icons/car.png'
 
+const corp1 = '/corp/corp1.jpg'
+const corp2 = '/corp/corp2.jpg'
+const corp3 = '/corp/corp3.jpg'
+
+const car1 = '/car/car1.jpg'
+const car2 = '/car/car2.jpg'
+const car3 = '/car/car3.jpg'
+
+const estate1 = '/estate/estate1.jpg'
+const estate2 = '/estate/estate2.jpg'
+const estate3 = '/estate/estate3.jpg'
+
+const travel1 = '/travel/travel1.jpg'
+const travel2 = '/travel/travel2.jpg'
+const travel3 = '/travel/travel3.jpg'
+
+const shop1 = '/shop/shop1.jpg'
+const shop2 = '/shop/shop2.jpg'
+const shop3 = '/shop/shop3.jpg'
+
+const cat1 = '/cat/cat1.jpg'
+const cat2 = '/cat/cat2.jpg'
+const cat3 = '/cat/cat3.jpg'
+
+const dev1 = '/dev/dev1.jpg'
+const dev2 = '/dev/dev2.jpg'
+const dev3 = '/dev/dev3.jpg'
+
 const TILES = {
   en: [
     {
       label: 'Corporate Websites',
       sub: 'Polished brand presence that converts',
       imgs: [
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
-        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+        corp1,
+        corp2,
+        corp3,
       ],
       accent: '#6366f1',
       icon: corp,
@@ -28,9 +56,9 @@ const TILES = {
       label: 'E-Commerce Solutions',
       sub: 'Shops built to sell, 24/7',
       imgs: [
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
-        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
-        'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80',
+        shop1,
+        shop2,
+        shop3,
       ],
       accent: '#ec4899',
       icon: ecommerce,
@@ -39,9 +67,9 @@ const TILES = {
       label: 'Real Estate Platforms',
       sub: 'Listings, maps & lead capture',
       imgs: [
-        'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
-        'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
-        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+        estate1,
+        estate2,
+        estate3,
       ],
       accent: '#10b981',
       icon: building,
@@ -50,9 +78,9 @@ const TILES = {
       label: 'Car Rental Systems',
       sub: 'Fleet management & booking flows',
       imgs: [
-        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
-        'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
-        'https://images.unsplash.com/photo-1493238792000-8113da705763?w=800&q=80',
+        car1,
+        car2,
+        car3,
       ],
       accent: '#f59e0b',
       icon: car,
@@ -61,9 +89,9 @@ const TILES = {
       label: 'Tourism & Travel',
       sub: 'Destinations that inspire adventure',
       imgs: [
-        'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80',
-        'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80',
-        'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&q=80',
+        travel1,
+        travel2,
+        travel3,
       ],
       accent: '#06b6d4',
       icon: plane,
@@ -72,9 +100,9 @@ const TILES = {
       label: 'Product Catalogs',
       sub: 'Showcase every SKU beautifully',
       imgs: [
-        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
-        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+        cat1,
+        cat2,
+        cat3,
       ],
       accent: '#8b5cf6',
       icon: catalogue,
@@ -83,9 +111,9 @@ const TILES = {
       label: 'Custom Web Apps',
       sub: 'Tailored platforms, zero compromise',
       imgs: [
-        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
-        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80',
+       dev1,
+       dev2,
+       dev3,
       ],
       accent: '#ef4444',
       icon: custom,
@@ -96,9 +124,9 @@ const TILES = {
       label: 'ბიზნეს ვებსაიტების შექმნა',
       sub: 'ბრენდი, რომელიც გაყიდავს',
       imgs: [
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
-        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+        corp1,
+        corp2,
+        corp3,
       ],
       accent: '#6366f1',
       icon: corp,
@@ -106,10 +134,10 @@ const TILES = {
     {
       label: 'ონლაინ მაღაზიების შექმნა',
       sub: 'მაღაზია, რომელიც 24/7 ყიდის',
-      imgs: [
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
-        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
-        'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80',
+     imgs: [
+        shop1,
+        shop2,
+        shop3,
       ],
       accent: '#ec4899',
       icon: ecommerce,
@@ -118,9 +146,9 @@ const TILES = {
       label: 'უძრავი ქონების ვებსაიტები',
       sub: 'განცხადებები, რუქები და ლიდები',
       imgs: [
-        'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
-        'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
-        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+        estate1,
+        estate2,
+        estate3,
       ],
       accent: '#10b981',
       icon: building,
@@ -128,10 +156,10 @@ const TILES = {
     {
       label: 'მანქანების გაქირავება',
       sub: 'ფლოტი და ჯავშნის სისტემები',
-      imgs: [
-        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
-        'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
-        'https://images.unsplash.com/photo-1493238792000-8113da705763?w=800&q=80',
+       imgs: [
+        car1,
+        car2,
+        car3,
       ],
       accent: '#f59e0b',
       icon: car,
@@ -140,9 +168,9 @@ const TILES = {
       label: 'ტურისტული ვებსაიტები',
       sub: 'დანიშნულებები, რომლებიც გაუბიძგებს',
       imgs: [
-        'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80',
-        'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80',
-        'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&q=80',
+        travel1,
+        travel2,
+        travel3,
       ],
       accent: '#06b6d4',
       icon: plane,
@@ -151,9 +179,9 @@ const TILES = {
       label: 'ონლაინ კატალოგის ვებსაიტები',
       sub: 'ყველა პროდუქტი — ლამაზად',
       imgs: [
-        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
-        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+        cat1,
+        cat2,
+        cat3,
       ],
       accent: '#8b5cf6',
       icon: catalogue,
@@ -161,10 +189,10 @@ const TILES = {
     {
       label: 'ინდივიდუალური ვებ პლატფორმები',
       sub: 'მორგებული პლატფორმა, ნულოვანი კომპრომისი',
-      imgs: [
-        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
-        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80',
+       imgs: [
+       dev1,
+       dev2,
+       dev3,
       ],
       accent: '#ef4444',
       icon: custom,
@@ -195,13 +223,12 @@ function Tile({ tile, index, areaClass }) {
     >
       <div className="wd-slide-wrap">
         {tile.imgs.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt=""
-            className={`wd-slide-img${i === slideIdx ? ' active' : ''}`}
-            loading="lazy"
-          />
+         <img
+  key={i}
+  src={src}
+  alt=""
+  className={`wd-slide-img${i === slideIdx ? ' active' : ''}`}
+/>
         ))}
       </div>
       <div className="wd-overlay" />

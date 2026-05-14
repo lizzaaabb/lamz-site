@@ -31,7 +31,7 @@
 
 .wd-pre {
   font-family: 'Sansation', sans-serif;
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 0.52em;
   text-transform: uppercase;
   background: linear-gradient(90deg, #8be7fa, #99ffff, #7cb9e8);
@@ -49,7 +49,7 @@
 
 .wd-title {
   font-family: 'Sansation', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-size: clamp(1.6rem, 3.8vw, 3.2rem);
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.02em;
@@ -159,7 +159,6 @@
   position: absolute;
   inset: 0;
 }
-
 .wd-slide-img {
   position: absolute;
   inset: 0;
@@ -167,14 +166,13 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1.4s ease;
+  transition: opacity 1.4s ease, transform 6s ease;
   transform: scale(1.04);
 }
 
 .wd-slide-img.active {
   opacity: 1;
   transform: scale(1);
-  transition: opacity 1.4s ease, transform 6s ease;
 }
 
 /* ─── Dark overlay ───────────────────────────────── */
@@ -406,4 +404,9 @@
   object-fit: contain;
   filter: brightness(0) invert(1); /* makes it white, remove if your icons are already colored */
   opacity: 0.8;
+}
+
+.wd-slide-img:first-child {
+  opacity: 1;
+  transform: scale(1);
 }
