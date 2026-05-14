@@ -217,51 +217,76 @@
   .rv-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ── MOBILE ── */
+/* ── TABLET ── */
+@media (max-width: 1024px) {
+  .rv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── MOBILE CARD — no hover effects ── */
+.rv-card--mobile {
+  transition: none !important;
+  transform: none !important;
+  pointer-events: auto;
+}
+.rv-card--mobile:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: rgba(255, 255, 255, 0.262) !important;
+}
+.rv-card--mobile::before {
+  display: none !important;
+}
+
+/* ── SNAP SWIPER ── */
+.rv-snap-wrap {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.rv-snap-track {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 0;
+}
+
+.rv-snap-track::-webkit-scrollbar {
+  display: none;
+}
+
+.rv-snap-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: 0 4px;
+}
+
+.rv-snap-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.rv-snap-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(192, 132, 252, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.rv-snap-dot--active {
+  width: 20px;
+  background: #c084fc;
+}
+
 @media (max-width: 600px) {
-  .customers-container {
-    padding: 0;
-  }
-
+  .customers-container { padding: 0; }
   .rv-section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-
   .rv-verified { width: 180px; }
-
-  .rv-card {
-    transform: none !important;
-    transition: border-color 0.35s ease, box-shadow 0.35s ease;
-    will-change: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .rv-card:hover {
-    transform: none !important;
-  }
-
-  .rv-swiper {
-    width: 100%;
-    padding-bottom: 44px !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .rv-swiper .swiper-wrapper {
-    will-change: transform;
-    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  }
-
-  .rv-swiper .swiper-pagination {
-    bottom: 0;
-  }
-
-  .rv-swiper .swiper-pagination-bullet {
-    background: rgba(192, 132, 252, 0.4);
-    opacity: 1;
-  }
-
-  .rv-swiper .swiper-pagination-bullet-active {
-    background: #c084fc;
-    width: 20px;
-    border-radius: 4px;
-    transition: width 0.3s ease;
-  }
 }

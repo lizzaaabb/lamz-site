@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import '../styles/Customers.css'
 import { useLang } from '../components/LanguageContext'
 
@@ -62,12 +62,17 @@ function GoogleIcon() {
   )
 }
 
-function ReviewCard({ review, lang }) {
+function ReviewCard({ review, lang, mobile }) {
   const verified = lang === 'ka' ? 'რეალური შეფასებები Google-ზე' : 'Verified on Google'
   const viewProfile = lang === 'ka' ? 'პროფილის ნახვა →' : 'View profile →'
 
   return (
-    <a href={review.profileUrl} target="_blank" rel="noopener noreferrer" className="rv-card">
+    
+      <a href={review.profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`rv-card${mobile ? ' rv-card--mobile' : ''}`}
+    >
       <div className="rv-card-top">
         <div className="rv-avatar" style={{ background: `${review.color}22`, border: `1.5px solid ${review.color}66` }}>
           <span className="rv-initials" style={{ color: review.color }}>{review.initials}</span>
@@ -104,11 +109,55 @@ function ReviewCard({ review, lang }) {
   )
 }
 
+// Pure CSS scroll snap swiper — no library, no JS lag
+function MobileSwiper({ reviews, lang }) {
+  const [active, setActive] = useState(0)
+  const trackRef = useRef(null)
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+    const onScroll = () => {
+      const index = Math.round(track.scrollLeft / track.offsetWidth)
+      setActive(index)
+    }
+    track.addEventListener('scroll', onScroll, { passive: true })
+    return () => track.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const goTo = (i) => {
+    const track = trackRef.current
+    if (!track) return
+    track.scrollTo({ left: i * track.offsetWidth, behavior: 'smooth' })
+  }
+
+  return (
+    <div className="rv-snap-wrap">
+      <div className="rv-snap-track" ref={trackRef}>
+        {reviews.map((r, i) => (
+          <div className="rv-snap-slide" key={i}>
+            <ReviewCard review={r} lang={lang} mobile />
+          </div>
+        ))}
+      </div>
+      <div className="rv-snap-dots">
+        {reviews.map((_, i) => (
+          <button
+            key={i}
+            className={`rv-snap-dot${active === i ? ' rv-snap-dot--active' : ''}`}
+            onClick={() => goTo(i)}
+            aria-label={`Review ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function Customers() {
   const { lang } = useLang()
   const containerRef = useRef(null)
-  const [isMobile, setIsMobile] = React.useState(false)
-  const [SwiperComponents, setSwiperComponents] = React.useState(null)
+  const [isMobile, setIsMobile] = useState(false)
   const title = lang === 'ka' ? 'რას ამბობენ ჩვენი მომხმარებლები' : 'What Our Clients Say'
 
   useEffect(() => {
@@ -117,19 +166,6 @@ function Customers() {
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
   }, [])
-
-  useEffect(() => {
-    if (isMobile) {
-      Promise.all([
-        import('swiper/react'),
-        import('swiper/modules'),
-        import('swiper/css'),
-        import('swiper/css/pagination'),
-      ]).then(([{ Swiper, SwiperSlide }, { Pagination }]) => {
-        setSwiperComponents({ Swiper, SwiperSlide, Pagination })
-      })
-    }
-  }, [isMobile])
 
   useEffect(() => {
     if (isMobile) return
@@ -169,21 +205,7 @@ function Customers() {
       </div>
 
       {isMobile ? (
-        SwiperComponents ? (
-          <SwiperComponents.Swiper
-            modules={[SwiperComponents.Pagination]}
-            pagination={{ clickable: true }}
-            spaceBetween={16}
-            slidesPerView={1}
-            className="rv-swiper"
-          >
-            {reviews.map((r, i) => (
-              <SwiperComponents.SwiperSlide key={i}>
-                <ReviewCard review={r} lang={lang} />
-              </SwiperComponents.SwiperSlide>
-            ))}
-          </SwiperComponents.Swiper>
-        ) : null
+        <MobileSwiper reviews={reviews} lang={lang} />
       ) : (
         <div className="rv-grid">
           {reviews.map((r, i) => (
