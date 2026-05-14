@@ -242,7 +242,6 @@
   width: 100%;
   padding-bottom: 40px;
 }
-
 .rv-snap-track {
   display: flex;
   overflow-x: scroll;
@@ -250,6 +249,7 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   gap: 0;
+  padding: 0;
 }
 
 .rv-snap-track::-webkit-scrollbar {
@@ -259,7 +259,7 @@
 .rv-snap-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  padding: 0 4px;
+  padding: 0 16px;
 }
 
 .rv-snap-dots {
@@ -286,7 +286,8 @@
 }
 
 @media (max-width: 600px) {
-  .customers-container { padding: 0; }
+  .customers-container { padding: 0;
+  width: 100%; }
   .rv-section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
   .rv-verified { width: 180px; }
 }
