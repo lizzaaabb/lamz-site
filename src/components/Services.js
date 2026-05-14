@@ -16,6 +16,7 @@ const content = {
         title: 'ვებ გვერდის დამზადება',
         desc: 'ვქმნით თანამედროვე, სწრაფ და SEO ოპტიმიზებულ ვებსაიტებს, რომლებიც რეალურ შედეგებზეა ორიენტირებული და თქვენს ბიზნესს კლიენტებს მოუყვანს.',
         cta: 'დეტალურად →',
+        slug: 'saitis-damzadeba',
       },
       {
         num: '02',
@@ -23,6 +24,7 @@ const content = {
         title: 'ბრენდინგი',
         desc: 'ვქმნით ძლიერ ბრენდ იდენტობას — ლოგოდან დაწყებული ვიზუალური სტილის სახელმძღვანელომდე, რომელიც თქვენს ბიზნესს გამოარჩევს კონკურენტებისგან.',
         cta: 'დეტალურად →',
+        slug: null,
       },
       {
         num: '03',
@@ -30,6 +32,7 @@ const content = {
         title: 'ციფრული მარკეტინგი',
         desc: 'სოციალური მედიის მართვა, კონტენტის შექმნა და ციფრული სტრატეგია — ყველაფერი, რაც თქვენს ბრენდს ონლაინ სივრცეში გააჩენს და გაზრდის.',
         cta: 'დეტალურად →',
+        slug: null,
       },
     ],
   },
@@ -43,6 +46,7 @@ const content = {
         title: 'Website Development',
         desc: 'We build modern, fast and SEO-optimized websites focused on real results — bringing your business the clients it deserves.',
         cta: 'Learn more →',
+        slug: 'web-development-service',
       },
       {
         num: '02',
@@ -50,6 +54,7 @@ const content = {
         title: 'Branding',
         desc: 'We craft strong brand identities — from logo design to full visual style guides — that make your business stand out from the competition.',
         cta: 'Learn more →',
+        slug: null,
       },
       {
         num: '03',
@@ -57,6 +62,7 @@ const content = {
         title: 'Digital Marketing',
         desc: 'Social media management, content creation and digital strategy — everything your brand needs to grow its presence and reach online.',
         cta: 'Learn more →',
+        slug: null,
       },
     ],
   },
@@ -132,7 +138,12 @@ function Services() {
 
             {/* FOOTER */}
             <div className="sv-card-footer">
-              <a href={`${prefix}/contact`} className="sv-cta">{s.cta}</a>
+              <a
+                href={s.slug ? `${prefix}/${s.slug}` : `${prefix}/contact`}
+                className="sv-cta"
+              >
+                {s.cta}
+              </a>
             </div>
 
           </div>
