@@ -52,7 +52,7 @@ const TILES = {
     {
       label: 'E-Commerce Solutions',
       sub: 'Shops built to sell, 24/7',
-      slug: 'ecommerce-solutions',
+      slug: 'ecommerce-development',
       imgs: [shop1, shop2, shop3],
       accent: '#ec4899',
       icon: ecommerce,
@@ -110,7 +110,7 @@ const TILES = {
     {
       label: 'ონლაინ მაღაზიების შექმნა',
       sub: 'მაღაზია, რომელიც 24/7 ყიდის',
-      slug: 'ecommerce-solutions',
+      slug: 'ecommerce-development',
       imgs: [shop1, shop2, shop3],
       accent: '#ec4899',
       icon: ecommerce,
