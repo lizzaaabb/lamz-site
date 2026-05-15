@@ -155,7 +155,7 @@ export default function BusinessWeb() {
             {t.order}
           </a>
           <a
-            href={`${prefix}/services`}
+            href={`${prefix}/web-development-service`}
             className="cta-btn cta-secondary bw-cta"
           >
             <span className="cta-shimmer" />
@@ -168,12 +168,30 @@ export default function BusinessWeb() {
       <article className="bp-body">
         {renderContent(lines, prefix, lang)}
       </article>
+         <div className="bw-hero-ctas" style={{ marginTop: "80px" }}>
+          <a
+            href={`${prefix}/contact`}
+            className="cta-btn cta-primary bw-cta"
+          >
+            <span className="cta-shimmer" />
+            {t.order}
+          </a>
+          <a
+            href={`${prefix}/web-development-service`}
+            className="cta-btn cta-secondary bw-cta"
+          >
+            <span className="cta-shimmer" />
+            {t.services}
+          </a>
+        </div>
 
       {/* ── Back link ── */}
       <div className="bp-back-wrap">
         <a href={`${prefix}/web-development-service`} className="bp-back">
           ← {t.back}
         </a>
+      
+
       </div>
     </div>
   )
