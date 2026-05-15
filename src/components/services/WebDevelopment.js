@@ -44,77 +44,56 @@ const TILES = {
     {
       label: 'Corporate Websites',
       sub: 'Polished brand presence that converts',
-      imgs: [
-        corp1,
-        corp2,
-        corp3,
-      ],
+      slug: 'business-website-development',
+      imgs: [corp1, corp2, corp3],
       accent: '#6366f1',
       icon: corp,
     },
     {
       label: 'E-Commerce Solutions',
       sub: 'Shops built to sell, 24/7',
-      imgs: [
-        shop1,
-        shop2,
-        shop3,
-      ],
+      slug: 'ecommerce-solutions',
+      imgs: [shop1, shop2, shop3],
       accent: '#ec4899',
       icon: ecommerce,
     },
     {
       label: 'Real Estate Platforms',
       sub: 'Listings, maps & lead capture',
-      imgs: [
-        estate1,
-        estate2,
-        estate3,
-      ],
+      slug: 'real-estate-platforms',
+      imgs: [estate1, estate2, estate3],
       accent: '#10b981',
       icon: building,
     },
     {
       label: 'Car Rental Systems',
       sub: 'Fleet management & booking flows',
-      imgs: [
-        car1,
-        car2,
-        car3,
-      ],
+      slug: 'car-rental-systems',
+      imgs: [car1, car2, car3],
       accent: '#f59e0b',
       icon: car,
     },
     {
       label: 'Tourism & Travel',
       sub: 'Destinations that inspire adventure',
-      imgs: [
-        travel1,
-        travel2,
-        travel3,
-      ],
+      slug: 'tourism-travel-websites',
+      imgs: [travel1, travel2, travel3],
       accent: '#06b6d4',
       icon: plane,
     },
     {
       label: 'Product Catalogs',
       sub: 'Showcase every SKU beautifully',
-      imgs: [
-        cat1,
-        cat2,
-        cat3,
-      ],
+      slug: 'product-catalog-websites',
+      imgs: [cat1, cat2, cat3],
       accent: '#8b5cf6',
       icon: catalogue,
     },
     {
       label: 'Custom Web Apps',
       sub: 'Tailored platforms, zero compromise',
-      imgs: [
-       dev1,
-       dev2,
-       dev3,
-      ],
+      slug: 'custom-web-applications',
+      imgs: [dev1, dev2, dev3],
       accent: '#ef4444',
       icon: custom,
     },
@@ -123,77 +102,56 @@ const TILES = {
     {
       label: 'ბიზნეს ვებსაიტების შექმნა',
       sub: 'ბრენდი, რომელიც გაყიდავს',
-      imgs: [
-        corp1,
-        corp2,
-        corp3,
-      ],
+      slug: 'business-website-development',
+      imgs: [corp1, corp2, corp3],
       accent: '#6366f1',
       icon: corp,
     },
     {
       label: 'ონლაინ მაღაზიების შექმნა',
       sub: 'მაღაზია, რომელიც 24/7 ყიდის',
-     imgs: [
-        shop1,
-        shop2,
-        shop3,
-      ],
+      slug: 'ecommerce-solutions',
+      imgs: [shop1, shop2, shop3],
       accent: '#ec4899',
       icon: ecommerce,
     },
     {
       label: 'უძრავი ქონების ვებსაიტები',
       sub: 'განცხადებები, რუქები და ლიდები',
-      imgs: [
-        estate1,
-        estate2,
-        estate3,
-      ],
+      slug: 'real-estate-platforms',
+      imgs: [estate1, estate2, estate3],
       accent: '#10b981',
       icon: building,
     },
     {
       label: 'მანქანების გაქირავება',
       sub: 'ფლოტი და ჯავშნის სისტემები',
-       imgs: [
-        car1,
-        car2,
-        car3,
-      ],
+      slug: 'car-rental-systems',
+      imgs: [car1, car2, car3],
       accent: '#f59e0b',
       icon: car,
     },
     {
       label: 'ტურისტული ვებსაიტები',
       sub: 'დანიშნულებები, რომლებიც გაუბიძგებს',
-      imgs: [
-        travel1,
-        travel2,
-        travel3,
-      ],
+      slug: 'tourism-travel-websites',
+      imgs: [travel1, travel2, travel3],
       accent: '#06b6d4',
       icon: plane,
     },
     {
       label: 'ონლაინ კატალოგის ვებსაიტები',
       sub: 'ყველა პროდუქტი — ლამაზად',
-      imgs: [
-        cat1,
-        cat2,
-        cat3,
-      ],
+      slug: 'product-catalog-websites',
+      imgs: [cat1, cat2, cat3],
       accent: '#8b5cf6',
       icon: catalogue,
     },
     {
       label: 'ინდივიდუალური ვებ პლატფორმები',
       sub: 'მორგებული პლატფორმა, ნულოვანი კომპრომისი',
-       imgs: [
-       dev1,
-       dev2,
-       dev3,
-      ],
+      slug: 'custom-web-applications',
+      imgs: [dev1, dev2, dev3],
       accent: '#ef4444',
       icon: custom,
     },
@@ -214,21 +172,22 @@ function useSlideshow(imgs, interval = 3500) {
   return idx
 }
 
-function Tile({ tile, index, areaClass }) {
+function Tile({ tile, index, areaClass, href }) {
   const slideIdx = useSlideshow(tile.imgs, 3500 + index * 300)
   return (
     <article
       className={`wd-tile ${areaClass}`}
       style={{ '--accent': tile.accent, animationDelay: `${index * 0.08}s` }}
+      onClick={() => window.location.href = href}
     >
       <div className="wd-slide-wrap">
         {tile.imgs.map((src, i) => (
-         <img
-  key={i}
-  src={src}
-  alt=""
-  className={`wd-slide-img${i === slideIdx ? ' active' : ''}`}
-/>
+          <img
+            key={i}
+            src={src}
+            alt=""
+            className={`wd-slide-img${i === slideIdx ? ' active' : ''}`}
+          />
         ))}
       </div>
       <div className="wd-overlay" />
@@ -241,13 +200,13 @@ function Tile({ tile, index, areaClass }) {
         <p className="wd-label">{tile.label}</p>
         <p className="wd-sub">{tile.sub}</p>
       </div>
-      <button className="wd-cta">↗</button>
+      <a href={href} className="wd-cta" onClick={e => e.stopPropagation()}>↗</a>
     </article>
   )
 }
 
 export default function WebDevelopment() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()
   const t = TEXT[lang]
   const tiles = TILES[lang]
   const areas = ['t0', 't1', 't2', 't3', 't4', 't5', 't6']
@@ -265,6 +224,7 @@ export default function WebDevelopment() {
             tile={tile}
             index={i}
             areaClass={areas[i]}
+            href={`${prefix}/${tile.slug}`}
           />
         ))}
       </div>
