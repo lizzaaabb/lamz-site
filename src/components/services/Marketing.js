@@ -46,8 +46,8 @@ const TILES = {
       icon: '🔍',
     },
     {
-      label: 'SEO Content Creation',
-      sub: 'Words that rank and persuade',
+      label: 'Google Business Setup',
+      sub: 'Email setup, hosting',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
       icon: '✍️',
@@ -90,7 +90,7 @@ const TILES = {
       icon: '🔍',
     },
     {
-      label: 'SEO კონტენტის შექმნა',
+      label: 'Google Business-ის გამართვა',
       sub: 'ტექსტი, რომელიც რეიტინგს ზრდის',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
