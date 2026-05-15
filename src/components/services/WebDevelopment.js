@@ -200,7 +200,7 @@ function Tile({ tile, index, areaClass, href }) {
         <p className="wd-label">{tile.label}</p>
         <p className="wd-sub">{tile.sub}</p>
       </div>
-      <a href={href} className="wd-cta" onClick={e => e.stopPropagation()}>↗</a>
+      <a href={href} className="wd-cta2" onClick={e => e.stopPropagation()}>↗</a>
     </article>
   )
 }

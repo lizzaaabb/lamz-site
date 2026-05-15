@@ -230,7 +230,7 @@
 }
 
 /* ─── CTA arrow button ───────────────────────────── */
-.wd-cta {
+.wd-cta2 {
   position: absolute;
   bottom: 14px;
   right: 14px;
@@ -251,11 +251,11 @@
   transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
   box-shadow: 0 4px 14px rgba(0,0,0,0.4);
 }
-.wd-tile:hover .wd-cta {
+.wd-tile:hover .wd-cta2 {
   opacity: 1;
   transform: translateY(0);
 }
-.wd-cta:hover {
+.wd-cta2:hover {
   filter: brightness(1.15);
   transform: scale(1.1) !important;
 }
