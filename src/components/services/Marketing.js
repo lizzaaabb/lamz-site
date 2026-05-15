@@ -150,7 +150,11 @@ function Tile({ tile, index, areaClass }) {
         <p className="mk-label">{tile.label}</p>
         <p className="mk-sub">{tile.sub}</p>
       </div>
-      <button className="mk-cta">↗</button>
+     <button className="mk-cta">
+  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+</button>
     </article>
   )
 }

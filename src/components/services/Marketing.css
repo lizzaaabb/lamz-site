@@ -240,7 +240,8 @@
   background: #d166ff99;
   border: none;
   color: #fff;
-  font-size: 1rem;
+  font-size: 0;
+  line-height: 0;
   cursor: pointer;
   display: flex;
   align-items: center;

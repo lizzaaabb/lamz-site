@@ -200,7 +200,11 @@ function Tile({ tile, index, areaClass, href }) {
         <p className="wd-label">{tile.label}</p>
         <p className="wd-sub">{tile.sub}</p>
       </div>
-      <a href={href} className="wd-cta2" onClick={e => e.stopPropagation()}>↗</a>
+   <a href={href} className="wd-cta2" onClick={e => e.stopPropagation()}>
+  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+</a>
     </article>
   )
 }
