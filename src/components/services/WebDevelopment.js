@@ -60,7 +60,7 @@ const TILES = {
     {
       label: 'Real Estate Platforms',
       sub: 'Listings, maps & lead capture',
-      slug: 'real-estate-platforms',
+      slug: 'real-estate-development',
       imgs: [estate1, estate2, estate3],
       accent: '#10b981',
       icon: building,
@@ -118,7 +118,7 @@ const TILES = {
     {
       label: 'უძრავი ქონების ვებსაიტები',
       sub: 'განცხადებები, რუქები და ლიდები',
-      slug: 'real-estate-platforms',
+      slug: 'real-estate-development',
       imgs: [estate1, estate2, estate3],
       accent: '#10b981',
       icon: building,
