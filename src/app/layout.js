@@ -5,8 +5,8 @@ import Footer from '../components/Footer'
 
 export const metadata = {
   title: {
-    default: "საიტის დამზადება | ვებგვერდის შექმნა | Web Development | Apollo Creations",
-    template: "%s | საიტის დამზადება - Apollo Creations",
+    default: "საიტის დამზადება | ვებგვერდის შექმნა | Web Development",
+    template: "%s | საიტის დამზადება ",
   },
   description:
     "საიტის დამზადება პროფესიონალურად — სწრაფი, თანამედროვე და მიმზიდველი ვებგვერდები. Professional web development agency in Georgia. Fast, modern & beautiful websites built by Apollo Creations.",

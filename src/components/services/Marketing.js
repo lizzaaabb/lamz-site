@@ -22,6 +22,14 @@ const dev1 = '/dev/dev1.jpg'
 const dev2 = '/dev/dev2.jpg'
 const dev3 = '/dev/dev3.jpg'
 
+const icon1 = '/marketing/logo1.png'
+const icon2 = '/marketing/logo2.png'
+const icon3 = '/marketing/logo3.png'
+const icon4 = '/marketing/logo4.png'
+const icon5 = '/marketing/logo5.png'
+const icon6 = '/marketing/logo6.png'
+
+
 const TILES = {
   en: [
     {
@@ -29,42 +37,42 @@ const TILES = {
       sub: 'Social campaigns that convert',
       imgs: [shop1, shop2, shop3],
       accent: '#6366f1',
-      icon: '📱',
+      icon: icon1,
     },
     {
       label: 'Google Ads (PPC)',
       sub: 'Top of search, every time',
       imgs: [corp1, corp2, corp3],
       accent: '#10b981',
-      icon: '🎯',
+      icon: icon2,
     },
     {
       label: 'SEO Optimization',
       sub: 'Rank higher, get found faster',
       imgs: [estate1, estate2, estate3],
       accent: '#f59e0b',
-      icon: '🔍',
+      icon: icon3,
     },
     {
       label: 'Google Business Setup',
       sub: 'Email setup, hosting',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
-      icon: '✍️',
+      icon: icon4,
     },
     {
       label: 'Video Production',
       sub: 'Filming & editing that captivates',
       imgs: [dev1, dev2, dev3],
       accent: '#06b6d4',
-      icon: '🎬',
+      icon: icon5,
     },
     {
       label: 'SEO Blog Writing',
       sub: 'Authority content, consistently',
       imgs: [cat1, cat2, cat3],
       accent: '#8b5cf6',
-      icon: '📝',
+      icon: icon6,
     },
   ],
   ka: [
@@ -73,42 +81,42 @@ const TILES = {
       sub: 'სოციალური კამპანიები, რომლებიც ყიდიან',
       imgs: [shop1, shop2, shop3],
       accent: '#6366f1',
-      icon: '📱',
+      icon: icon1,
     },
     {
       label: 'Google რეკლამები (PPC)',
       sub: 'საძიებლის სათავეში, ყოველთვის',
       imgs: [corp1, corp2, corp3],
       accent: '#10b981',
-      icon: '🎯',
+      icon: icon2,
     },
     {
       label: 'SEO ოპტიმიზაცია',
       sub: 'მაღალი პოზიციები საძიებლებში',
       imgs: [estate1, estate2, estate3],
       accent: '#f59e0b',
-      icon: '🔍',
+      icon: icon3,
     },
     {
       label: 'Google Business-ის გამართვა',
       sub: 'ტექსტი, რომელიც რეიტინგს ზრდის',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
-      icon: '✍️',
+      icon: icon4,
     },
     {
       label: 'ვიდეოს გადაღება/მონტაჟი',
       sub: 'ვიდეო, რომელიც ყურადღებას იქცევს',
       imgs: [dev1, dev2, dev3],
       accent: '#06b6d4',
-      icon: '🎬',
+      icon: icon5,
     },
     {
       label: 'SEO ბლოგის შექმნა',
       sub: 'ავტორიტეტული კონტენტი, რეგულარულად',
       imgs: [cat1, cat2, cat3],
       accent: '#8b5cf6',
-      icon: '📝',
+      icon: icon6,
     },
   ],
 }
@@ -145,7 +153,9 @@ function Tile({ tile, index, areaClass }) {
         ))}
       </div>
       <div className="mk-overlay" />
-      <span className="mk-icon">{tile.icon}</span>
+      <span className="mk-icon">
+  <img src={tile.icon} alt="" className="wd-icon-img" />
+</span>
       <div className="mk-info">
         <p className="mk-label">{tile.label}</p>
         <p className="mk-sub">{tile.sub}</p>

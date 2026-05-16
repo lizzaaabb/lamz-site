@@ -286,3 +286,11 @@
     letter-spacing: 0.32em;
   }
 }
+
+.wd-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes it white, remove if your icons are already colored */
+  opacity: 0.8;
+}
