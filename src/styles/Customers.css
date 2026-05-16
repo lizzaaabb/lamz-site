@@ -291,3 +291,12 @@
   .rv-section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
   .rv-verified { width: 180px; }
 }
+
+@media (max-width: 600px) {
+  .rv-card,
+  .rv-section-title,
+  .rv-rule {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

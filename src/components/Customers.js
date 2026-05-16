@@ -65,10 +65,9 @@ function GoogleIcon() {
 function ReviewCard({ review, lang, mobile }) {
   const verified = lang === 'ka' ? 'რეალური შეფასებები Google-ზე' : 'Verified on Google'
   const viewProfile = lang === 'ka' ? 'პროფილის ნახვა →' : 'View profile →'
-
   return (
     
-      <a href={review.profileUrl}
+     <a href={review.profileUrl}
       target="_blank"
       rel="noopener noreferrer"
       className={`rv-card${mobile ? ' rv-card--mobile' : ''}`}
@@ -88,13 +87,10 @@ function ReviewCard({ review, lang, mobile }) {
           <GoogleIcon />
         </div>
       </div>
-
       <div className="rv-stars">
         {Array.from({ length: review.rating }).map((_, i) => <StarIcon key={i} />)}
       </div>
-
       <p className="rv-text">{review.text}</p>
-
       <div className="rv-footer">
         <span className="rv-verified">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -109,7 +105,6 @@ function ReviewCard({ review, lang, mobile }) {
   )
 }
 
-// Pure CSS scroll snap swiper — no library, no JS lag
 function MobileSwiper({ reviews, lang }) {
   const [active, setActive] = useState(0)
   const trackRef = useRef(null)
@@ -157,7 +152,9 @@ function MobileSwiper({ reviews, lang }) {
 function Customers() {
   const { lang } = useLang()
   const containerRef = useRef(null)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 600 : false
+  )
   const title = lang === 'ka' ? 'რას ამბობენ ჩვენი მომხმარებლები' : 'What Our Clients Say'
 
   useEffect(() => {
@@ -203,7 +200,6 @@ function Customers() {
         <h2 className="rv-section-title">{title}</h2>
         <div className="rv-rule" />
       </div>
-
       {isMobile ? (
         <MobileSwiper reviews={reviews} lang={lang} />
       ) : (
