@@ -68,7 +68,7 @@ const TILES = {
     {
       label: 'Car Rental Systems',
       sub: 'Fleet management & booking flows',
-      slug: 'car-rental-systems',
+      slug: 'car-website-development',
       imgs: [car1, car2, car3],
       accent: '#f59e0b',
       icon: car,
@@ -126,7 +126,7 @@ const TILES = {
     {
       label: 'მანქანების გაქირავება',
       sub: 'ფლოტი და ჯავშნის სისტემები',
-      slug: 'car-rental-systems',
+      slug: 'car-website-development',
       imgs: [car1, car2, car3],
       accent: '#f59e0b',
       icon: car,
