@@ -37,25 +37,25 @@ export const blogContentKa = {
 
 ### მანქანების გაქირავების ვებსაიტი
 
-1499₾-დან
+### 1499₾-დან
 
 ### მანქანების გაქირავების ვებსაიტი ონლაინ გადახდებით
 
-1999₾-დან
+### 1999₾-დან
 
 ### ავტონაწილების ონლაინ კატალოგი (გადახდების გარეშე)
 
-1499₾-დან
+### 1499₾-დან
 
 ### ავტონაწილების ონლაინ მაღაზია გადახდებით
 
-2499₾-დან
+### 2499₾-დან
 
 ### მრავალფუნქციური WooCommerce პლატფორმა
 
 (რეგისტრაცია, ავტომობილების დამატება, გაყიდვა, მომხმარებლის პროფილები და სრული სისტემა)
 
-10000₾-დან
+### 10000₾-დან
 
 ფასი დამოკიდებულია:
 
@@ -196,25 +196,25 @@ In simple terms, the system is designed to help users quickly find vehicles or p
 
 ### Car Rental Website
 
-Starting from 1499 GEL
+### Starting from 1499 GEL
 
 ### Car Rental Website with Online Payments
 
-Starting from 1999 GEL
+### Starting from 1999 GEL
 
 ### Auto Parts Online Catalog (Without Payments)
 
-Starting from 1499 GEL
+### Starting from 1499 GEL
 
 ### Auto Parts Online Store with Payments
 
-Starting from 2499 GEL
+### Starting from 2499 GEL
 
 ### Advanced WooCommerce Platform
 
 (User registration, vehicle uploads, listings, customer profiles, and full marketplace functionality)
 
-Starting from 10000 GEL
+### Starting from 10000 GEL
 
 Pricing depends on:
 

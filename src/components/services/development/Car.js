@@ -12,10 +12,19 @@ function renderContent(lines) {
     const line = lines[i]
 
     if (line.startsWith('### ')) {
+      const text = line.replace('### ', '')
+      const isPrice = /[₾$]|GEL/.test(text)
       elements.push(
-        <div key={i} className="bw-price-badge">
-          {line.replace('### ', '')}
-        </div>
+        isPrice
+          ? <div key={i} className="bw-price-badge">{text}</div>
+          : <h3 key={i} style={{
+              fontFamily: 'Sansation, sans-serif',
+              fontSize: '1.1rem',
+              fontWeight: '700',
+              color: 'rgba(255,255,255,0.85)',
+              margin: '16px 0 4px',
+              letterSpacing: '0.01em',
+            }}>{text}</h3>
       )
       i++
     } else if (line.startsWith('## ')) {
