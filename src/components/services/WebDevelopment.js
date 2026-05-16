@@ -76,7 +76,7 @@ const TILES = {
     {
       label: 'Tourism & Travel',
       sub: 'Destinations that inspire adventure',
-      slug: 'tourism-travel-websites',
+      slug: 'tourism-website-development',
       imgs: [travel1, travel2, travel3],
       accent: '#06b6d4',
       icon: plane,
@@ -134,7 +134,7 @@ const TILES = {
     {
       label: 'ტურისტული ვებსაიტები',
       sub: 'დანიშნულებები, რომლებიც გაუბიძგებს',
-      slug: 'tourism-travel-websites',
+      slug: 'tourism-website-development',
       imgs: [travel1, travel2, travel3],
       accent: '#06b6d4',
       icon: plane,
