@@ -76,7 +76,7 @@ const TILES = {
     {
       label: 'Tourism & Travel',
       sub: 'Destinations that inspire adventure',
-      slug: 'tourism-website-development',
+      slug: 'tourism-web-development',
       imgs: [travel1, travel2, travel3],
       accent: '#06b6d4',
       icon: plane,
@@ -92,7 +92,8 @@ const TILES = {
     {
       label: 'Custom Web Apps',
       sub: 'Tailored platforms, zero compromise',
-      slug: 'custom-web-applications',
+      slug: 'ნი კომპრომისი',
+      slug: 'custom-website-development',
       imgs: [dev1, dev2, dev3],
       accent: '#ef4444',
       icon: custom,
@@ -134,7 +135,7 @@ const TILES = {
     {
       label: 'ტურისტული ვებსაიტები',
       sub: 'დანიშნულებები, რომლებიც გაუბიძგებს',
-      slug: 'tourism-website-development',
+      slug: 'tourism-web-development',
       imgs: [travel1, travel2, travel3],
       accent: '#06b6d4',
       icon: plane,
@@ -150,7 +151,7 @@ const TILES = {
     {
       label: 'ინდივიდუალური ვებ პლატფორმები',
       sub: 'მორგებული პლატფორმა, ნულოვანი კომპრომისი',
-      slug: 'custom-web-applications',
+      slug: 'custom-website-development',
       imgs: [dev1, dev2, dev3],
       accent: '#ef4444',
       icon: custom,
