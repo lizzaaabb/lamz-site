@@ -1,14 +1,159 @@
 'use client'
-
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLang } from '../LanguageContext'
 import './Branding.css'
 
-function Branding() {
+const corp1 = '/corp/corp1.jpg'
+const corp2 = '/corp/corp2.jpg'
+const corp3 = '/corp/corp3.jpg'
+const shop1 = '/shop/shop1.jpg'
+const shop2 = '/shop/shop2.jpg'
+const shop3 = '/shop/shop3.jpg'
+const estate1 = '/estate/estate1.jpg'
+const estate2 = '/estate/estate2.jpg'
+const estate3 = '/estate/estate3.jpg'
+const travel1 = '/branding/vid1.jpg'
+const travel2 = '/branding/vid2.jpg'
+const travel3 = '/branding/vid3.jpg'
+
+const icon1 = '/branding/br1.png'
+const icon2 = '/branding/br2.png'
+const icon3 = '/branding/br3.png'
+const icon4 = '/branding/br4.png'
+
+const TILES = {
+  en: [
+    {
+      label: 'Logo Design',
+      sub: 'Memorable marks that last',
+      imgs: [shop1, shop2, shop3],
+      accent: '#f59e0b',
+      icon: icon1,
+    },
+    {
+      label: 'Basic Branding',
+      sub: 'Colors, fonts & brand guidelines',
+      imgs: [corp1, corp2, corp3],
+      accent: '#6366f1',
+      icon: icon2,
+    },
+    {
+      label: 'Full Brandbook',
+      sub: 'Complete identity system',
+      imgs: [estate1, estate2, estate3],
+      accent: '#10b981',
+      icon: icon3,
+    },
+    {
+      label: 'Video Production',
+      sub: 'Filming & editing that captivates',
+      imgs: [travel1, travel2, travel3],
+      accent: '#ec4899',
+      icon: icon4,
+    },
+  ],
+  ka: [
+    {
+      label: 'ლოგოს დიზაინი',
+      sub: 'დასამახსოვრებელი ნიშნები',
+      imgs: [shop1, shop2, shop3],
+      accent: '#f59e0b',
+      icon: icon1,
+    },
+    {
+      label: 'საბაზისო ბრენდინგი',
+      sub: 'ფერები, შრიფტები და სახელმძღვანელო',
+      imgs: [corp1, corp2, corp3],
+      accent: '#6366f1',
+      icon: icon2,
+    },
+    {
+      label: 'სრული ბრენდბუქი',
+      sub: 'იდენტობის სრული სისტემა',
+      imgs: [estate1, estate2, estate3],
+      accent: '#10b981',
+      icon: icon3,
+    },
+    {
+      label: 'ვიდეოს გადაღება/მონტაჟი',
+      sub: 'ვიდეო, რომელიც ყურადღებას იქცევს',
+      imgs: [travel1, travel2, travel3],
+      accent: '#ec4899',
+      icon: icon4,
+    },
+  ],
+}
+
+const TEXT = {
+  en: { pre: 'What We Do', title: 'Branding' },
+  ka: { pre: 'რას ვაკეთებთ', title: 'ბრენდინგი' },
+}
+
+function useSlideshow(imgs, interval = 3500) {
+  const [idx, setIdx] = useState(0)
+  useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % imgs.length), interval)
+    return () => clearInterval(t)
+  }, [imgs.length, interval])
+  return idx
+}
+
+function Tile({ tile, index, areaClass }) {
+  const slideIdx = useSlideshow(tile.imgs, 3500 + index * 300)
   return (
-    <div>
-      
-    </div>
+    <article
+      className={`br-tile ${areaClass}`}
+      style={{ '--accent': tile.accent, animationDelay: `${index * 0.08}s` }}
+    >
+      <div className="br-slide-wrap">
+        {tile.imgs.map((src, i) => (
+          <img
+            key={i}
+            src={src}
+            alt=""
+            className={`br-slide-img${i === slideIdx ? ' active' : ''}`}
+          />
+        ))}
+      </div>
+      <div className="br-overlay" />
+      <span className="br-icon">
+        <img src={tile.icon} alt="" className="br-icon-img" />
+      </span>
+      <div className="br-info">
+        <p className="br-label">{tile.label}</p>
+        <p className="br-sub">{tile.sub}</p>
+      </div>
+      <button className="br-cta">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+    </article>
   )
 }
 
-export default Branding
+export default function Branding() {
+  const { lang } = useLang()
+  const t = TEXT[lang]
+  const tiles = TILES[lang]
+  const areas = ['b0', 'b1', 'b2', 'b3']
+
+  return (
+    <section className={`br-section${lang === 'ka' ? ' br-section--ka' : ''}`}>
+      <div className="br-header">
+        <span className="br-pre">{t.pre}</span>
+        <h2 className="br-title">{t.title}</h2>
+      </div>
+      <div className="br-bento">
+        {tiles.map((tile, i) => (
+          <Tile
+            key={tile.label}
+            tile={tile}
+            index={i}
+            areaClass={areas[i]}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
