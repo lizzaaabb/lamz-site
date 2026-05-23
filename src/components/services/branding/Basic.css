@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@400;500;700;800&display=swap');
+
+.bb-section {
+  --accent: #c084fc;
+  --accent2: #7cb9e8;
+  --radius: 20px;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --text: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --border: rgba(192, 132, 252, 0.18);
+
+  font-family: 'DM Sans', sans-serif;
+  background: transparent;
+  color: var(--text);
+  padding: 120px 16px 80px;
+  position: relative;
+}
+
+/* ─── Header ─────────────────────────────────────── */
+.bb-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.bb-pre {
+  font-family: 'Sansation', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.52em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #c084fc, #99ffff, #7cb9e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: brightness(1.2);
+  margin: 0;
+}
+.bb-section--ka .bb-pre {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+.bb-title {
+  font-family: 'Sansation', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.bb-title::before,
+.bb-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  flex-shrink: 0;
+}
+.bb-title::before {
+  background: linear-gradient(90deg, transparent, rgba(192,132,252,0.6), rgba(153,255,255,0.8));
+}
+.bb-title::after {
+  background: linear-gradient(90deg, rgba(153,255,255,0.8), rgba(192,132,252,0.6), transparent);
+}
+.bb-section--ka .bb-title {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+/* ─── Card ───────────────────────────────────────── */
+.bb-card {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 44px 44px 44px 56px;
+  box-shadow: var(--shadow), 0 0 0 1px rgba(192,132,252,0.08);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: bbFadeUp 0.65s ease forwards;
+  opacity: 0;
+}
+
+.bb-accent-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #c084fc 0%, #7cb9e8 100%);
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.bb-glow-corner {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(192,132,252,0.1) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ─── Price ──────────────────────────────────────── */
+.bb-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.bb-price {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.6rem, 6vw, 3.4rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #c084fc, #e0aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.bb-price-note {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  background: rgba(192,132,252,0.1);
+  border: 1px solid rgba(192,132,252,0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ─── Description ────────────────────────────────── */
+.bb-desc {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  margin: 0 0 4px;
+}
+.bb-section--ka .bb-desc {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* ─── Divider ────────────────────────────────────── */
+.bb-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(192,132,252,0.3), rgba(124,185,232,0.2), transparent);
+  margin: 28px 0;
+}
+
+/* ─── Blocks ─────────────────────────────────────── */
+.bb-block {
+  margin-bottom: 4px;
+}
+
+.bb-block-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #c084fc, #7cb9e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 16px;
+}
+.bb-block-label--optional {
+  background: linear-gradient(90deg, #e0aaff, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.bb-section--ka .bb-block-label {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 0.82rem;
+}
+
+/* ─── Note ───────────────────────────────────────── */
+.bb-note {
+  margin: 20px 0 0;
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: rgba(192,132,252,0.7);
+  line-height: 1.6;
+  font-style: italic;
+  padding-left: 4px;
+  border-left: 2px solid rgba(192,132,252,0.3);
+  padding-left: 12px;
+}
+.bb-section--ka .bb-note {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 0.82rem;
+}
+
+/* ─── List ───────────────────────────────────────── */
+.bb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bb-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+.bb-list-item.hovered {
+  color: #ffffff;
+}
+.bb-list-item--optional {
+  color: rgba(192,132,252,0.9);
+}
+.bb-section--ka .bb-list-item {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 0.92rem;
+}
+
+.bb-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(192,132,252,0.12);
+  border: 1px solid rgba(192,132,252,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c084fc;
+  margin-top: 1px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.bb-list-item.hovered .bb-check {
+  background: rgba(192,132,252,0.25);
+  border-color: rgba(192,132,252,0.7);
+}
+
+.bb-plus {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(192,132,252,0.1);
+  border: 1px solid rgba(192,132,252,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c084fc;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* ─── CTA ────────────────────────────────────────── */
+.bb-cta {
+  margin-top: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #25d366, #128c50);
+  border: none;
+  color: #ffffff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(37,211,102,0.35);
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.25s ease,
+              filter 0.2s ease;
+}
+.bb-cta:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 36px rgba(37,211,102,0.5);
+  filter: brightness(1.08);
+}
+.bb-section--ka .bb-cta {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  letter-spacing: 0;
+  font-size: 0.95rem;
+}
+
+/* ─── Animation ──────────────────────────────────── */
+@keyframes bbFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Mobile ─────────────────────────────────────── */
+@media (max-width: 599px) {
+  .bb-card {
+    padding: 32px 24px 32px 36px;
+  }
+  .bb-pre {
+    letter-spacing: 0.3em;
+  }
+  .bb-list-item {
+    font-size: 0.95rem;
+  }
+}
+
+/* ─── Light theme ────────────────────────────────── */
+[data-theme="light"] .bb-section {
+  --text: #0f172a;
+  --card-bg: rgba(0,0,0,0.03);
+  --border: rgba(192,132,252,0.2);
+  --shadow: 0 8px 30px rgba(0,0,0,0.1);
+}

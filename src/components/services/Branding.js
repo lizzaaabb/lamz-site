@@ -26,6 +26,7 @@ const TILES = {
     {
       label: 'Logo Design',
       sub: 'Memorable marks that last',
+      slug: 'logo',
       imgs: [shop1, shop2, shop3],
       accent: '#f59e0b',
       icon: icon1,
@@ -33,6 +34,7 @@ const TILES = {
     {
       label: 'Basic Branding',
       sub: 'Colors, fonts & brand guidelines',
+      slug: 'basic-branding',
       imgs: [corp1, corp2, corp3],
       accent: '#6366f1',
       icon: icon2,
@@ -40,6 +42,7 @@ const TILES = {
     {
       label: 'Full Brandbook',
       sub: 'Complete identity system',
+      slug: 'full-brandbook',
       imgs: [estate1, estate2, estate3],
       accent: '#10b981',
       icon: icon3,
@@ -47,6 +50,7 @@ const TILES = {
     {
       label: 'Video Production',
       sub: 'Filming & editing that captivates',
+      slug: 'video-production',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
       icon: icon4,
@@ -56,6 +60,7 @@ const TILES = {
     {
       label: 'ლოგოს დიზაინი',
       sub: 'დასამახსოვრებელი ნიშნები',
+      slug: 'logo',
       imgs: [shop1, shop2, shop3],
       accent: '#f59e0b',
       icon: icon1,
@@ -63,6 +68,7 @@ const TILES = {
     {
       label: 'საბაზისო ბრენდინგი',
       sub: 'ფერები, შრიფტები და სახელმძღვანელო',
+      slug: 'basic-branding',
       imgs: [corp1, corp2, corp3],
       accent: '#6366f1',
       icon: icon2,
@@ -70,6 +76,7 @@ const TILES = {
     {
       label: 'სრული ბრენდბუქი',
       sub: 'იდენტობის სრული სისტემა',
+      slug: 'full-brandbook',
       imgs: [estate1, estate2, estate3],
       accent: '#10b981',
       icon: icon3,
@@ -77,6 +84,7 @@ const TILES = {
     {
       label: 'ვიდეოს გადაღება/მონტაჟი',
       sub: 'ვიდეო, რომელიც ყურადღებას იქცევს',
+      slug: 'video-production',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
       icon: icon4,
@@ -98,12 +106,13 @@ function useSlideshow(imgs, interval = 3500) {
   return idx
 }
 
-function Tile({ tile, index, areaClass }) {
+function Tile({ tile, index, areaClass, href }) {
   const slideIdx = useSlideshow(tile.imgs, 3500 + index * 300)
   return (
     <article
       className={`br-tile ${areaClass}`}
       style={{ '--accent': tile.accent, animationDelay: `${index * 0.08}s` }}
+      onClick={() => window.location.href = href}
     >
       <div className="br-slide-wrap">
         {tile.imgs.map((src, i) => (
@@ -123,17 +132,17 @@ function Tile({ tile, index, areaClass }) {
         <p className="br-label">{tile.label}</p>
         <p className="br-sub">{tile.sub}</p>
       </div>
-      <button className="br-cta">
+      <a href={href} className="br-cta" onClick={e => e.stopPropagation()}>
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-      </button>
+      </a>
     </article>
   )
 }
 
 export default function Branding() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()
   const t = TEXT[lang]
   const tiles = TILES[lang]
   const areas = ['b0', 'b1', 'b2', 'b3']
@@ -151,6 +160,7 @@ export default function Branding() {
             tile={tile}
             index={i}
             areaClass={areas[i]}
+            href={`${prefix}/${tile.slug}`}
           />
         ))}
       </div>
