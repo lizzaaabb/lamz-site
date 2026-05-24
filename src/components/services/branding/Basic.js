@@ -9,7 +9,7 @@ const TEXT = {
   en: {
     pre: 'Our Services',
     title: 'Basic Branding',
-    price: '1000₾',
+    price: '1100₾',
     priceNote: '+600₾ for full Georgian adaptation',
     desc: 'A complete visual foundation for businesses that want a professional and cohesive online presence.',
     includesLabel: 'Includes',
@@ -34,7 +34,7 @@ const TEXT = {
   ka: {
     pre: 'ჩვენი სერვისები',
     title: 'საბაზისო ბრენდინგი',
-    price: '1000₾',
+    price: '1100₾',
     priceNote: '+600₾ სრული ქართული ადაპტაციისთვის',
     desc: 'სრული ვიზუალური საფუძველი ბიზნესებისთვის, რომლებსაც სურთ პროფესიონალური და თანმიმდევრული ონლაინ სახე.',
     includesLabel: 'მოიცავს',

@@ -9,7 +9,7 @@ const TEXT = {
   en: {
     pre: 'Our Services',
     title: 'Full Brandbook',
-    price: '1600₾',
+    price: '1700₾',
     priceNote: '+800₾ for bilingual system',
     desc: 'A full professional identity system designed for businesses that want a polished, scalable, and highly consistent brand across websites, social media, print, packaging, and marketing.',
     includesLabel: 'Includes everything from Basic Branding, plus',
@@ -35,7 +35,7 @@ const TEXT = {
   ka: {
     pre: 'ჩვენი სერვისები',
     title: 'სრული ბრენდბუქი',
-    price: '1600₾',
+    price: '1700₾',
     priceNote: '+800₾ ორენოვანი სისტემისთვის',
     desc: 'სრული პროფესიონალური იდენტობის სისტემა ბიზნესებისთვის, რომლებსაც სურთ გაპრიალებული, მასშტაბირებადი და თანმიმდევრული ბრენდი ვებსაიტებზე, სოციალურ მედიაში, პრინტსა და მარკეტინგში.',
     includesLabel: 'მოიცავს საბაზისო ბრენდინგის ყველაფერს, პლუს',

@@ -9,7 +9,7 @@ const TEXT = {
   en: {
     pre: 'Our Services',
     title: 'Logo Design',
-    price: '600₾',
+    price: '650₾',
     priceNote: '+400₾ for Georgian version',
     desc: 'A clean and professional logo designed to work across websites, social media, and print.',
     includesLabel: 'Includes',
@@ -30,7 +30,7 @@ const TEXT = {
   ka: {
     pre: 'ჩვენი სერვისები',
     title: 'ლოგოს დიზაინი',
-    price: '600₾',
+    price: '650₾',
     priceNote: '+400₾ ქართული ვერსიისთვის',
     desc: 'სუფთა და პროფესიონალური ლოგო, შექმნილი ვებსაიტებზე, სოციალურ მედიასა და პრინტზე გამოსაყენებლად.',
     includesLabel: 'მოიცავს',
