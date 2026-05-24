@@ -12,7 +12,7 @@ export const blogContentKa = {
 
 ## 1. მომხმარებელი პირველ რიგში Google-ში გეძებთ
 
-ინტერნეტის მომხმარებელთა დაახლოებით 90% ინფორმაციას Google-ში ეძებს. ვებსაიტის გარეშე ამ მომხმარებლებისთვის პრაქტიკულად უხილავი ხართ.
+ინტერნეტის მომხმარებელთა უმრავლესობა ინფორმაციას საძიებო სისტემების საშუალებით ეძებს - [BrightEdge-ის მონაცემების მიხედვით](https://www.brightedge.com/brightedge-ai-pulse), Google-ს გლობალური საძიებო ბაზრის 90%-ზე მეტი უკავია. ვებსაიტის გარეშე თქვენი ბიზნესი ამ ვიზიტორებისთვის პრაქტიკულად უხილავია.
 
 ## 2. ვებსაიტი ზრდის კომპანიის სანდოობას
 
@@ -39,7 +39,6 @@ export const blogContentKa = {
 `,
 };
 
-
 export const blogContentEn = {
   slug: "5-reasons-why-your-business-needs-a-website",
   title: "5 Reasons Why Your Business Needs a Website",
@@ -54,7 +53,7 @@ Below are 5 key reasons:
 
 ## 1. Customers search for you on Google first
 
-Around 90% of internet users search for information on Google. Without a website, you are practically invisible to these users.
+Most internet users rely on search engines to find information - and according to [BrightEdge data](https://www.brightedge.com/brightedge-ai-pulse), Google holds over 90% of the global search market share. Without a website, your business is effectively invisible to the majority of search traffic.
 
 ## 2. A website increases company credibility
 
@@ -76,7 +75,7 @@ A website works 24/7 - even while you sleep, your business can still generate in
 
 We create modern, fast, and SEO-optimized websites focused on real results.
 
-Website ordering tips
+Website ordering tips  
 Place an order
 `,
 };
