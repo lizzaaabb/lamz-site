@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ── Home ── -->
+  <url>
+    <loc>https://www.apollocreations.net/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ── Services ── -->
+  <url>
+    <loc>https://www.apollocreations.net/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/services"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/services"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── Web Development ── -->
+  <url>
+    <loc>https://www.apollocreations.net/web-development-service</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/web-development-service"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/web-development-service"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/web-development-service</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/web-development-service"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/web-development-service"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── Business Website ── -->
+  <url>
+    <loc>https://www.apollocreations.net/business-website-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/business-website-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/business-website-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/business-website-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/business-website-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/business-website-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Ecommerce ── -->
+  <url>
+    <loc>https://www.apollocreations.net/ecommerce-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/ecommerce-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/ecommerce-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/ecommerce-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/ecommerce-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/ecommerce-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Real Estate ── -->
+  <url>
+    <loc>https://www.apollocreations.net/real-estate-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/real-estate-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/real-estate-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/real-estate-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/real-estate-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/real-estate-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Tourism ── -->
+  <url>
+    <loc>https://www.apollocreations.net/tourism-web-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/tourism-web-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/tourism-web-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/tourism-web-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/tourism-web-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/tourism-web-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Product Catalog ── -->
+  <url>
+    <loc>https://www.apollocreations.net/product-catalog-websites</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/product-catalog-websites"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/product-catalog-websites"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/product-catalog-websites</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/product-catalog-websites"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/product-catalog-websites"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Car Website ── -->
+  <url>
+    <loc>https://www.apollocreations.net/car-website-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/car-website-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/car-website-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/car-website-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/car-website-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/car-website-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Custom Website ── -->
+  <url>
+    <loc>https://www.apollocreations.net/custom-website-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/custom-website-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/custom-website-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/custom-website-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/custom-website-development"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/custom-website-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Branding ── -->
+  <url>
+    <loc>https://www.apollocreations.net/branding</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/branding"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/branding"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/branding</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/branding"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/branding"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── Logo ── -->
+  <url>
+    <loc>https://www.apollocreations.net/logo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/logo"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/logo"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/logo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/logo"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/logo"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Basic Branding ── -->
+  <url>
+    <loc>https://www.apollocreations.net/basic-branding</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/basic-branding"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/basic-branding"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/basic-branding</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/basic-branding"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/basic-branding"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Full Brandbook ── -->
+  <url>
+    <loc>https://www.apollocreations.net/full-brandbook</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/full-brandbook"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/full-brandbook"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/full-brandbook</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/full-brandbook"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/full-brandbook"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Video Production ── -->
+  <url>
+    <loc>https://www.apollocreations.net/video-production</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/video-production"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/video-production"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/video-production</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/video-production"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/video-production"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Projects ── -->
+  <url>
+    <loc>https://www.apollocreations.net/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/projects"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/projects"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/projects"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/projects"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Contact ── -->
+  <url>
+    <loc>https://www.apollocreations.net/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/contact"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/contact"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/contact"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/contact"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Blog ── -->
+  <url>
+    <loc>https://www.apollocreations.net/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/blog"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/blog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/blog"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/blog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Blog Posts ── -->
+  <url>
+    <loc>https://www.apollocreations.net/ordering-a-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/ordering-a-website"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/ordering-a-website"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/ordering-a-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/ordering-a-website"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/ordering-a-website"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.apollocreations.net/wordpress-vs-nextjs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/wordpress-vs-nextjs"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/wordpress-vs-nextjs"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/wordpress-vs-nextjs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/wordpress-vs-nextjs"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/wordpress-vs-nextjs"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.apollocreations.net/5-reasons-why-your-business-needs-a-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/5-reasons-why-your-business-needs-a-website"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/5-reasons-why-your-business-needs-a-website"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.apollocreations.net/ka/5-reasons-why-your-business-needs-a-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/5-reasons-why-your-business-needs-a-website"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/5-reasons-why-your-business-needs-a-website"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
