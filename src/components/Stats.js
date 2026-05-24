@@ -64,7 +64,7 @@ const content = {
     title: 'Services',
     cards: [
       {
-        price: 'From799₾',
+        price: 'From 799₾',
         title: 'One-Page Website',
         num: '01',
         items: [
@@ -128,7 +128,7 @@ function getWhatsAppUrl(cardTitle, lang) {
 }
 
 function Stats() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()
   const t = content[lang]
   const containerRef = useRef(null)
 
@@ -139,7 +139,7 @@ function Stats() {
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
       ctx = gsap.context(() => {
-        gsap.set('.sv-section-title, .sv-rule, .sv-card, .sv-bonus-card', {
+        gsap.set('.sv-section-title, .sv-rule, .sv-card, .sv-bonus-card, .sv-all-services-wrap', {
           opacity: 0,
           y: 36,
         })
@@ -180,6 +180,7 @@ function Stats() {
           }
         )
         fadeUp('.sv-bonus-card', 0.1)
+        fadeUp('.sv-all-services-wrap', 0.2)
       }, containerRef)
     }
     init()
@@ -216,8 +217,8 @@ function Stats() {
               ))}
             </ul>
             <div className="sv-btn-wrapper">
-              
-               <a className="sv-order-btn"
+              <a
+                className="sv-order-btn"
                 href={getWhatsAppUrl(c.title, lang)}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -249,6 +250,17 @@ function Stats() {
           </ul>
         </div>
       </div>
+
+      <div className="sv-all-services-wrap">
+        <a
+          href={`${prefix}/services`}
+          className="sv-all-services-btn"
+        >
+          {lang === 'ka' ? 'ყველა სერვისი' : 'All Services'}
+      
+        </a>
+      </div>
+
     </div>
   )
 }
