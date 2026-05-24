@@ -232,3 +232,14 @@
     margin-left: 0 !important;
   }
 }
+
+.bp-inline-link {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.bp-inline-link:hover {
+  color: var(--aqua);
+}

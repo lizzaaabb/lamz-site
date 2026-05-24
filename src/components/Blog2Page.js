@@ -5,6 +5,37 @@ import { blogContentKa, blogContentEn } from '../components/Blog2'
 import '../styles/BlogPage1.css'
 import '../styles/Landing.css'
 
+function parseInlineLinks(text) {
+  const parts = []
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g
+  let lastIndex = 0
+  let match
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index))
+    }
+    parts.push(
+      
+       <a key={match.index}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bp-inline-link"
+      >
+        {match[1]}
+      </a>
+    )
+    lastIndex = match.index + match[0].length
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex))
+  }
+
+  return parts.length > 0 ? parts : text
+}
+
 function renderContent(lines, prefix, lang) {
   const elements = []
   let i = 0
@@ -56,15 +87,15 @@ function renderContent(lines, prefix, lang) {
       const items = []
       while (i < lines.length && (lines[i].startsWith('- ') || lines[i].startsWith('  - '))) {
         if (lines[i].startsWith('  - ')) {
-          items.push(<li key={i} className="bp-li bp-li--sub">{lines[i].replace('  - ', '')}</li>)
+          items.push(<li key={i} className="bp-li bp-li--sub">{parseInlineLinks(lines[i].replace('  - ', ''))}</li>)
         } else {
-          items.push(<li key={i} className="bp-li">{lines[i].replace('- ', '')}</li>)
+          items.push(<li key={i} className="bp-li">{parseInlineLinks(lines[i].replace('- ', ''))}</li>)
         }
         i++
       }
       elements.push(<ul key={`ul-${i}`} className="bp-ul">{items}</ul>)
     } else {
-      elements.push(<p key={i} className="bp-p">{line}</p>)
+      elements.push(<p key={i} className="bp-p">{parseInlineLinks(line)}</p>)
       i++
     }
   }
