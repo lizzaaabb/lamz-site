@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { useLang } from '../LanguageContext'
 import './Branding.css'
 
@@ -107,12 +108,14 @@ function useSlideshow(imgs, interval = 3500) {
 }
 
 function Tile({ tile, index, areaClass, href }) {
+  const router = useRouter()
   const slideIdx = useSlideshow(tile.imgs, 3500 + index * 300)
+
   return (
     <article
       className={`br-tile ${areaClass}`}
       style={{ '--accent': tile.accent, animationDelay: `${index * 0.08}s` }}
-      onClick={() => window.location.href = href}
+      onClick={() => router.push(href)}
     >
       <div className="br-slide-wrap">
         {tile.imgs.map((src, i) => (
@@ -132,7 +135,11 @@ function Tile({ tile, index, areaClass, href }) {
         <p className="br-label">{tile.label}</p>
         <p className="br-sub">{tile.sub}</p>
       </div>
-      <a href={href} className="br-cta" onClick={e => e.stopPropagation()}>
+      
+       <a href={href}
+        className="br-cta"
+        onClick={e => { e.preventDefault(); e.stopPropagation(); router.push(href) }}
+      >
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
