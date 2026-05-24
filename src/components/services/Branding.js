@@ -50,7 +50,7 @@ const TILES = {
     {
       label: 'Video Production',
       sub: 'Filming & editing that captivates',
-      slug: 'video-production',
+      slug: 'video',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
       icon: icon4,
@@ -84,7 +84,7 @@ const TILES = {
     {
       label: 'ვიდეოს გადაღება/მონტაჟი',
       sub: 'ვიდეო, რომელიც ყურადღებას იქცევს',
-      slug: 'video-production',
+      slug: 'video',
       imgs: [travel1, travel2, travel3],
       accent: '#ec4899',
       icon: icon4,
