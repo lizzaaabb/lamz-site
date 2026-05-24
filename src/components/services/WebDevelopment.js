@@ -102,7 +102,7 @@ const TILES = {
   ka: [
     {
       label: 'ბიზნეს ვებსაიტების შექმნა',
-      sub: 'ბრენდი, რომელიც გაყიდავს',
+      sub: 'ბრენდი, რომელიც ყიდის',
       slug: 'business-website-development',
       imgs: [corp1, corp2, corp3],
       accent: '#6366f1',
@@ -110,7 +110,7 @@ const TILES = {
     },
     {
       label: 'ონლაინ მაღაზიების შექმნა',
-      sub: 'მაღაზია, რომელიც 24/7 ყიდის',
+      sub: 'მაღაზია, რომელიც 24/7-ზე მუშაობს',
       slug: 'ecommerce-development',
       imgs: [shop1, shop2, shop3],
       accent: '#ec4899',
@@ -118,7 +118,7 @@ const TILES = {
     },
     {
       label: 'უძრავი ქონების ვებსაიტები',
-      sub: 'განცხადებები, რუქები და ლიდები',
+      sub: 'ყიდვა, გაყიდვა, გაქირავება',
       slug: 'real-estate-development',
       imgs: [estate1, estate2, estate3],
       accent: '#10b981',
@@ -126,7 +126,7 @@ const TILES = {
     },
     {
       label: 'მანქანების გაქირავება',
-      sub: 'ფლოტი და ჯავშნის სისტემები',
+      sub: 'ყიდვა, გაქირავება, ჯავშნები',
       slug: 'car-website-development',
       imgs: [car1, car2, car3],
       accent: '#f59e0b',
@@ -134,7 +134,7 @@ const TILES = {
     },
     {
       label: 'ტურისტული ვებსაიტები',
-      sub: 'დანიშნულებები, რომლებიც გაუბიძგებს',
+      sub: 'ტურები, ონლაინ ჯავშნები',
       slug: 'tourism-web-development',
       imgs: [travel1, travel2, travel3],
       accent: '#06b6d4',
@@ -142,7 +142,7 @@ const TILES = {
     },
     {
       label: 'ონლაინ კატალოგის ვებსაიტები',
-      sub: 'ყველა პროდუქტი — ლამაზად',
+      sub: 'პროდუქტები, გადახდის გარეშე შეკვეთები',
       slug: 'product-catalog-websites',
       imgs: [cat1, cat2, cat3],
       accent: '#8b5cf6',
@@ -150,7 +150,7 @@ const TILES = {
     },
     {
       label: 'ინდივიდუალური ვებ პლატფორმები',
-      sub: 'მორგებული პლატფორმა, ნულოვანი კომპრომისი',
+      sub: 'თქვენზე მორგებული პლატფორმა',
       slug: 'custom-website-development',
       imgs: [dev1, dev2, dev3],
       accent: '#ef4444',
