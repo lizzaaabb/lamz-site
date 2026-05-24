@@ -17,7 +17,7 @@ function parseInlineLinks(text) {
     }
     parts.push(
       
-      <a  key={match.index}
+       <a key={match.index}
         href={match[2]}
         target="_blank"
         rel="noopener noreferrer"
@@ -50,10 +50,9 @@ function renderContent(lines, prefix, lang) {
       const ctaGroup = []
       while (i < lines.length && (lines[i].trim() === blog1Line || lines[i].trim() === contactLine)) {
         const isBlog1 = lines[i].trim() === blog1Line
-        const blog1Slug = lang === 'ka' ? 'ka/ordering-a-website' : 'en/ordering-a-website'
         ctaGroup.push(
           isBlog1
-            ? <a key={i} href={`/${blog1Slug}`} className="cta-btn cta-primary bp-cta">
+            ? <a key={i} href={`${prefix}/ordering-a-website`} className="cta-btn cta-primary bp-cta">
                 <span className="cta-shimmer" />
                 {blog1Line}
               </a>
