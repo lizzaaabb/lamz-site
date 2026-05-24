@@ -67,7 +67,7 @@ const TILES = {
     },
     {
       label: 'საბაზისო ბრენდინგი',
-      sub: 'ფერები, შრიფტები და სახელმძღვანელო',
+      sub: 'საბაზისო ბრენდის იდენტობა',
       slug: 'basic-branding',
       imgs: [corp1, corp2, corp3],
       accent: '#6366f1',
@@ -75,7 +75,7 @@ const TILES = {
     },
     {
       label: 'სრული ბრენდბუქი',
-      sub: 'იდენტობის სრული სისტემა',
+      sub: 'ბრენდის იდენტობის სრული სისტემა',
       slug: 'full-brandbook',
       imgs: [estate1, estate2, estate3],
       accent: '#10b981',
