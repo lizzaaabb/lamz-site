@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import '../styles/Services.css'
 import { useLang } from '../components/LanguageContext'
 
-const servicePictures = ['service.jpg', 'service2.jpg', 'service3.jpg']
+const servicePictures = ['service.jpg', 'service2.jpg']
 
 const content = {
   ka: {
@@ -26,14 +26,7 @@ const content = {
         cta: 'დეტალურად →',
         slug: 'branding',
       },
-      {
-        num: '03',
-        tag: 'Digital Marketing',
-        title: 'ციფრული მარკეტინგი',
-        desc: 'სოციალური მედიის მართვა, კონტენტის შექმნა და ციფრული სტრატეგია — ყველაფერი, რაც თქვენს ბრენდს ონლაინ სივრცეში გააჩენს და გაზრდის.',
-        cta: 'დეტალურად →',
-        slug: 'digital-marketing',
-      },
+   
     ],
   },
   en: {
@@ -56,14 +49,7 @@ const content = {
         cta: 'Learn more →',
         slug: 'branding',
       },
-      {
-        num: '03',
-        tag: 'Digital Marketing',
-        title: 'Digital Marketing',
-        desc: 'Social media management, content creation and digital strategy — everything your brand needs to grow its presence and reach online.',
-        cta: 'Learn more →',
-        slug: 'digital-marketing',
-      },
+     
     ],
   },
 }
@@ -114,7 +100,11 @@ function Services() {
       {/* GRID */}
       <div className="sv-grid">
         {t.services.map((s, i) => (
-          <div key={i} className="sv-card">
+         <div
+  key={i}
+  className="sv-card"
+  onClick={() => window.location.href = s.slug ? `${prefix}/${s.slug}` : `${prefix}/contact`}
+>
 
             {/* IMAGE */}
             <div className="sv-card-img-wrap">

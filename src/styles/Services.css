@@ -79,9 +79,10 @@
 /* ── GRID ── */
 .sv-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 400px));
   gap: 20px;
   align-items: stretch;
+  justify-content: center;
 }
 
 /* ── CARD ── */
@@ -94,6 +95,7 @@
   flex-direction: column;
   overflow: hidden;
   transition: border-color 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
+  cursor: pointer;
 }
 
 .sv-card::before {
