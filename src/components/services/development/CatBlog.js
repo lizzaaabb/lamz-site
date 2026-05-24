@@ -113,6 +113,10 @@ Cloudflare უზრუნველყოფს:
 - სამშენებლო კომპანიებისთვის
 - პროდუქციის დისტრიბუტორებისთვის
 - სერვის ბიზნესებისთვის
+
+## ჩვენი ნამუშევრები
+
+ჩვენ მიერ შექმნილი კატალოგის ვებსაიტების მაგალითები: [Litox](https://litox.ge) და [Art Gallery Vake](https://artgalleryvake.com)
 `,
 };
 
@@ -231,5 +235,9 @@ The cost of additional services depends on the complexity and requirements of th
 - Construction companies
 - Product distributors
 - Service businesses
+
+## Our Work
+
+Examples of catalog websites we've built: [Litox](https://litox.ge) and [Art Gallery Vake](https://artgalleryvake.com)
 `,
 };

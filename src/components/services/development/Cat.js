@@ -4,6 +4,29 @@ import { useLang } from '../../LanguageContext'
 import { blogContentKa, blogContentEn } from './CatBlog'
 import './Estate.css'
 
+// ─── Inline link parser ───────────────────────────────────────────────────────
+function parseInlineLinks(text) {
+  const parts = text.split(/(\[.*?\]\(.*?\))/g)
+  return parts.map((part, i) => {
+    const match = part.match(/\[(.*?)\]\((.*?)\)/)
+    if (match) {
+      return (
+        
+         <a key={i}
+          href={match[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bp-inline-link"
+        >
+          {match[1]}
+        </a>
+      )
+    }
+    return part
+  })
+}
+
+// ─── Content renderer ────────────────────────────────────────────────────────
 function renderContent(lines) {
   const elements = []
   let i = 0
@@ -34,13 +57,13 @@ function renderContent(lines) {
         if (lines[i].startsWith('  - ')) {
           items.push(
             <li key={i} className="bp-li bp-li--sub">
-              {lines[i].replace('  - ', '')}
+              {parseInlineLinks(lines[i].replace('  - ', ''))}
             </li>
           )
         } else {
           items.push(
             <li key={i} className="bp-li">
-              {lines[i].replace('- ', '')}
+              {parseInlineLinks(lines[i].replace('- ', ''))}
             </li>
           )
         }
@@ -55,7 +78,7 @@ function renderContent(lines) {
       if (line.trim() !== '') {
         elements.push(
           <p key={i} className="bp-p">
-            {line}
+            {parseInlineLinks(line)}
           </p>
         )
       }
@@ -66,6 +89,7 @@ function renderContent(lines) {
   return elements
 }
 
+// ─── CTA Row ─────────────────────────────────────────────────────────────────
 function CtaRow({ prefix, t, style }) {
   return (
     <div className="bw-hero-ctas" style={style}>
@@ -137,7 +161,6 @@ export default function Cat() {
 
   return (
     <div ref={containerRef} className={`bp-page bp-page--${lang}`}>
-
       <div className="bp-hero">
         <span className="bp-hero-tag">{post.category}</span>
         <h1 className="bp-hero-title">{post.title}</h1>
@@ -161,7 +184,6 @@ export default function Cat() {
           ← {t.back}
         </a>
       </div>
-
     </div>
   )
 }

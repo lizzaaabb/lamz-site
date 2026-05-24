@@ -154,6 +154,10 @@ Cloudflare უზრუნველყოფს:
 - ავტო სერვისებისთვის
 - დეტეილინგ ცენტრებისათვის
 - ავტო ბიზნესებისთვის
+
+## ჩვენი ნამუშევრები
+
+ჩვენ მიერ შექმნილი ავტო ვებსაიტის მაგალითი: [Rent Car Geo](https://rentcargeo.com)
 `,
 };
 
@@ -313,5 +317,9 @@ The cost of additional services depends on the complexity and requirements of th
 - Automotive service centers
 - Detailing centers
 - Automotive businesses
+
+## Our Work
+
+Example of an automotive website we've built: [Rent Car Geo](https://rentcargeo.com)
 `,
 };

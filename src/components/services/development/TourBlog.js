@@ -137,6 +137,10 @@ Cloudflare უზრუნველყოფს:
 - ტრანსპორტის სერვისებისთვის
 - ტურ ოპერატორებისთვის
 - მოგზაურობის სააგენტოებისთვის
+
+## ჩვენი ნამუშევრები
+
+ჩვენ მიერ შექმნილი ტურისტული ვებსაიტის მაგალითი: [Utopia VIP Travel](https://www.utopiaviptravel.com)
 `,
 };
 
@@ -279,5 +283,9 @@ The cost of additional services depends on the complexity and requirements of th
 - Transportation services
 - Tour operators
 - Travel agencies
+
+## Our Work
+
+Example of a tourism website we've built: [Utopia VIP Travel](https://www.utopiaviptravel.com)
 `,
 };

@@ -4,6 +4,28 @@ import { useLang } from '../../LanguageContext'
 import { blogContentKa, blogContentEn } from './EcommerceBlog'
 import './Ecommerce.css'
 
+// ─── Inline link parser ───────────────────────────────────────────────────────
+function parseInlineLinks(text) {
+  const parts = text.split(/(\[.*?\]\(.*?\))/g)
+  return parts.map((part, i) => {
+    const match = part.match(/\[(.*?)\]\((.*?)\)/)
+    if (match) {
+      return (
+        
+         <a key={i}
+          href={match[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bp-inline-link"
+        >
+          {match[1]}
+        </a>
+      )
+    }
+    return part
+  })
+}
+
 // ─── Content renderer ────────────────────────────────────────────────────────
 function renderContent(lines, prefix, lang) {
   const elements = []
@@ -35,13 +57,13 @@ function renderContent(lines, prefix, lang) {
         if (lines[i].startsWith('  - ')) {
           items.push(
             <li key={i} className="bp-li bp-li--sub">
-              {lines[i].replace('  - ', '')}
+              {parseInlineLinks(lines[i].replace('  - ', ''))}
             </li>
           )
         } else {
           items.push(
             <li key={i} className="bp-li">
-              {lines[i].replace('- ', '')}
+              {parseInlineLinks(lines[i].replace('- ', ''))}
             </li>
           )
         }
@@ -56,7 +78,7 @@ function renderContent(lines, prefix, lang) {
       if (line.trim() !== '') {
         elements.push(
           <p key={i} className="bp-p">
-            {line}
+            {parseInlineLinks(line)}
           </p>
         )
       }
@@ -140,8 +162,6 @@ export default function Ecommerce() {
 
   return (
     <div ref={containerRef} className={`bp-page bp-page--${lang}`}>
-
-      {/* ── Hero ── */}
       <div className="bp-hero">
         <span className="bp-hero-tag">{post.category}</span>
         <h1 className="bp-hero-title">{post.title}</h1>
@@ -154,21 +174,17 @@ export default function Ecommerce() {
         <CtaRow prefix={prefix} t={t} />
       </div>
 
-      {/* ── Body ── */}
       <article className="bp-body">
         {renderContent(lines, prefix, lang)}
       </article>
 
-      {/* ── Bottom CTAs ── */}
       <CtaRow prefix={prefix} t={t} style={{ marginTop: '80px' }} />
 
-      {/* ── Back link ── */}
       <div className="bp-back-wrap">
         <a href={`${prefix}/web-development-service`} className="bp-back">
           ← {t.back}
         </a>
       </div>
-
     </div>
   )
 }

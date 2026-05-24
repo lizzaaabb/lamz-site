@@ -4,6 +4,28 @@ import { useLang } from '../../LanguageContext'
 import { blogContentKa, blogContentEn } from './BusinessWebBlog'
 import './BusinessWeb.css'
 
+// ─── Inline link parser ───────────────────────────────────────────────────────
+function parseInlineLinks(text) {
+  const parts = text.split(/(\[.*?\]\(.*?\))/g)
+  return parts.map((part, i) => {
+    const match = part.match(/\[(.*?)\]\((.*?)\)/)
+    if (match) {
+      return (
+        
+         <a key={i}
+          href={match[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bp-inline-link"
+        >
+          {match[1]}
+        </a>
+      )
+    }
+    return part
+  })
+}
+
 // ─── Content renderer ────────────────────────────────────────────────────────
 function renderContent(lines, prefix, lang) {
   const elements = []
@@ -40,13 +62,13 @@ function renderContent(lines, prefix, lang) {
         if (lines[i].startsWith('  - ')) {
           items.push(
             <li key={i} className="bp-li bp-li--sub">
-              {lines[i].replace('  - ', '')}
+              {parseInlineLinks(lines[i].replace('  - ', ''))}
             </li>
           )
         } else {
           items.push(
             <li key={i} className="bp-li">
-              {lines[i].replace('- ', '')}
+              {parseInlineLinks(lines[i].replace('- ', ''))}
             </li>
           )
         }
@@ -63,7 +85,7 @@ function renderContent(lines, prefix, lang) {
       if (line.trim() !== '') {
         elements.push(
           <p key={i} className="bp-p">
-            {line}
+            {parseInlineLinks(line)}
           </p>
         )
       }
@@ -147,15 +169,15 @@ export default function BusinessWeb() {
 
         {/* ── CTA buttons ── */}
         <div className="bw-hero-ctas">
-          <a
-            href={`${prefix}/contact`}
+          
+          <a  href={`${prefix}/contact`}
             className="cta-btn cta-primary bw-cta"
           >
             <span className="cta-shimmer" />
             {t.order}
           </a>
-          <a
-            href={`${prefix}/web-development-service`}
+          
+           <a href={`${prefix}/web-development-service`}
             className="cta-btn cta-secondary bw-cta"
           >
             <span className="cta-shimmer" />
@@ -168,30 +190,29 @@ export default function BusinessWeb() {
       <article className="bp-body">
         {renderContent(lines, prefix, lang)}
       </article>
-         <div className="bw-hero-ctas" style={{ marginTop: "80px" }}>
-          <a
-            href={`${prefix}/contact`}
-            className="cta-btn cta-primary bw-cta"
-          >
-            <span className="cta-shimmer" />
-            {t.order}
-          </a>
-          <a
-            href={`${prefix}/web-development-service`}
-            className="cta-btn cta-secondary bw-cta"
-          >
-            <span className="cta-shimmer" />
-            {t.services}
-          </a>
-        </div>
+
+      <div className="bw-hero-ctas" style={{ marginTop: '80px' }}>
+        
+         <a href={`${prefix}/contact`}
+          className="cta-btn cta-primary bw-cta"
+        >
+          <span className="cta-shimmer" />
+          {t.order}
+        </a>
+        
+         <a href={`${prefix}/web-development-service`}
+          className="cta-btn cta-secondary bw-cta"
+        >
+          <span className="cta-shimmer" />
+          {t.services}
+        </a>
+      </div>
 
       {/* ── Back link ── */}
       <div className="bp-back-wrap">
         <a href={`${prefix}/web-development-service`} className="bp-back">
           ← {t.back}
         </a>
-      
-
       </div>
     </div>
   )

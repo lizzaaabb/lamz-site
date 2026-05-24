@@ -108,6 +108,10 @@ Cloudflare უზრუნველყოფს:
 - უძრავი ქონების სააგენტოებისთვის
 - მანქანების გაქირავების კომპანიებისთვის
 - ბრენდებისთვის და სტარტაპებისთვის
+
+## ჩვენი ნამუშევრები
+
+მაგალითად: [Green Hall Capital](https://greenhallcapital.com) და [Builde](https://builde.ge)
 `,
 };
 
@@ -221,5 +225,8 @@ The cost of additional services depends on the complexity and requirements of th
 - Real estate agencies
 - Car rental companies
 - Brands and startups
+## Our Work
+
+Examples of websites we've built: [Green Hall Capital](https://greenhallcapital.com) and [Builde](https://builde.ge)
 `,
 };

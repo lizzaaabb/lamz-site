@@ -102,6 +102,10 @@ export const blogContentKa = {
 - ტექნოლოგიური კომპანიებისთვის
 - ავტომატიზაციის და CRM პროექტებისთვის
 - ნებისმიერი ბიზნესისთვის, რომელსაც ინდივიდუალური გადაწყვეტა სჭირდება
+
+## ჩვენი ნამუშევრები
+
+ჩვენ მიერ შექმნილი ინდივიდუალური პლატფორმის მაგალითი: [Art of Movement](https://artofmovement.net)
 `,
 };
 
@@ -209,5 +213,9 @@ Additional service costs depend on project complexity and requirements
 - Tech companies
 - Automation and CRM projects
 - Any business that needs a tailored solution
+
+## Our Work
+
+Example of a custom platform we've built: [Art of Movement](https://artofmovement.net)
 `,
 };

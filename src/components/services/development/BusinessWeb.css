@@ -366,3 +366,16 @@
   .bp-h2 { font-size: 1.2rem; }
   .bp-page--ka .bp-h2 { font-size: 1.2rem; }
 }
+
+.bp-inline-link {
+  background: linear-gradient(90deg, #c084fc, #7cb9e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  font-weight: 500;
+  transition: filter 0.3s ease;
+}
+.bp-inline-link:hover {
+  filter: brightness(1.3);
+}

@@ -133,6 +133,10 @@ Cloudflare უზრუნველყოფს:
 - ტექნიკის მაღაზიებისთვის
 - მცირე და საშუალო ბიზნესებისთვის
 - სტარტაპებისთვის
+
+## ჩვენი ნამუშევრები
+
+ჩვენ მიერ შექმნილი ონლაინ მაღაზიების მაგალითები: [Motors N1](https://motorsn1.ge) და [Yourhood](https://yourhood.ge)
 `,
 };
 
@@ -271,5 +275,9 @@ The cost of additional services depends on the complexity and requirements of th
 - Electronics stores
 - Small and medium-sized businesses
 - Startups
+
+## Our Work
+
+Examples of online stores we've built: [Motors N1](https://motorsn1.ge) and [Yourhood](https://yourhood.ge)
 `,
 };
