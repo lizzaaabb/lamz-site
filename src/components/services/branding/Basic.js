@@ -29,7 +29,7 @@ const TEXT = {
     optional: [
       'Georgian logo + Georgian typography system: +600₾',
     ],
-    cta: 'შეკვეთა',
+    cta: 'Order',
   },
   ka: {
     pre: 'ჩვენი სერვისები',

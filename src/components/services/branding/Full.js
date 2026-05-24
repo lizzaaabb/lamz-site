@@ -21,7 +21,7 @@ const TEXT = {
       'Color usage system',
       'Brand style breakdown',
       'Photography and visual direction',
-      'Examples of what fits and doesn\'t fit the brand',
+      "Examples of what fits and doesn't fit the brand",
       'Layout and spacing principles',
       'Clear identity system for future designers and developers',
     ],
@@ -30,7 +30,7 @@ const TEXT = {
     optional: [
       'Full English + Georgian brand system: +800₾',
     ],
-    cta: 'შეკვეთა',
+    cta: 'Order',
   },
   ka: {
     pre: 'ჩვენი სერვისები',

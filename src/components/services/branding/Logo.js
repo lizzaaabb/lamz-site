@@ -25,7 +25,7 @@ const TEXT = {
     optional: [
       'Georgian logo adaptation: +400₾',
     ],
-    cta: 'შეკვეთა',
+    cta: 'Order',
   },
   ka: {
     pre: 'ჩვენი სერვისები',
