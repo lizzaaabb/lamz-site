@@ -37,7 +37,7 @@ export const blogContentKa = {
 
 ## ონლაინ მაღაზიის დამზადების ფასები
 
-### 2499₾-დან
+### 2999₾-დან
 
 ფასი დამოკიდებულია:
 
@@ -179,7 +179,7 @@ In simple terms, your online store runs on a modern system designed for speed an
 
 ## Online Store Pricing
 
-### Starting from 2499 GEL
+### Starting from 2999 GEL
 
 Pricing depends on:
 
