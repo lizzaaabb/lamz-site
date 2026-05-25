@@ -226,21 +226,21 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- ── Video Production ── -->
-  <url>
-    <loc>https://www.apollocreations.net/video-production</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/video-production"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/video-production"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.apollocreations.net/ka/video-production</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/video-production"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/video-production"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<!-- ── Video (service page) ── -->
+<url>
+  <loc>https://www.apollocreations.net/video</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/video"/>
+  <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/video"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://www.apollocreations.net/ka/video</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.apollocreations.net/video"/>
+  <xhtml:link rel="alternate" hreflang="ka" href="https://www.apollocreations.net/ka/video"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 
   <!-- ── Projects ── -->
   <url>
