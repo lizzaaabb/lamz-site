@@ -94,12 +94,12 @@ const packagesKa = [
   {
     id: 'essential',
     badge: 'საწყისი',
-    title: 'ესენშიალი',
+    title: 'Essential',
     subtitle: 'გადაღება',
     price: '300₾',
     items: [
       '1 გადაღების სესია',
-      '1 დამონტაჟებული რილი',
+      '1 რილსი',
       'კრეატიული მიმართულება',
       'ნედლი მასალა შედის',
     ],
@@ -107,7 +107,7 @@ const packagesKa = [
   {
     id: 'standard',
     badge: 'პოპულარული',
-    title: 'სტანდარტი',
+    title: 'Standard',
     subtitle: 'კონტენტ პაკეტი',
     price: '500₾',
     featured: true,
@@ -121,7 +121,7 @@ const packagesKa = [
   {
     id: 'monthly',
     badge: 'საუკეთესო ფასი',
-    title: 'ყოველთვიური',
+    title: 'monthly',
     subtitle: 'კონტენტ მხარდაჭერა',
     price: '1500₾',
     priceNote: '/ თვეში',
@@ -134,7 +134,7 @@ const packagesKa = [
   {
     id: 'longform',
     badge: 'მონტაჟი',
-    title: 'გრძელი ფორმატი',
+    title: 'long-form',
     subtitle: 'მონტაჟი',
     price: '350₾-დან',
     items: [
@@ -147,7 +147,7 @@ const packagesKa = [
   {
     id: 'event',
     badge: 'ივენთები',
-    title: 'ივენთი',
+    title: 'event',
     subtitle: 'გაშუქება',
     price: '700₾-დან',
     items: [
@@ -160,13 +160,13 @@ const packagesKa = [
   {
     id: 'story',
     badge: 'სოციალური',
-    title: 'სთორი',
+    title: 'story',
     subtitle: 'პრომოუშენი',
     price: '150₾',
     items: [
       '3+ Instagram სთორის ფრეიმი',
       'ბუნებრივი ინტეგრაცია',
-      'ორგანული რეკომენდაციის სტილი',
+      'პირადი გამოცდილების გაზიარების სტილში',
     ],
   },
 ]
@@ -183,9 +183,9 @@ const perfectForEn = [
 const perfectForKa = [
   'კაფეები და რესტორნები',
   'Airbnb და სასტუმროები',
-  'ივენთები და რეთრიტები',
+  'ივენთები და რეთრითები',
   'პერსონალური ბრენდები',
-  'კოუჩები და კრეატორები',
+  'ქოუჩები და კრეატორები',
   'კრეატიული სივრცეები',
 ]
 
@@ -205,7 +205,7 @@ function Video() {
           {isKa ? 'ჩვენი პაკეტები' : 'Our Packages'}
         </h2>
         <p className="vid-subtitle">
-          {isKa ? 'ვქმნით ატმოსფეროს, რომელსაც ადამიანები სურთ.' : 'We create atmosphere people want to experience.'}
+          {isKa ? 'ვიღებთ კადრებს, რომლებიც ბრენდს აცოცხლებს' : 'We create atmosphere people want to experience.'}
         </p>
         <div className="vid-for">
           {perfectFor.map((item) => (
