@@ -66,9 +66,9 @@ const content = {
 }
 
 const socials = [
-  { label: 'Instagram', Icon: IconInstagram, href: 'https://instagram.com/apollocreations' },
-  { label: 'TikTok',    Icon: IconTikTok,    href: 'https://tiktok.com/@apollocreations'  },
-  { label: 'Facebook',  Icon: IconFacebook,  href: 'https://facebook.com/apollocreations'  },
+  { label: 'Instagram', Icon: IconInstagram, href: 'https://www.instagram.com/apollocreations_net/' },
+  { label: 'TikTok',    Icon: IconTikTok,    href: 'https://www.tiktok.com/@apollocreations.net'  },
+  { label: 'Facebook',  Icon: IconFacebook,  href: 'https://www.facebook.com/profile.php?id=61579611981687'  },
   { label: 'WhatsApp',  Icon: IconWhatsApp,  href: 'https://wa.me/995574065469'            },
 ]
 
