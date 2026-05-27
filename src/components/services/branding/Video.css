@@ -443,4 +443,8 @@
     font-size: 0.88rem;
     padding: 14px 24px;
   }
+  .vid-for {
+  display: none;
+}
+
 }
