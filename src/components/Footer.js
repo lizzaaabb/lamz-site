@@ -9,10 +9,11 @@ const content = {
     navLabel: 'ნავიგაცია',
     contactLabel: 'კონტაქტი',
     links: [
-      { label: 'ჩვენს შესახებ', href: '#about' },
-      { label: 'სერვისები',     href: '#services' },
-      { label: 'პროექტები',     href: '#projects' },
-      { label: 'კონტაქტი',      href: '#contact' },
+      { label: 'მთავარი',   href: '/ka/' },
+      { label: 'ბლოგი',     href: '/ka/blog' },
+      { label: 'სერვისები', href: '/ka/services' },
+      { label: 'პროექტები', href: '/ka/projects' },
+      { label: 'კონტაქტი',  href: '/ka/contact' },
     ],
     copy: 'Apollo Creations © 2025 — ყველა უფლება დაცულია',
     location: 'თბილისი, საქართველო',
@@ -22,10 +23,11 @@ const content = {
     navLabel: 'Navigation',
     contactLabel: 'Contact',
     links: [
-      { label: 'About',    href: '#about' },
-      { label: 'Services', href: '#services' },
-      { label: 'Projects', href: '#projects' },
-      { label: 'Contact',  href: '#contact' },
+      { label: 'Home',     href: '/' },
+      { label: 'Blog',     href: '/blog' },
+      { label: 'Services', href: '/services' },
+      { label: 'Projects', href: '/projects' },
+      { label: 'Contact',  href: '/contact' },
     ],
     copy: 'Apollo Creations © 2025 — All rights reserved',
     location: 'Tbilisi, Georgia',
@@ -33,14 +35,30 @@ const content = {
 }
 
 const socials = [
-  { label: 'Instagram', icon: '/instagram.png', href: 'https://instagram.com/apollocreations' },
-  { label: 'TikTok',    icon: '/tiktok.png',    href: 'https://tiktok.com/@apollocreations'  },
-  { label: 'Facebook',  icon: '/facebook.png',  href: 'https://facebook.com/apollocreations' },
-  { label: 'WhatsApp',  icon: '/whatsapp.png',  href: 'https://wa.me/995574065469'           },
+  {
+    label: 'Instagram',
+    icon: '/instagram.png',
+    href: 'https://www.instagram.com/apollocreations_net/',
+  },
+  {
+    label: 'TikTok',
+    icon: '/tiktok.png',
+    href: 'https://www.tiktok.com/@apollocreations.net',
+  },
+  {
+    label: 'Facebook',
+    icon: '/facebook.png',
+    href: 'https://www.facebook.com/profile.php?id=61579611981687',
+  },
+  {
+    label: 'WhatsApp',
+    icon: '/whatsapp.png',
+    href: 'https://wa.me/995574065469',
+  },
 ]
 
 function Footer() {
-  const { lang } = useLang()
+  const { lang, prefix } = useLang()
   const t = content[lang] || content['ka']
 
   return (
@@ -54,8 +72,8 @@ function Footer() {
             <p className="ft-brand-desc">{t.desc}</p>
             <div className="ft-socials">
               {socials.map((s) => (
-                
-                <a  key={s.label}
+                <a
+                  key={s.label}
                   href={s.href}
                   className="ft-social-btn"
                   aria-label={s.label}
