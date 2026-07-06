@@ -63,16 +63,20 @@ const content = {
 }
 
 function Projects() {
-  const { lang, prefix } = useLang()  // ← added prefix
+  const { lang, prefix } = useLang()
   const t = content[lang]
   const containerRef = useRef(null)
 
   useEffect(() => {
     let ctx
+    let ScrollTriggerRef
+
     const init = async () => {
       const { gsap } = await import('gsap')
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
+      ScrollTriggerRef = ScrollTrigger
+
       ctx = gsap.context(() => {
         gsap.set('.pj-section-title, .pj-rule, .pj-card, .pj-more-wrap', {
           opacity: 0,
@@ -116,9 +120,21 @@ function Projects() {
         )
         fadeUp('.pj-more-wrap', 0.2)
       }, containerRef)
+
+      // Recalculate trigger positions once layout/images settle.
+      // Prevents cards from getting stuck at opacity:0 on mobile,
+      // where viewport height shifts (address bar collapsing, etc.)
+      // can throw off ScrollTrigger's initial measurements.
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh()
+      })
     }
+
     init()
-    return () => ctx && ctx.revert()
+
+    return () => {
+      ctx && ctx.revert()
+    }
   }, [])
 
   return (
@@ -154,7 +170,7 @@ function Projects() {
         ))}
       </div>
       <div className="pj-more-wrap">
-        <a href={`${prefix}/projects`} className="pj-more-btn"> {/* ← fixed */}
+        <a href={`${prefix}/projects`} className="pj-more-btn">
           {t.more}
         </a>
       </div>
