@@ -107,17 +107,29 @@
   align-items: stretch;
 }
 
-/* ── CARD ── */
+/* ── CARD ──
+   NOTE: height no longer comes from `aspect-ratio` (buggy on some
+   Safari versions inside CSS grid with absolutely-positioned
+   children). Instead we use the classic padding-top spacer trick
+   via ::before, which is fully cross-browser. */
 .pj-card {
   position: relative;
+  width: 100%;
   border-radius: 22px;
   overflow: hidden;
-  aspect-ratio: 3/4;
   cursor: pointer;
   background: #111;
   border: 1px solid rgba(255, 255, 255, 0.07);
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
   isolation: isolate;
+}
+
+/* ratio spacer: 3/4 → height = width * 4/3 = 133.333% */
+.pj-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 133.333%;
 }
 
 .pj-card:hover {
@@ -355,8 +367,9 @@
     grid-template-columns: 1fr;
   }
 
-  .pj-card {
-    aspect-ratio: 16/7;
+  .pj-card::before {
+    padding-top: 43.75%;
+    /* 16:7 */
   }
 
   .projects-container {
@@ -370,8 +383,9 @@
     grid-template-columns: 1fr;
   }
 
-  .pj-card {
-    aspect-ratio: 4/3;
+  .pj-card::before {
+    padding-top: 75%;
+    /* 4:3 */
   }
 
   .projects-container {
