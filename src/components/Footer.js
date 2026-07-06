@@ -9,11 +9,11 @@ const content = {
     navLabel: 'ნავიგაცია',
     contactLabel: 'კონტაქტი',
     links: [
-      { label: 'მთავარი',   href: '/ka/' },
-      { label: 'ბლოგი',     href: '/ka/blog' },
+      { label: 'მთავარი', href: '/ka/' },
+      { label: 'ბლოგი', href: '/ka/blog' },
       { label: 'სერვისები', href: '/ka/services' },
       { label: 'პროექტები', href: '/ka/projects' },
-      { label: 'კონტაქტი',  href: '/ka/contact' },
+      { label: 'კონტაქტი', href: '/ka/contact' },
     ],
     copy: 'Apollo Creations © 2025 — ყველა უფლება დაცულია',
     location: 'თბილისი, საქართველო',
@@ -23,11 +23,11 @@ const content = {
     navLabel: 'Navigation',
     contactLabel: 'Contact',
     links: [
-      { label: 'Home',     href: '/' },
-      { label: 'Blog',     href: '/blog' },
+      { label: 'Home', href: '/' },
+      { label: 'Blog', href: '/blog' },
       { label: 'Services', href: '/services' },
       { label: 'Projects', href: '/projects' },
-      { label: 'Contact',  href: '/contact' },
+      { label: 'Contact', href: '/contact' },
     ],
     copy: 'Apollo Creations © 2025 — All rights reserved',
     location: 'Tbilisi, Georgia',
@@ -111,8 +111,8 @@ function Footer() {
               <div className="ft-contact-icon">
                 <img src="/phone.png" alt="Phone" width={13} height={13} />
               </div>
-              <a href="tel:+995574065469" className="ft-contact-text">
-                +995 574 06 54 69
+              <a href="tel:+995575755712" className="ft-contact-text">
+                +995 575 75 57 12
               </a>
             </div>
           </div>
