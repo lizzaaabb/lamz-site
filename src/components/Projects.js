@@ -69,15 +69,27 @@ function Projects() {
 
   useEffect(() => {
     let ctx
-    let ScrollTriggerRef
+    const isMobile = window.innerWidth <= 768
 
     const init = async () => {
       const { gsap } = await import('gsap')
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
-      ScrollTriggerRef = ScrollTrigger
 
       ctx = gsap.context(() => {
+        if (isMobile) {
+          // Skip scroll-triggered fade-in on mobile entirely.
+          // Real phones have a dynamically resizing viewport
+          // (address bar collapsing/expanding) that throws off
+          // ScrollTrigger's measurements and can leave elements
+          // permanently stuck at opacity: 0. Just show everything.
+          gsap.set('.pj-section-title, .pj-rule, .pj-card, .pj-more-wrap', {
+            opacity: 1,
+            y: 0,
+          })
+          return
+        }
+
         gsap.set('.pj-section-title, .pj-rule, .pj-card, .pj-more-wrap', {
           opacity: 0,
           y: 36,
@@ -121,10 +133,6 @@ function Projects() {
         fadeUp('.pj-more-wrap', 0.2)
       }, containerRef)
 
-      // Recalculate trigger positions once layout/images settle.
-      // Prevents cards from getting stuck at opacity:0 on mobile,
-      // where viewport height shifts (address bar collapsing, etc.)
-      // can throw off ScrollTrigger's initial measurements.
       requestAnimationFrame(() => {
         ScrollTrigger.refresh()
       })
