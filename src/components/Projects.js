@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import '../styles/Projects.css'
 import { useLang } from '../components/LanguageContext'
 
@@ -29,55 +29,9 @@ const content = {
 function Projects() {
   const { lang, prefix } = useLang()
   const t = content[lang]
-  const containerRef = useRef(null)
-
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    // Mobile (<=1024px, same breakpoint as CSS): skip the reveal
-    // animation entirely so cards/images never get stuck at opacity:0.
-    const isMobile = window.matchMedia('(max-width: 1024px)').matches
-    if (isMobile) return
-
-    const animatedEls = container.querySelectorAll('.pj-section-title, .pj-card, .pj-more-wrap')
-
-    // Elements are visible by default in CSS.
-    // We only ADD the hidden state here — if this code never runs
-    // (JS error, slow chunk load, etc.) everything just stays visible.
-    animatedEls.forEach((el, i) => {
-      el.classList.add('pj-pre-anim')
-      el.style.transitionDelay = `${Math.min(i * 0.08, 0.3)}s`
-    })
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('pj-in-view')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -5% 0px' }
-    )
-    animatedEls.forEach((el) => observer.observe(el))
-
-    // Safety net: if the observer never fires for some reason
-    // (browser quirk, webview, timing issue), reveal everything anyway
-    // after a short delay so content is never permanently hidden.
-    const fallback = setTimeout(() => {
-      animatedEls.forEach((el) => el.classList.add('pj-in-view'))
-    }, 1500)
-
-    return () => {
-      observer.disconnect()
-      clearTimeout(fallback)
-    }
-  }, [])
 
   return (
-    <div ref={containerRef} className={`projects-container projects-container--${lang}`}>
+    <div className={`projects-container projects-container--${lang}`}>
       <div className="pj-header">
         <h2 className="pj-section-title">{t.title}</h2>
       </div>
