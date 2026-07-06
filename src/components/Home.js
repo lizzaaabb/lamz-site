@@ -6,7 +6,6 @@ import '../styles/Home.css'
 import Stats from '../components/Stats'
 import Projects from '../components/Projects'
 import Cta from '../components/Cta'
-import Process from '../components/Process'
 import Customers from '../components/Customers'
 
 function Home() {

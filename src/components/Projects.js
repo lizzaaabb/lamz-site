@@ -35,6 +35,11 @@ function Projects() {
     const container = containerRef.current
     if (!container) return
 
+    // Mobile (<=1024px, same breakpoint as CSS): skip the reveal
+    // animation entirely so cards/images never get stuck at opacity:0.
+    const isMobile = window.matchMedia('(max-width: 1024px)').matches
+    if (isMobile) return
+
     const animatedEls = container.querySelectorAll('.pj-section-title, .pj-card, .pj-more-wrap')
 
     // Elements are visible by default in CSS.
@@ -56,10 +61,19 @@ function Projects() {
       },
       { threshold: 0.15, rootMargin: '0px 0px -5% 0px' }
     )
-
     animatedEls.forEach((el) => observer.observe(el))
 
-    return () => observer.disconnect()
+    // Safety net: if the observer never fires for some reason
+    // (browser quirk, webview, timing issue), reveal everything anyway
+    // after a short delay so content is never permanently hidden.
+    const fallback = setTimeout(() => {
+      animatedEls.forEach((el) => el.classList.add('pj-in-view'))
+    }, 1500)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(fallback)
+    }
   }, [])
 
   return (
@@ -67,7 +81,6 @@ function Projects() {
       <div className="pj-header">
         <h2 className="pj-section-title">{t.title}</h2>
       </div>
-
       <div className="pj-grid">
         {t.projects.map((p, i) => (
           <div key={i} className="pj-card">
@@ -95,7 +108,6 @@ function Projects() {
           </div>
         ))}
       </div>
-
       <div className="pj-more-wrap">
         <a href={`${prefix}/projects`} className="pj-more-btn">
           {t.more}
