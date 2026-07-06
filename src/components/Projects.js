@@ -7,27 +7,9 @@ const content = {
   ka: {
     title: 'პროექტები',
     projects: [
-      {
-        num: '01',
-        name: 'Art Of Movement',
-        desc: 'ლენდინგ გვერდი',
-        url: 'https://artofmovement.net',
-        img: '/mock11.jpg',
-      },
-      {
-        num: '02',
-        name: 'Your Hood',
-        desc: 'ონლაინ მაღაზია',
-        url: 'https://yourhood.ge/',
-        img: '/mockup2.jpg',
-      },
-      {
-        num: '03',
-        name: 'Utopia VIP Tourism',
-        desc: 'ტურისტული კომპანია',
-        url: 'https://www.utopiaviptravel.com/',
-        img: '/mockup.jpg',
-      },
+      { num: '01', name: 'Art Of Movement', desc: 'ლენდინგ გვერდი', url: 'https://artofmovement.net', img: '/mock11.jpg' },
+      { num: '02', name: 'Your Hood', desc: 'ონლაინ მაღაზია', url: 'https://yourhood.ge/', img: '/mockup2.jpg' },
+      { num: '03', name: 'Utopia VIP Tourism', desc: 'ტურისტული კომპანია', url: 'https://www.utopiaviptravel.com/', img: '/mockup.jpg' },
     ],
     more: 'იხილეთ პროექტები',
     viewSite: 'საიტის ნახვა',
@@ -35,27 +17,9 @@ const content = {
   en: {
     title: 'Projects',
     projects: [
-      {
-        num: '01',
-        name: 'Art Of Movement',
-        desc: 'Landing Page',
-        url: 'https://artofmovement.net',
-        img: '/mock11.jpg',
-      },
-      {
-        num: '02',
-        name: 'Your Hood',
-        desc: 'Online Shop',
-        url: 'https://yourhood.ge/',
-        img: '/mockup2.jpg',
-      },
-      {
-        num: '03',
-        name: 'Utopia VIP Tourism',
-        desc: 'Tourism Company',
-        url: 'https://www.utopiaviptravel.com/',
-        img: '/mockup.jpg',
-      },
+      { num: '01', name: 'Art Of Movement', desc: 'Landing Page', url: 'https://artofmovement.net', img: '/mock11.jpg' },
+      { num: '02', name: 'Your Hood', desc: 'Online Shop', url: 'https://yourhood.ge/', img: '/mockup2.jpg' },
+      { num: '03', name: 'Utopia VIP Tourism', desc: 'Tourism Company', url: 'https://www.utopiaviptravel.com/', img: '/mockup.jpg' },
     ],
     more: 'More projects',
     viewSite: 'View site',
@@ -68,89 +32,42 @@ function Projects() {
   const containerRef = useRef(null)
 
   useEffect(() => {
-    let ctx
-    const isMobile = window.innerWidth <= 768
+    const container = containerRef.current
+    if (!container) return
 
-    const init = async () => {
-      const { gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
+    const animatedEls = container.querySelectorAll('.pj-section-title, .pj-card, .pj-more-wrap')
 
-      ctx = gsap.context(() => {
-        if (isMobile) {
-          // Skip scroll-triggered fade-in on mobile entirely.
-          // Real phones have a dynamically resizing viewport
-          // (address bar collapsing/expanding) that throws off
-          // ScrollTrigger's measurements and can leave elements
-          // permanently stuck at opacity: 0. Just show everything.
-          gsap.set('.pj-section-title, .pj-rule, .pj-card, .pj-more-wrap', {
-            opacity: 1,
-            y: 0,
-          })
-          return
-        }
+    // Elements are visible by default in CSS.
+    // We only ADD the hidden state here — if this code never runs
+    // (JS error, slow chunk load, etc.) everything just stays visible.
+    animatedEls.forEach((el, i) => {
+      el.classList.add('pj-pre-anim')
+      el.style.transitionDelay = `${Math.min(i * 0.08, 0.3)}s`
+    })
 
-        gsap.set('.pj-section-title, .pj-rule, .pj-card, .pj-more-wrap', {
-          opacity: 0,
-          y: 36,
-        })
-        const fadeUp = (target, delay = 0) => {
-          gsap.fromTo(
-            target,
-            { opacity: 0, y: 36 },
-            {
-              scrollTrigger: {
-                trigger: target,
-                start: 'top 88%',
-                toggleActions: 'play none none none',
-              },
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay,
-              ease: 'power3.out',
-            }
-          )
-        }
-        fadeUp('.pj-section-title')
-        fadeUp('.pj-rule', 0.1)
-        gsap.fromTo(
-          '.pj-card',
-          { opacity: 0, y: 48 },
-          {
-            scrollTrigger: {
-              trigger: '.pj-grid',
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            stagger: 0.15,
-            ease: 'power3.out',
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('pj-in-view')
+            observer.unobserve(entry.target)
           }
-        )
-        fadeUp('.pj-more-wrap', 0.2)
-      }, containerRef)
+        })
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -5% 0px' }
+    )
 
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh()
-      })
-    }
+    animatedEls.forEach((el) => observer.observe(el))
 
-    init()
-
-    return () => {
-      ctx && ctx.revert()
-    }
+    return () => observer.disconnect()
   }, [])
 
   return (
     <div ref={containerRef} className={`projects-container projects-container--${lang}`}>
       <div className="pj-header">
         <h2 className="pj-section-title">{t.title}</h2>
-        <div className="pj-rule" />
       </div>
+
       <div className="pj-grid">
         {t.projects.map((p, i) => (
           <div key={i} className="pj-card">
@@ -158,6 +75,7 @@ function Projects() {
               src={p.img}
               alt={p.name}
               className="pj-image"
+              loading="lazy"
               style={i === 1 || i === 2 ? { transform: 'scale(1.05)', transformOrigin: 'center top' } : undefined}
             />
             <div className="pj-fade" />
@@ -177,6 +95,7 @@ function Projects() {
           </div>
         ))}
       </div>
+
       <div className="pj-more-wrap">
         <a href={`${prefix}/projects`} className="pj-more-btn">
           {t.more}
